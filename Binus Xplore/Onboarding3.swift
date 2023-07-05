@@ -35,7 +35,7 @@ struct Onboarding3: View {
                     .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
                     .frame(width: 285, height: 63, alignment: .top)
                 
-                NavigationLink(destination: Onboarding2()) {
+                NavigationLink(destination: LandingPage()) {
                     Text("Let's Get Started!")
                         .foregroundColor(.white)
                         .padding()
