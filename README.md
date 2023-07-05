@@ -6,6 +6,6 @@ Introducing Unbound Travel, a disabilities companion app for those who need it.
 
 Created by 
 Victor "Viper" Chandra (@MzMzNasiPadang)
-Group 2 - Unbound Travel
+Group 2 - BiX (Binus Xplore)
 iOS Foundation Cohort 19
-Apple Academy @BINUS
+Apple Academy @BINUS Alam Sutera
