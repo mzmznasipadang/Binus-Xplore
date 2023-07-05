@@ -9,78 +9,51 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    struct Constants {
+        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
+    }
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        VStack {
+            Image("ColorOnboarding")
+                .resizable()
+                .scaledToFit()
+                .padding(0)
+                .frame(width: 325, height: 305, alignment: .center)
+            
+            Text("Accessibility")
+                .font(Font.custom("SF Pro", size: 45).weight(.bold))
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                .frame(width: 262, height: 54, alignment: .top)
+            
+            Text("Stay worry-free in Buncis@Alam Sutera! There's always a way")
+                .font(Font.custom("SF Pro", size: 18))
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
+                .frame(width: 285, height: 63, alignment: .top)
+            
+            Button(action: {
+                print("Mwah Mwah Mwah")
+            }) {
+                Text("Continue")
+                    .font(Font.custom("SF Pro", size: 20).weight(.medium))
+                    .foregroundColor(.white)
+                    .frame(width: 100, height: 50)
+                    .background(Constants.Primary)
+                    .cornerRadius(30)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 14)
+            .background(Constants.Primary)
+            .cornerRadius(20)
         }
     }
 }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
+    }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-#Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-}
