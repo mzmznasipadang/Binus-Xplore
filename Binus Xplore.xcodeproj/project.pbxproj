@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5802E8AC2A55732200731E1C /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AB2A55732200731E1C /* Onboarding2.swift */; };
+		5802E8AE2A55803D00731E1C /* Onboarding3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AD2A55803D00731E1C /* Onboarding3.swift */; };
+		5802E8B02A55830900731E1C /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AF2A55830900731E1C /* LandingPage.swift */; };
 		58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662112A55231F0050A269 /* Binus_XploreApp.swift */; };
 		58E662142A55231F0050A269 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662132A55231F0050A269 /* ContentView.swift */; };
 		58E662162A5523210050A269 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E662152A5523210050A269 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5802E8AB2A55732200731E1C /* Onboarding2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
+		5802E8AD2A55803D00731E1C /* Onboarding3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3.swift; sourceTree = "<group>"; };
+		5802E8AF2A55830900731E1C /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		58E6620E2A55231F0050A269 /* Binus Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binus Xplore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662112A55231F0050A269 /* Binus_XploreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreApp.swift; sourceTree = "<group>"; };
 		58E662132A55231F0050A269 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,8 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				58E662112A55231F0050A269 /* Binus_XploreApp.swift */,
+				5802E8AB2A55732200731E1C /* Onboarding2.swift */,
+				5802E8AD2A55803D00731E1C /* Onboarding3.swift */,
 				58E662132A55231F0050A269 /* ContentView.swift */,
 				58E662152A5523210050A269 /* Assets.xcassets */,
+				5802E8AF2A55830900731E1C /* LandingPage.swift */,
 				58E6621A2A5523210050A269 /* Persistence.swift */,
 				58E6621C2A5523210050A269 /* Binus_Xplore.xcdatamodeld */,
 				58E662172A5523210050A269 /* Preview Content */,
@@ -263,8 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5802E8B02A55830900731E1C /* LandingPage.swift in Sources */,
+				5802E8AE2A55803D00731E1C /* Onboarding3.swift in Sources */,
 				58E6621B2A5523210050A269 /* Persistence.swift in Sources */,
 				58E662142A55231F0050A269 /* ContentView.swift in Sources */,
+				5802E8AC2A55732200731E1C /* Onboarding2.swift in Sources */,
 				58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */,
 				58E6621E2A5523210050A269 /* Binus_Xplore.xcdatamodeld in Sources */,
 			);
@@ -433,11 +445,14 @@
 				DEVELOPMENT_TEAM = T8PA28UZH7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Binus Xplore";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,11 +477,14 @@
 				DEVELOPMENT_TEAM = T8PA28UZH7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Binus Xplore";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
