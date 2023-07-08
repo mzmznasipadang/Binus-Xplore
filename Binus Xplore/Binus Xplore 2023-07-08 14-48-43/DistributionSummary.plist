@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Binus Xplore.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>B40DCDE47E400A80CE649214C0A289841B4FE6EC</string>
+				<key>dateExpires</key>
+				<string>31/03/24</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>T8PA28UZH7.mzmznasipadang.Binus-Xplore</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>T8PA28UZH7</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>Binus Xplore.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>c1eaf330-892b-45ed-8fdc-dd2fed39ef54</string>
+				<key>dateExpires</key>
+				<string>04/07/24</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: mzmznasipadang.Binus-Xplore</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>T8PA28UZH7</string>
+				<key>name</key>
+				<string>Victor Chandra</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
