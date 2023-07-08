@@ -12,6 +12,7 @@
 		5802E8B02A55830900731E1C /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AF2A55830900731E1C /* LandingPage.swift */; };
 		5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8B52A55B0BB00731E1C /* Splash.swift */; };
 		58B59E662A56E221007EDA08 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B59E652A56E221007EDA08 /* HomeView.swift */; };
+		58D5F6FB2A59C66D0025FE09 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */; };
 		58D7AB4B2A57EB0400F7CD3C /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7AB4A2A57EB0400F7CD3C /* Bookmark.swift */; };
 		58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662112A55231F0050A269 /* Binus_XploreApp.swift */; };
 		58E662142A55231F0050A269 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662132A55231F0050A269 /* ContentView.swift */; };
@@ -47,6 +48,7 @@
 		5802E8AF2A55830900731E1C /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		5802E8B52A55B0BB00731E1C /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		58B59E652A56E221007EDA08 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		58D7AB4A2A57EB0400F7CD3C /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		58E6620E2A55231F0050A269 /* Binus Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binus Xplore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662112A55231F0050A269 /* Binus_XploreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreApp.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		58E662052A55231F0050A269 = {
 			isa = PBXGroup;
 			children = (
+				58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */,
 				58E662102A55231F0050A269 /* Binus Xplore */,
 				58E662262A5523210050A269 /* Binus XploreTests */,
 				58E662302A5523210050A269 /* Binus XploreUITests */,
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D5F6FB2A59C66D0025FE09 /* codemagic.yaml in Resources */,
 				58E662192A5523210050A269 /* Preview Assets.xcassets in Resources */,
 				58E662162A5523210050A269 /* Assets.xcassets in Resources */,
 			);
