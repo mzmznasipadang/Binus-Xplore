@@ -139,7 +139,8 @@ struct HomeView: View {
                         .padding()
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
     }
 }
         
