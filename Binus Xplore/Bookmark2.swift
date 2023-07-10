@@ -18,29 +18,28 @@ import SwiftUI
 struct Bookmark2: View {
     var body: some View {
         NavigationView {
-                VStack{
+            VStack{
+                ZStack{
                     Rectangle()
-                      .foregroundColor(.clear)
-                      .frame(width: 354, height: 253)
-                      .background(
-                        Image("404")
-                          .resizable()
-                          .aspectRatio(contentMode: .fill)
-                          .frame(width: 354, height: 253)
-                          .clipped()
-                      )
+                        .foregroundColor(.clear)
+                        .frame(width: 354, height: 253)
+                        .background(
+                            Image("404")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 354, height: 253)
+                                .clipped()
+                        )
                     Text("Any favorite spot in mind?")
-                      .font(Font.custom("SF Pro", size: 18))
-                      .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
-                }
-                    .frame(width: 414, height: 896)
-                    .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-                    .cornerRadius(30)
-                    .navigationTitle("Bookmarked Places")
-                    .padding(10)
-            
-            
+                        .font(Font.custom("SF Pro", size: 18))
+                        .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                }.navigationTitle("Bookmarked Places")
+                Spacer()
+                navbar(selectedTab: .bookmark)
+            }
         }
+        .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
