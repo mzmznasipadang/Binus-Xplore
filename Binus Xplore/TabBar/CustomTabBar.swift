@@ -13,28 +13,28 @@ enum Tabs: Int{
     case profile = 2
 }
 
+
 struct CustomTabBar: View {
-    
     @Binding var selectedTab : Tabs
     
     var body: some View {
         
         HStack (alignment: .center){
             
-            
-            
-            Button{
-                //bookmark
+            //Trying with navigation Link?
+            //Nevermind
+                    Button{
+                        //bookmark
+                        
+                        selectedTab = .bookmark
+                    } label: {
+                        TabBarButton(buttonText: "Bookmark",
+                                     imageName: "bookmark", isActive:
+                                        selectedTab == .bookmark)
+                        
+                        
+                    } .tint(Color(red: 0.53, green: 0.73, blue: 1))
                 
-                selectedTab = .bookmark
-            } label: {
-                TabBarButton(buttonText: "Bookmark",
-                             imageName: "bookmark", isActive:
-                                selectedTab == .bookmark)
-                
-
-            } .tint(Color(red: 0.53, green: 0.73, blue: 1))
-            
             
             Button{
                 //home button
