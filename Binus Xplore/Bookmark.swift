@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct Bookmark: View {
+    
+    @State var selectedTab: Tabs = .bookmark
+    
     var body: some View {
         NavigationView {
                 VStack{
@@ -29,8 +32,9 @@ struct Bookmark: View {
                             
                     }.offset(y: 10)
                     .navigationTitle("Bookmarked Places")
+                    
                     Spacer()
-                    ; navbar(selectedTab: .bookmark)
+                    CustomTabBar(selectedTab: $selectedTab)
                 }
         }
         
