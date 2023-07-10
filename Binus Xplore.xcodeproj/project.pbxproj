@@ -13,7 +13,6 @@
 		5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8B52A55B0BB00731E1C /* Splash.swift */; };
 		58B59E662A56E221007EDA08 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B59E652A56E221007EDA08 /* HomeView.swift */; };
 		58D5F6FB2A59C66D0025FE09 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */; };
-		58D7AB4B2A57EB0400F7CD3C /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7AB4A2A57EB0400F7CD3C /* Bookmark.swift */; };
 		58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662112A55231F0050A269 /* Binus_XploreApp.swift */; };
 		58E662142A55231F0050A269 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662132A55231F0050A269 /* ContentView.swift */; };
 		58E662162A5523210050A269 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E662152A5523210050A269 /* Assets.xcassets */; };
@@ -23,7 +22,7 @@
 		58E662282A5523210050A269 /* Binus_XploreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662272A5523210050A269 /* Binus_XploreTests.swift */; };
 		58E662322A5523210050A269 /* Binus_XploreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662312A5523210050A269 /* Binus_XploreUITests.swift */; };
 		58E662342A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */; };
-		8FB6EEC12A5BCCAE00B13F00 /* Bookmark2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC02A5BCCAE00B13F00 /* Bookmark2.swift */; };
+		8FB6EEC12A5BCCAE00B13F00 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC02A5BCCAE00B13F00 /* Bookmark.swift */; };
 		8FB6EEC32A5BD3DE00B13F00 /* navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */; };
 		8FB6EECB2A5C00E100B13F00 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC92A5C00E100B13F00 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -52,7 +51,6 @@
 		5802E8B52A55B0BB00731E1C /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		58B59E652A56E221007EDA08 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
-		58D7AB4A2A57EB0400F7CD3C /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		58E6620E2A55231F0050A269 /* Binus Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binus Xplore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662112A55231F0050A269 /* Binus_XploreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreApp.swift; sourceTree = "<group>"; };
 		58E662132A55231F0050A269 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,7 +63,7 @@
 		58E6622D2A5523210050A269 /* Binus XploreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Binus XploreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662312A5523210050A269 /* Binus_XploreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreUITests.swift; sourceTree = "<group>"; };
 		58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8FB6EEC02A5BCCAE00B13F00 /* Bookmark2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark2.swift; sourceTree = "<group>"; };
+		8FB6EEC02A5BCCAE00B13F00 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navbar.swift; sourceTree = "<group>"; };
 		8FB6EECA2A5C00E100B13F00 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				5802E8B52A55B0BB00731E1C /* Splash.swift */,
-				8FB6EEC02A5BCCAE00B13F00 /* Bookmark2.swift */,
+				8FB6EEC02A5BCCAE00B13F00 /* Bookmark.swift */,
 				8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */,
 				58E662112A55231F0050A269 /* Binus_XploreApp.swift */,
 				5802E8AB2A55732200731E1C /* Onboarding2.swift */,
@@ -129,7 +127,6 @@
 				58E662132A55231F0050A269 /* ContentView.swift */,
 				58E662152A5523210050A269 /* Assets.xcassets */,
 				5802E8AF2A55830900731E1C /* LandingPage.swift */,
-				58D7AB4A2A57EB0400F7CD3C /* Bookmark.swift */,
 				58B59E652A56E221007EDA08 /* HomeView.swift */,
 				58E6621A2A5523210050A269 /* Persistence.swift */,
 				58E6621C2A5523210050A269 /* Binus_Xplore.xcdatamodeld */,
@@ -299,8 +296,7 @@
 				5802E8AE2A55803D00731E1C /* Onboarding3.swift in Sources */,
 				5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */,
 				58E6621B2A5523210050A269 /* Persistence.swift in Sources */,
-				58D7AB4B2A57EB0400F7CD3C /* Bookmark.swift in Sources */,
-				8FB6EEC12A5BCCAE00B13F00 /* Bookmark2.swift in Sources */,
+				8FB6EEC12A5BCCAE00B13F00 /* Bookmark.swift in Sources */,
 				58E662142A55231F0050A269 /* ContentView.swift in Sources */,
 				5802E8AC2A55732200731E1C /* Onboarding2.swift in Sources */,
 				8FB6EEC32A5BD3DE00B13F00 /* navbar.swift in Sources */,

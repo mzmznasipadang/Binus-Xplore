@@ -19,7 +19,6 @@ struct navbar: View {
     var body: some View {
         NavigationView{
             ZStack {
-                // Your other views go here
                 VStack {
                     Spacer()
                     ZStack{
@@ -27,7 +26,7 @@ struct navbar: View {
                             .fill(.white)
                             .frame(height: 94) // Adjust this to change the height of the rectangle
                         HStack{
-                            NavigationLink(destination: Bookmark2()){
+                            NavigationLink(destination: Bookmark()){
                                 Image(systemName: "bookmark")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(selectedTab == .bookmark ? Color(red: 0, green: 0.29, blue: 0.68) : Color(red: 0.53, green: 0.73, blue: 1))
@@ -36,7 +35,7 @@ struct navbar: View {
                             NavigationLink(destination: HomeView()){
                                 ZStack{
                                     Circle()
-                                        .fill(selectedTab == .home ? Color(red: 0, green: 0.29, blue: 0.68) : Color(red: 0.53, green: 0.73, blue: 1))
+                                        .fill(Color(red: 0.02, green: 0.09, blue: 0.42))
                                         .frame(width: 76, height: 76)
                                         .offset(y:-25)
                                         .overlay(
