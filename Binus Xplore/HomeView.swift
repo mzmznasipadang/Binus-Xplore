@@ -162,7 +162,7 @@ struct HomeView: View {
                             .fill(.white)
                             .frame(height: 94)
                         HStack{
-                            NavigationLink(destination: Bookmark()){
+                            NavigationLink(destination: BookmarkMessy()){
                                 Image(systemName: "bookmark")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
