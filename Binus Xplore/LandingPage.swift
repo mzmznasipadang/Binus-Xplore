@@ -49,21 +49,26 @@ struct LandingPage: View {
                             .frame(width: 300, height: 70, alignment: .topTrailing)}
                     }.offset(y: -100)//;Spacer(minLength: 300)
                     
-                    VStack(alignment: .leading) {
-                        VStack (alignment: .leading){
-                            Label("Login With Email", systemImage: "iphone.gen2")
-                                .foregroundColor(.white)
-                                .frame(width: 200, height: 30)
-                                .fontWeight(.medium)
-                                .padding()
-                                .background(Color(red: 0.62, green: 0.62, blue: 0.62))
-                                .cornerRadius(15)
-                        }.offset(y: -80)
-                        
+                    NavigationLink(destination: HomeView()) {
+                        VStack(alignment: .leading) {
+                            VStack (alignment: .leading){
+                                Label("Login With Email", systemImage: "iphone.gen2")
+                                    .foregroundColor(.white)
+                                    .frame(width: 200, height: 30)
+                                    .fontWeight(.medium)
+                                    .padding()
+                                    .background(Color(red: 0.62, green: 0.62, blue: 0.62))
+                                    .cornerRadius(15)
+                            }.offset(y: -80)
+                        }
+                    }.frame(width: 100, height: 50)
+                    NavigationLink(destination: HomeView()){
+                        Image(systemName: "person")
+                            .font(Font.custom("SF Pro", size: 40))
+                            .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                     }
                 }
                 Spacer()
-                NavigationLink(destination: HomeView()) { Text("Navigate") }
             } .navigationBarBackButtonHidden(true)
         }.navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
