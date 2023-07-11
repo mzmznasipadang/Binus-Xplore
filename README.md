@@ -3,6 +3,8 @@ Binus Xplore
 ![GitHub contributors](https://img.shields.io/github/contributors/mzmznasipadang/Binus-Xplore)
 ![GitHub Repo stars](https://img.shields.io/github/stars/mzmznasipadang/Binus-Xplore)
 ![GitHub forks](https://img.shields.io/github/forks/mzmznasipadang/Binus-Xplore)
+![CircleCI](https://img.shields.io/circleci/build/github/mzmznasipadang/Binus-Xplore)
+
 
 This is Binus Xplore, powered by Swift using SwiftUI to help our beloved students, lecturers, and our partner in navigating the way at Binus @ Alam Sutera!
 
