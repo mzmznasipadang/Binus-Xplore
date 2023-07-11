@@ -74,7 +74,7 @@ struct BookmarkMessy: View {
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                             }
-                        }.padding(.horizontal, 78.0)
+                        }.padding(.horizontal, 74.0)
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
