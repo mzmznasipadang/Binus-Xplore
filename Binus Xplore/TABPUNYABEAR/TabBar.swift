@@ -69,7 +69,7 @@ struct TabBar: View {
                     }
                     
                 }
-            }
+            }.padding(.horizontal, 78.0)
         } .frame(height:82)
     }
 }
