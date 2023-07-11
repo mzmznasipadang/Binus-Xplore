@@ -16,6 +16,8 @@ struct HomeView: View {
         static let Primary: Color = Color(red: 0.02, green: 0.09, blue: 0.42)
     }
     
+    @State var selectedTab: Tab = .home
+    
     var body: some View {
         VStack{
             HStack{
@@ -139,11 +141,14 @@ struct HomeView: View {
                         .padding()
                 }
             }
-        }.navigationBarBackButtonHidden(true)
+            Spacer()
+            TabBar(selectedTab: $selectedTab)
+        }.navigationTitle("Explore BINUS")
+            .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
     }
 }
-        
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()

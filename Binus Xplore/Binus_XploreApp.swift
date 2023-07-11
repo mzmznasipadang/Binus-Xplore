@@ -13,7 +13,7 @@ struct Binus_XploreApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Splash()
+            HomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
