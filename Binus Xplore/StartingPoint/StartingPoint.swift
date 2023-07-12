@@ -91,7 +91,7 @@ struct StartingPoint: View {
                                         .padding(.top, 20)
                                         
                                         // Filter/Selection items
-                                        ScrollView(.horizontal){
+                                        ScrollView(.horizontal, showsIndicators: false){
                                             HStack(spacing: 16){
                                                 ForEach(items) { item in
                                                     Button(action: {
@@ -126,6 +126,7 @@ struct StartingPoint: View {
                                             }
                                             .padding(20)
                                         }
+                                        .padding(.horizontal, 15.0)
                                         
                                     }
                                 )
