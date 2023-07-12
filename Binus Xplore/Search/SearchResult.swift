@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct Constants {
-        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-    }
+//struct Constants {
+//        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
+//    }
 struct SearchResult: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     
@@ -92,6 +92,7 @@ struct SearchResult: View {
                         }
                     }
                     .padding()
+                    .offset(y:-20)
                     
                     
                     
