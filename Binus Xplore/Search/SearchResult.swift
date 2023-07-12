@@ -25,11 +25,13 @@ struct SearchResult: View {
                     }) {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 30)
+                            .foregroundColor(Color.white)
+                            .padding(.horizontal, 19.0)
                             .padding(.vertical, 8)
-                            .background(Constants.Primary)
+                            .background(Color("MainColor"))
                             .cornerRadius(12)
+                            .offset(x:5)
+                        
 
 
                     }
@@ -54,7 +56,7 @@ struct SearchResult: View {
                                                 .padding()
                                                 .frame(width: 138.0, height: 138.0)
                                                 .foregroundColor(.white)
-                                                .background(Constants.Primary)
+                                                .background(Color("MainColor"))
                                                 .cornerRadius(8)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
