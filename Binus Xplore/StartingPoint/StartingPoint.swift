@@ -17,10 +17,10 @@ struct StartingPoint: View {
     
     // Slider suggestion buttons
     let items = [
-        Item(imageName: "building", title: "A0701"),
-        Item(imageName: "cup.and.saucer", title: "Tomoro Coffee"),
-        Item(imageName: "cup.and.saucer", title: "Dapur Nieta"),
-        Item(imageName: "cup.and.saucer", title: "Disrupt")
+        Items(imageName: "building", title: "A0701"),
+        Items(imageName: "cup.and.saucer", title: "Tomoro Coffee"),
+        Items(imageName: "cup.and.saucer", title: "Dapur Nieta"),
+        Items(imageName: "cup.and.saucer", title: "Disrupt")
     ]
     
     var body: some View {
@@ -43,7 +43,7 @@ struct StartingPoint: View {
                         // Bar Atas
                         ZStack(alignment: .topLeading){
                             Rectangle()
-                                .foregroundColor(Constants.Primary)
+                                .foregroundColor(.white)
                                 .frame(width: 355, height: 200)
                                 .cornerRadius(20)
                                 .ignoresSafeArea()
@@ -120,7 +120,7 @@ struct StartingPoint: View {
                                                         }
                                                     }
                                                     .padding(12)
-                                                    .background(Constants.Primary)
+                                                    .background(Color("MainColor"))
                                                     .cornerRadius(15)
                                                 }
                                             }
@@ -151,7 +151,7 @@ struct StartingPoint: View {
                         .weight(.medium))
                     .foregroundColor(.white)
                     .frame(width: 354, height: 50)
-                    .background(Constants.Primary)
+                    .background(Color("MainColor"))
                     .cornerRadius(15)
                     .edgesIgnoringSafeArea(.all)
                 
