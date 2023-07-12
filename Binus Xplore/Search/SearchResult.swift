@@ -26,15 +26,13 @@ struct SearchResult: View {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
                             .foregroundColor(Color.white)
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 10.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
                             .cornerRadius(12)
-                        
-                        
                     }
+                    .padding(.leading, 5)
                     Spacer()
-                    
                 }
                 .padding()
                 

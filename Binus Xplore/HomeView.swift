@@ -199,7 +199,7 @@ struct HomeView: View {
                             }
                             Spacer()
                             
-                            NavigationLink(destination: Onboarding2()){
+                            NavigationLink(destination: Profile()){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
@@ -215,7 +215,6 @@ struct HomeView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
