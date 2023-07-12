@@ -59,7 +59,6 @@ struct SearchResult: View {
                                             
                                             VStack(alignment: .leading, spacing: 4) {
                                                 Text("First Line")
-//                                                    .font(.title)
                                                     .font(.system(size: 24))
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.black)

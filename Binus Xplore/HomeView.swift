@@ -158,7 +158,7 @@ struct HomeView: View {
                     Text("Latest Events").font(.system(size: 24).weight(.bold))
                     Spacer()
                 }.padding(.leading, 30)
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: [GridItem(.flexible())]) {
                         ForEach(0..<5) { index in
                             BoxView()
@@ -215,17 +215,60 @@ struct HomeView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct BoxView: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .fill(Color.white)
-            .frame(width: 350, height: 150)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
-            )
+        ZStack{
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.white)
+                .frame(width: 350, height: 150)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
+                )
+            HStack(spacing: 30){
+                Image("Samsat")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 120, height: 130)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+
+                VStack(alignment: .leading, spacing: 5){
+                    Text("Event Title").font(.system(size: 18).weight(.semibold))
+                    HStack{
+                        Image(systemName: "location").font(Font.custom("SF Pro", size: 12))
+                        Text("Location")
+                            .font(
+                                Font.custom("SF Pro Display", size: 12)
+                                    .weight(.medium)
+                            )
+                            .kerning(0.374)
+                    }
+                    HStack{
+                        Image(systemName: "calendar").font(Font.custom("SF Pro", size: 12))
+                        Text("Date")
+                            .font(
+                                Font.custom("SF Pro Display", size: 12)
+                                    .weight(.medium)
+                            )
+                            .kerning(0.374)
+                    }
+                    HStack{
+                        Image(systemName: "clock").font(Font.custom("SF Pro", size: 12))
+                        Text("Time")
+                            .font(
+                                Font.custom("SF Pro Display", size: 12)
+                                    .weight(.medium)
+                            )
+                            .kerning(0.374)
+                    }
+                }
+            }
+            .padding(.leading, -50.0)
+            
+        }.padding(.horizontal, 20.0)
     }
 }
 
