@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 import CoreData
 
-struct Constants {
-    static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-}
+//struct Color {
+//    static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
+//}
 
 struct LandingPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
