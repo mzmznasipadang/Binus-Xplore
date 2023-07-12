@@ -25,13 +25,13 @@ struct SearchResult: View {
                     }) {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.white)
                             .padding(.horizontal, 30)
                             .padding(.vertical, 8)
-                            .background(Constants.Primary)
+                            .background(Color("MainColor"))
                             .cornerRadius(12)
-
-
+                        
+                        
                     }
                     Spacer()
                     
@@ -54,7 +54,7 @@ struct SearchResult: View {
                                                 .padding()
                                                 .frame(width: 138.0, height: 138.0)
                                                 .foregroundColor(.white)
-                                                .background(Constants.Primary)
+                                                .background(Color("MainColor"))
                                                 .cornerRadius(8)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
@@ -63,7 +63,7 @@ struct SearchResult: View {
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
-
+                                                
                                                 Text("Second Line")
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
@@ -71,8 +71,8 @@ struct SearchResult: View {
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
                                                 
-
-                                         
+                                                
+                                                
                                             }
                                             
                                             Spacer()
@@ -80,10 +80,10 @@ struct SearchResult: View {
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(.black)
                                                 .padding()
-                                                
+                                            
                                             
                                         }
-                                            
+                                        
                                     )
                             }
                             
@@ -96,7 +96,7 @@ struct SearchResult: View {
                     
                     
                     
-                
+                    
                 }
             }
             .background(Color(hue: 0, saturation: 0, brightness: 0.97))
@@ -110,7 +110,7 @@ struct SearchResult: View {
                         .frame(width: 40.0, height: 40.0)
                         .background(Color.white)
                         .clipShape(Circle())
-                       
+                    
                 },
                 trailing: Text("Search Result")
                     .font(.largeTitle)

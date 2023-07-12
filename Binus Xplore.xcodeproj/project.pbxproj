@@ -15,6 +15,8 @@
 		584972B52A5C5CCD00CE105F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584972B42A5C5CCD00CE105F /* CustomTabBar.swift */; };
 		584972B72A5C666200CE105F /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584972B62A5C666200CE105F /* TabBarButton.swift */; };
 		586373552A5EA56300CF3F25 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586373542A5EA56300CF3F25 /* SearchResult.swift */; };
+		586373592A5EB13D00CF3F25 /* StartingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586373582A5EB13D00CF3F25 /* StartingPoint.swift */; };
+		5863735B2A5EB17A00CF3F25 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863735A2A5EB17A00CF3F25 /* Item.swift */; };
 		58D5F6FB2A59C66D0025FE09 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */; };
 		58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662112A55231F0050A269 /* Binus_XploreApp.swift */; };
 		58E662142A55231F0050A269 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662132A55231F0050A269 /* ContentView.swift */; };
@@ -58,6 +60,8 @@
 		584972B42A5C5CCD00CE105F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		584972B62A5C666200CE105F /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		586373542A5EA56300CF3F25 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		586373582A5EB13D00CF3F25 /* StartingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingPoint.swift; sourceTree = "<group>"; };
+		5863735A2A5EB17A00CF3F25 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		58E6620E2A55231F0050A269 /* Binus Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binus Xplore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662112A55231F0050A269 /* Binus_XploreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreApp.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		586373572A5EB12400CF3F25 /* StartingPoint */ = {
+			isa = PBXGroup;
+			children = (
+				586373582A5EB13D00CF3F25 /* StartingPoint.swift */,
+				5863735A2A5EB17A00CF3F25 /* Item.swift */,
+			);
+			path = StartingPoint;
+			sourceTree = "<group>";
+		};
 		58E662052A55231F0050A269 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +183,7 @@
 				586373522A5EA54F00CF3F25 /* Search */,
 				8FA26A032A5C718800B2A34D /* BookmarkMessy.swift */,
 				586373562A5EA98B00CF3F25 /* Onboarding */,
+				586373572A5EB12400CF3F25 /* StartingPoint */,
 				8FB6EEC02A5BCCAE00B13F00 /* Bookmark.swift */,
 				8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */,
 				58E662112A55231F0050A269 /* Binus_XploreApp.swift */,
@@ -342,6 +356,7 @@
 				5802E8AE2A55803D00731E1C /* Onboarding3.swift in Sources */,
 				58395C2C2A5D561800881DEA /* TabBar.swift in Sources */,
 				584972B52A5C5CCD00CE105F /* CustomTabBar.swift in Sources */,
+				586373592A5EB13D00CF3F25 /* StartingPoint.swift in Sources */,
 				8F7FA6372A5D8FD3006BC3A1 /* HomeView.swift in Sources */,
 				5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */,
 				58E6621B2A5523210050A269 /* Persistence.swift in Sources */,
@@ -351,6 +366,7 @@
 				8FB6EEC32A5BD3DE00B13F00 /* navbar.swift in Sources */,
 				58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */,
 				584972B72A5C666200CE105F /* TabBarButton.swift in Sources */,
+				5863735B2A5EB17A00CF3F25 /* Item.swift in Sources */,
 				8FB6EECB2A5C00E100B13F00 /* Model.xcdatamodeld in Sources */,
 				58E6621E2A5523210050A269 /* Binus_Xplore.xcdatamodeld in Sources */,
 				8FA26A042A5C718800B2A34D /* BookmarkMessy.swift in Sources */,
