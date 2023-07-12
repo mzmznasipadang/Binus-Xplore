@@ -128,6 +128,18 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		586373562A5EA98B00CF3F25 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5802E8B52A55B0BB00731E1C /* Splash.swift */,
+				5802E8AB2A55732200731E1C /* Onboarding2.swift */,
+				5802E8AD2A55803D00731E1C /* Onboarding3.swift */,
+				58E662132A55231F0050A269 /* ContentView.swift */,
+				5802E8AF2A55830900731E1C /* LandingPage.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		58E662052A55231F0050A269 = {
 			isa = PBXGroup;
 			children = (
@@ -155,17 +167,13 @@
 			children = (
 				58395C2A2A5D560000881DEA /* TABPUNYABEAR */,
 				584972B32A5C5CB700CE105F /* TabBar */,
-				5802E8B52A55B0BB00731E1C /* Splash.swift */,
 				586373522A5EA54F00CF3F25 /* Search */,
 				8FA26A032A5C718800B2A34D /* BookmarkMessy.swift */,
+				586373562A5EA98B00CF3F25 /* Onboarding */,
 				8FB6EEC02A5BCCAE00B13F00 /* Bookmark.swift */,
 				8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */,
 				58E662112A55231F0050A269 /* Binus_XploreApp.swift */,
-				5802E8AB2A55732200731E1C /* Onboarding2.swift */,
-				5802E8AD2A55803D00731E1C /* Onboarding3.swift */,
-				58E662132A55231F0050A269 /* ContentView.swift */,
 				58E662152A5523210050A269 /* Assets.xcassets */,
-				5802E8AF2A55830900731E1C /* LandingPage.swift */,
 				8F7FA6362A5D8FD3006BC3A1 /* HomeView.swift */,
 				58E6621A2A5523210050A269 /* Persistence.swift */,
 				58E6621C2A5523210050A269 /* Binus_Xplore.xcdatamodeld */,
