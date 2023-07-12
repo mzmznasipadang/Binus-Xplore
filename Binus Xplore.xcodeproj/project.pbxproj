@@ -14,6 +14,7 @@
 		58395C2C2A5D561800881DEA /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58395C2B2A5D561800881DEA /* TabBar.swift */; };
 		584972B52A5C5CCD00CE105F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584972B42A5C5CCD00CE105F /* CustomTabBar.swift */; };
 		584972B72A5C666200CE105F /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584972B62A5C666200CE105F /* TabBarButton.swift */; };
+		586373552A5EA56300CF3F25 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586373542A5EA56300CF3F25 /* SearchResult.swift */; };
 		58D5F6FB2A59C66D0025FE09 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */; };
 		58E662122A55231F0050A269 /* Binus_XploreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662112A55231F0050A269 /* Binus_XploreApp.swift */; };
 		58E662142A55231F0050A269 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662132A55231F0050A269 /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		58395C2B2A5D561800881DEA /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		584972B42A5C5CCD00CE105F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		584972B62A5C666200CE105F /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		586373542A5EA56300CF3F25 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		58E6620E2A55231F0050A269 /* Binus Xplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binus Xplore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662112A55231F0050A269 /* Binus_XploreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreApp.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		586373522A5EA54F00CF3F25 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				586373542A5EA56300CF3F25 /* SearchResult.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		58E662052A55231F0050A269 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				58395C2A2A5D560000881DEA /* TABPUNYABEAR */,
 				584972B32A5C5CB700CE105F /* TabBar */,
 				5802E8B52A55B0BB00731E1C /* Splash.swift */,
+				586373522A5EA54F00CF3F25 /* Search */,
 				8FA26A032A5C718800B2A34D /* BookmarkMessy.swift */,
 				8FB6EEC02A5BCCAE00B13F00 /* Bookmark.swift */,
 				8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */,
@@ -335,6 +346,7 @@
 				8FB6EECB2A5C00E100B13F00 /* Model.xcdatamodeld in Sources */,
 				58E6621E2A5523210050A269 /* Binus_Xplore.xcdatamodeld in Sources */,
 				8FA26A042A5C718800B2A34D /* BookmarkMessy.swift in Sources */,
+				586373552A5EA56300CF3F25 /* SearchResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Binus Xplore/Preview Content\"";
 				DEVELOPMENT_TEAM = T8PA28UZH7;
 				ENABLE_PREVIEWS = YES;
@@ -513,7 +525,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.2 Alpha";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "mzmznasipadang.Binus-Xplore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -528,7 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Binus Xplore/Preview Content\"";
 				DEVELOPMENT_TEAM = T8PA28UZH7;
 				ENABLE_PREVIEWS = YES;
@@ -545,7 +557,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.2 Alpha";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "mzmznasipadang.Binus-Xplore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
