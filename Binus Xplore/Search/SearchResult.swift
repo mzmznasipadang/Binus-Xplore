@@ -59,7 +59,8 @@ struct SearchResult: View {
                                             
                                             VStack(alignment: .leading, spacing: 4) {
                                                 Text("First Line")
-                                                    .font(.title)
+//                                                    .font(.title)
+                                                    .font(.system(size: 24))
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
@@ -67,15 +68,17 @@ struct SearchResult: View {
                                                 Text("Second Line")
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
+                                                    .font(.system(size: 16))
                                                 Text("Third Line")
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
+                                                    .font(.system(size: 16))
                                                 
                                                 
                                                 
                                             }
                                             
-                                            Spacer()
+//                                            Spacer()
                                             
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(.black)
@@ -83,11 +86,10 @@ struct SearchResult: View {
                                             
                                             
                                         }
+                                            .padding(.horizontal)
                                         
                                     )
                             }
-                            
-                            
                             
                         }
                     }
@@ -111,11 +113,13 @@ struct SearchResult: View {
                         .background(Color.white)
                         .clipShape(Circle())
                     
-                },
+                }
+                    .padding(.top, 15.0),
                 trailing: Text("Search Result")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.trailing, 74.0)
+                    .padding(.top, 19)
             )
         }
     }
