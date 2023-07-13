@@ -30,7 +30,7 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainColor"))
+                                .fill(Color("MainBlueIcon"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "briefcase.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
                         }
@@ -43,7 +43,7 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainColor"))
+                                .fill(Color("MainBlueIcon"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "books.vertical.fill")
                                 .frame(width: 46.0, height: 46.0)
@@ -58,7 +58,7 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainColor"))
+                                .fill(Color("MainBlueIcon"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "desktopcomputer")
                                 .frame(width: 46.0, height: 46.0)
@@ -72,7 +72,7 @@ struct HomeView: View {
                     VStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainColor"))
+                                .fill(Color("MainBlueIcon"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "person.2.fill")
                                 .frame(width: 46.0, height: 46.0)
