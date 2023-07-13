@@ -25,6 +25,7 @@ struct informationContent: View{
                           .weight(.medium)
                       )
                       .kerning(0.374)
+                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
 //                    if(calendar.component(.hour, from: date) < Date(.hour))
 //                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
                 }
@@ -61,6 +62,7 @@ struct informationContent: View{
                       )
                       .kerning(0.374)
                       .foregroundColor(.black)
+                    
                 }
                 .frame(alignment: .leading)
                 .padding(.horizontal, 20)
@@ -71,13 +73,11 @@ struct informationContent: View{
                         .bold()
                         .padding(.vertical,10)
                     Text("Information center and facility to provide important announcements regarding student admission.  ")
-                        .font(
-                            Font.custom("SF Pro Display", size: 16)
-                                .weight(.light)
-                      )
+                        .font(.system(size: 15).weight(.light))
                       .kerning(0.374)
                       .foregroundColor(.black)
                       .frame(width: 332, height: 57, alignment: .top)
+                      .offset(x:-5)
                 }
                 .padding(.horizontal, 20)
                 VStack{
@@ -125,7 +125,7 @@ struct informationContent: View{
                               .inset(by: 0.5)
                               .stroke(Color(red: 0.02, green: 0.09, blue: 0.42), lineWidth: 1)
                               .overlay(
-                                Image(systemName: "case.fill")
+                                Image(systemName: "briefcase.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40,height:30)
@@ -147,11 +147,11 @@ struct informationContent: View{
                               .inset(by: 0.5)
                               .stroke(Color(red: 0.02, green: 0.09, blue: 0.42), lineWidth: 1)
                               .overlay(
-                                Image(systemName: "case.fill")
+                                Image(systemName: "building.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40,height:30)
-                                    .foregroundColor(Color(red: 0.02, green: 0.09, blue: 0.42))
+                                    .foregroundColor(Color(red: 0.13, green: 0.31, blue: 0.41))
                               )
                           )
                         Text("C Building")
@@ -169,10 +169,7 @@ struct informationContent: View{
                     Text("Set Destination")
                         .foregroundColor(.white)
                         .kerning(0.374)
-                        .font(
-                          Font.custom("SF Pro Display", size: 20)
-                            .weight(.medium)
-                        )
+                        .font(.system(size: 20).weight(.medium))
                         .padding(.vertical, 8)
                         .frame(
                             maxWidth: .infinity

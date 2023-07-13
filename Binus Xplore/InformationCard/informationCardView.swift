@@ -29,10 +29,7 @@ struct informationCardView: View{
                     .stroke(Color(red: 0.69, green: 0.69, blue: 0.71), lineWidth: 2)
                 )
                 Text("Admission Office")
-                  .font(
-                    Font.custom("SF Pro", size: 40)
-                      .weight(.semibold)
-                  )
+                    .font(.system(size: 40).weight(.semibold))
                   .foregroundColor(Color(red: 0.97, green: 0.97, blue: 0.97))
                   .frame(width: 346, height: 35, alignment: .topLeading)
                   .offset(y:70)
@@ -46,7 +43,7 @@ struct informationCardView: View{
                   .foregroundColor(.clear)
                   .frame(width: 414, height: 586)
                   .background(.white)
-                  .cornerRadius(30)
+                  .cornerRadius(50)
                 ScrollView(.vertical){
                     informationContent()
                 }
