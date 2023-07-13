@@ -13,7 +13,7 @@ import SwiftUI
 //    }
 struct SearchResult: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
             
@@ -27,7 +27,7 @@ struct SearchResult: View {
                             .font(.body)
                             .foregroundColor(Color.white)
 
-                            .padding(.horizontal, 19.0)
+                            .padding(.horizontal, 10.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
                             .cornerRadius(12)
@@ -127,7 +127,7 @@ struct SearchResult: View {
             .edgesIgnoringSafeArea(.vertical)
             .navigationBarItems(
                 leading: Button(action: {
-                    print("button pressed")
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .foregroundColor(Color.black)
@@ -143,7 +143,7 @@ struct SearchResult: View {
                     .padding(.trailing, 74.0)
                     .padding(.top, 19)
             )
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
