@@ -11,7 +11,7 @@ import SwiftUI
 struct OfficePage: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     //Soon to be changed integrated by Core Data
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
             
@@ -118,7 +118,8 @@ struct OfficePage: View {
             .edgesIgnoringSafeArea(.vertical)
             .navigationBarItems(
                 leading: Button(action: {
-                    print("button pressed")
+                    self.presentationMode.wrappedValue.dismiss()
+                    
                 }) {
                     Image(systemName: "chevron.left")
                         .foregroundColor(Color.black)
@@ -134,7 +135,7 @@ struct OfficePage: View {
                     .padding(.trailing, 25.0)
                     .padding(.top, 19)
             )
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
