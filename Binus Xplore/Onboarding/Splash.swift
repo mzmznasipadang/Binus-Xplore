@@ -17,7 +17,7 @@ struct Splash: View {
         HStack{
             
             if self.isActive{
-                ContentView()
+                Onboarding()
             } else {
                 Rectangle()
                     .foregroundColor(.clear)
@@ -30,10 +30,12 @@ struct Splash: View {
                             .clipped()
                     )
             }
-        } .onAppear {
+        }
+        .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
                 withAnimation(.linear){
                     self.isActive = true
+                        
                 }
             }
         }

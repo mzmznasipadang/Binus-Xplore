@@ -6,13 +6,9 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct Onboarding3: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    struct Constants {
-        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-    }
     
     var body: some View {
         NavigationView {
@@ -24,27 +20,30 @@ struct Onboarding3: View {
                     .frame(width: 325, height: 305, alignment: .center)
                 
                 Text("Effectivity")
-                    .font(Font.custom("SF Pro", size: 45).weight(.bold))
+                    .fontWeight(.bold)
+                    .font(.system(size: 45))
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                    .foregroundColor(Color("Apple"))
                     .frame(width: 262, height: 54, alignment: .top)
                 
                 Text("Keep yourself on the move without ever getting lost!")
-                    .font(Font.custom("SF Pro", size: 18))
+                    .fontWeight(.regular)
+                    .font(.system(size: 18))
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
+                    .foregroundColor(Color("Apple"))
                     .frame(width: 285, height: 63, alignment: .top)
                 
                 NavigationLink(destination: LandingPage()) {
                     Text("Let's Get Started!")
                         .foregroundColor(.white)
                         .padding()
-                        .background(Constants.Primary)
+                        .background(Color("MainColor"))
                         .cornerRadius(15)
                         .navigationBarBackButtonHidden(true)
                 }
             }
         }
+        .background(Color("WhiteBG"))
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }
