@@ -52,7 +52,7 @@ struct OfficePage: View {
                                                 .foregroundColor(.white)
                                                 .background(Color("MainColor"))
                                                 .cornerRadius(8)
-                                                .offset(x:5)
+                                                .offset(x:17)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
                                                 Text("C0302")
@@ -68,7 +68,7 @@ struct OfficePage: View {
                                                         .foregroundColor(.black)
                                                         .padding(.leading)
                                                     
-                                                    Text("Floor 2, C Building")
+                                                    Text("Floor 2, C Tower")
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 16))
                                                         .lineLimit(2)
@@ -90,12 +90,12 @@ struct OfficePage: View {
                                                 }.offset(y:5)
                                                 
                                                 
-                                            }.offset(x:-5)
+                                            }.offset(x:7)
+                                                .frame(width: 165, height: 300, alignment: .leading)
                                             
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(.black)
                                                 .padding()
-                                                .offset(x:10)
                                             
                                             
                                         }
