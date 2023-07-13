@@ -1,5 +1,5 @@
 //
-//  BookmarkSwift
+//  BookmarkMessy
 //  Binus Xplore
 //
 //  Created by Jessica Lynn on 10/07/23.
@@ -10,12 +10,6 @@ import SwiftUI
 
 struct Bookmark: View {
     
-//    enum Tab {
-//        case bookmark, home, profile
-//    }
-//
-//    var selectedTab: Tab
-    
     var body: some View {
         
         NavigationView{
@@ -23,6 +17,14 @@ struct Bookmark: View {
                 // Your other views go here
             VStack {
                 VStack{
+                    HStack{
+                        Text("Bookmarked Places")
+                            .font(.system(size: 34).weight(.bold))
+                            .padding(.top, 10)
+                            .padding(.bottom, -1)
+                            .padding(.leading, 30)
+                        Spacer()
+                    }
                     Spacer()
                     Rectangle()
                         .foregroundColor(.clear)
@@ -69,17 +71,17 @@ struct Bookmark: View {
                             }
                             Spacer()
                             
-                            NavigationLink(destination: Onboarding2()){
+                            NavigationLink(destination: Profile()){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                             }
-                        }.padding(.horizontal, 78.0)
+                        }.padding(.horizontal, 74.0)
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
-                .navigationTitle("Bookmarked Places")
+//                .navigationTitle("Bookmarked Places")
             }
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
 //            }.navigationTitle("Bookmarked Places")
