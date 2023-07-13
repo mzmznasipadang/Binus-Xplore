@@ -26,7 +26,7 @@ struct SearchResult: View {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
                             .foregroundColor(Color.white)
-<<<<<<< HEAD
+
                             .padding(.horizontal, 19.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
@@ -35,12 +35,8 @@ struct SearchResult: View {
                         
 
 
-=======
-                            .padding(.horizontal, 10.0)
-                            .padding(.vertical, 8)
-                            .background(Color("MainColor"))
-                            .cornerRadius(12)
->>>>>>> main
+
+                            
                     }
                     .padding(.leading, 5)
                     Spacer()
@@ -65,33 +61,50 @@ struct SearchResult: View {
                                                 .foregroundColor(.white)
                                                 .background(Color("MainColor"))
                                                 .cornerRadius(8)
+                                                .offset(x:5)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
-                                                Text("First Line")
+                                                Text("C0302")
                                                     .font(.system(size: 24))
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
-                                                
-                                                Text("Second Line")
-                                                    .foregroundColor(.black)
-                                                    .padding(.leading)
-                                                    .font(.system(size: 16))
-                                                Text("Third Line")
-                                                    .foregroundColor(.black)
-                                                    .padding(.leading)
-                                                    .font(.system(size: 16))
+                                                    
                                                 
                                                 
+                                                HStack{
+                                                    Image(systemName: "location")
+                                                        .foregroundColor(.black)
+                                                        .padding(.leading)
+                                                    
+                                                    Text("Floor 2, C Building")
+                                                        .foregroundColor(.black)
+                                                        .font(.system(size: 16))
+                                                        .lineLimit(2)
+                                                        
+            
+                                                }
                                                 
-                                            }
-                                            
-//                                            Spacer()
+                                                HStack{
+                                                    Image(systemName: "clock")
+                                                        .foregroundColor(.black)
+                                                        .padding(.leading)
+                                                    
+                                                    Text("07.00 - 15.00")
+                                                        .foregroundColor(.black)
+                                                        .font(.system(size: 16))
+                                                        .lineLimit(1)
+                                                        .frame(width: 95.0)
+                                                        
+                                                }.offset(y:5)
+                                                
+                                                
+                                            }.offset(x:-5)
                                             
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(.black)
                                                 .padding()
-                                            
+                                                .offset(x:10)
                                             
                                         }
                                             .padding(.horizontal)
