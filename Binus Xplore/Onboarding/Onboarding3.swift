@@ -43,7 +43,6 @@ struct Onboarding3: View {
                 }
             }
         }
-        .background(Color("WhiteBG"))
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }

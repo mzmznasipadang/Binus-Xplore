@@ -14,15 +14,13 @@ import UIKit
 struct HomeView: View {
     @State var searchText = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    struct Constants {
-        static let Primary: Color = Color(red: 0.02, green: 0.09, blue: 0.42)
-    }
     
     var body: some View {
         NavigationView{
             VStack{
                 HStack{
                     Text("Explore").font(.system(size: 34).weight(.bold))
+                        .foregroundStyle(Color("Apple"))
                     Text("BINUS").font(.system(size: 34).weight(.bold)).foregroundColor(Color("MainColor"))
                     Spacer()
                 }.padding(.top, 10).padding(.bottom, -1)
@@ -32,12 +30,13 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 0.02, green: 0.09, blue: 0.42))
+                                .fill(Color("MainColor"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "briefcase.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
                         }
                         Text("Office")
                             .font(.system(size: 13))
+                            .foregroundStyle(.apple)
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
@@ -45,13 +44,15 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 0.02, green: 0.09, blue: 0.42))
+                                .fill(Color("MainColor"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "books.vertical.fill")
                                 .frame(width: 46.0, height: 46.0)
                                 .foregroundStyle(.white).font(.system(size: 30))
                         }
-                        Text("Class")                   .font(.system(size: 13))
+                        Text("Class")
+                            .font(.system(size: 13))
+                            .foregroundStyle(.apple)
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
@@ -59,21 +60,22 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 0.02, green: 0.09, blue: 0.42))
+                                .fill(Color("MainColor"))
                                 .frame(width: 58, height: 58)
-                            Image(systemName: "pc")
+                            Image(systemName: "desktopcomputer")
                                 .frame(width: 46.0, height: 46.0)
                                 .foregroundStyle(.white).font(.system(size: 30))
                         }
-                        Text("Labs")                    .font(.system(size: 13))
-                            .foregroundStyle(.primary)
+                        Text("Labs")
+                            .font(.system(size: 13))
+                            .foregroundStyle(.apple)
                             .padding(.top, -2)
                     }
                     Spacer()
                     VStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 0.02, green: 0.09, blue: 0.42))
+                                .fill(Color("MainColor"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "person.2.fill")
                                 .frame(width: 46.0, height: 46.0)
@@ -83,18 +85,20 @@ struct HomeView: View {
                         VStack {
                             Text("Public")
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(.primary)
+                                .foregroundStyle(.apple)
                                 .font(.system(size: 13))
                                 .padding(.top, -2)
                             Text("Facility")
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(.primary)
+                                .foregroundStyle(.apple)
                                 .font(.system(size: 13))
                         }
                         .frame(height: 8) // Add a fixed height to the VStack
                     }
                     
-                }.padding(.trailing, 53).padding(.leading, 53).padding(.top, 8)
+                }.padding(.trailing, 53)
+                    .padding(.leading, 53)
+                    .padding(.top, 8)
                 HStack{
                     VStack{
                         ZStack{
@@ -151,10 +155,14 @@ struct HomeView: View {
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
-                }.padding(.trailing, 53).padding(.leading, 53).padding(.top, 8)
+                }.padding(.trailing, 53)
+                    .padding(.leading, 53)
+                    .padding(.top, 8)
                 Divider()
-                    .background(Color.gray).padding(.horizontal, 20).frame(height: 10)
-                HStack{
+                    .background(Color.gray)
+                    .padding(.horizontal, 20)
+                    .frame(height: 10)
+                HStack{ //Latest Events
                     Text("Latest Events").font(.system(size: 24).weight(.bold))
                     Spacer()
                 }.padding(.leading, 30)
@@ -165,14 +173,14 @@ struct HomeView: View {
                         }
                     }
                     .padding()
-                }.frame(height: 290)
+                }.frame(height: 290) //ScrollView
                 Spacer()
                 //            navbar(selectedTab: .home)
-                VStack{
+                VStack{ //NavBar (OTW Ganti)
                     Spacer()
                     ZStack{
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
                             NavigationLink(destination: BookmarkMessy()){ // Later Change to Bookmark
@@ -211,7 +219,7 @@ struct HomeView: View {
                 .frame(maxHeight: .infinity)
                 
             }
-            .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+            .background(Color("WhiteBG"))
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
@@ -222,45 +230,50 @@ struct BoxView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.white)
+                .fill(Color("AppleText"))
                 .frame(width: 350, height: 150)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
                 )
             HStack(spacing: 30){
-                Image("Samsat")
+                Image("SunibAnggrek")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 120, height: 130)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-
+                
                 VStack(alignment: .leading, spacing: 5){
-                    Text("Event Title").font(.system(size: 18).weight(.semibold))
+                    Text("Event Title")
+                        .font(.system(size: 18)
+                            .weight(.semibold))
+                        .foregroundStyle(.apple)
                     HStack{
-                        Image(systemName: "location").font(Font.custom("SF Pro", size: 12))
+                        Image(systemName: "location")
+                            .font(.system(size: 14))
+                            .foregroundStyle(.apple)
                         Text("Location")
-                            .font(
-                                Font.custom("SF Pro Display", size: 12)
-                                    .weight(.medium)
-                            )
-                            .kerning(0.374)
+                            .font(.system(size: 12)) //Hati Hati Sering Crash
+                            .foregroundStyle(.apple)
                     }
                     HStack{
-                        Image(systemName: "calendar").font(Font.custom("SF Pro", size: 12))
+                        Image(systemName: "calendar")
+                            .font(.system(size: 14))
+                            .foregroundStyle(.apple)
                         Text("Date")
-                            .font(
-                                Font.custom("SF Pro Display", size: 12)
-                                    .weight(.medium)
-                            )
+                            .font(.system(size: 12))
+                            .foregroundStyle(.apple)
+                            .fontWeight(.medium)
                             .kerning(0.374)
                     }
                     HStack{
-                        Image(systemName: "clock").font(Font.custom("SF Pro", size: 12))
+                        Image(systemName: "clock")
+                            .font(.system(size: 12))
+                            .foregroundStyle(.apple)
+                            .fontWeight(.medium)
                         Text("Time")
-                            .font(
-                                Font.custom("SF Pro Display", size: 12)
-                                    .weight(.medium)
-                            )
+                            .font(.system(size: 12))
+                            .foregroundStyle(.apple)
+                            .fontWeight(.medium)
                             .kerning(0.374)
                     }
                 }
@@ -268,6 +281,7 @@ struct BoxView: View {
             .padding(.leading, -50.0)
             
         }.padding(.horizontal, 20.0)
+        
     }
 }
 

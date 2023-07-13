@@ -41,7 +41,7 @@ struct Onboarding2: View {
                         .cornerRadius(15)
                 }
             }
-            .background(Color("WhiteBG"))
+//            .background(Color("WhiteBG"))
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

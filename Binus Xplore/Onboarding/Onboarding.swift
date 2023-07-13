@@ -36,12 +36,12 @@ struct Onboarding: View {
                         .navigationBarBackButtonHidden(true)
                 }
             }
-            .background(Color("WhiteBG"))
+//            .background(Color("WhiteBG"))
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             
         }
-        .background(Color("WhiteBG")) //Ini Aneh
+//        .background(Color("WhiteBG")) //Ini Aneh
     }
 }
 struct Onboarding_Previews: PreviewProvider {

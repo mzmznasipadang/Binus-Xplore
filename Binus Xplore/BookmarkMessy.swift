@@ -10,12 +10,6 @@ import SwiftUI
 
 struct BookmarkMessy: View {
     
-//    enum Tab {
-//        case bookmark, home, profile
-//    }
-//
-//    var selectedTab: Tab
-    
     var body: some View {
         
         NavigationView{
