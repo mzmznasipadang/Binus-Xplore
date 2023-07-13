@@ -131,7 +131,7 @@ struct OfficePage: View {
                 trailing: Text("Available Offices")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .padding(.trailing, 74.0)
+                    .padding(.trailing, 25.0)
                     .padding(.top, 19)
             )
         }
