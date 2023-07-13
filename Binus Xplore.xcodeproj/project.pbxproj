@@ -29,7 +29,7 @@
 		58E662322A5523210050A269 /* Binus_XploreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662312A5523210050A269 /* Binus_XploreUITests.swift */; };
 		58E662342A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */; };
 		8F7FA6372A5D8FD3006BC3A1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7FA6362A5D8FD3006BC3A1 /* HomeView.swift */; };
-		8FA26A042A5C718800B2A34D /* BookmarkMessy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA26A032A5C718800B2A34D /* BookmarkMessy.swift */; };
+		8FA26A042A5C718800B2A34D /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA26A032A5C718800B2A34D /* Bookmark.swift */; };
 		8FB6EEC32A5BD3DE00B13F00 /* navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */; };
 		8FB6EECB2A5C00E100B13F00 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC92A5C00E100B13F00 /* Model.xcdatamodeld */; };
 		8FC160C52A5EF1D300EB8053 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC160C42A5EF1D300EB8053 /* Profile.swift */; };
@@ -81,7 +81,7 @@
 		58E662312A5523210050A269 /* Binus_XploreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreUITests.swift; sourceTree = "<group>"; };
 		58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F7FA6362A5D8FD3006BC3A1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8FA26A032A5C718800B2A34D /* BookmarkMessy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkMessy.swift; sourceTree = "<group>"; };
+		8FA26A032A5C718800B2A34D /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navbar.swift; sourceTree = "<group>"; };
 		8FB6EECA2A5C00E100B13F00 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8FC160C42A5EF1D300EB8053 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				9A73A6072A60034C0054FD29 /* InformationCard */,
 				584972B32A5C5CB700CE105F /* TabBar */,
 				586373522A5EA54F00CF3F25 /* Search */,
-				8FA26A032A5C718800B2A34D /* BookmarkMessy.swift */,
+				8FA26A032A5C718800B2A34D /* Bookmark.swift */,
 				586373562A5EA98B00CF3F25 /* Onboarding */,
 				586373572A5EB12400CF3F25 /* StartingPoint */,
 				8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */,
@@ -401,7 +401,7 @@
 				585A00B72A5F0E4F0039125D /* OfficePage.swift in Sources */,
 				58E6621E2A5523210050A269 /* Binus_Xplore.xcdatamodeld in Sources */,
 				9A73A60F2A60044F0054FD29 /* back.swift in Sources */,
-				8FA26A042A5C718800B2A34D /* BookmarkMessy.swift in Sources */,
+				8FA26A042A5C718800B2A34D /* Bookmark.swift in Sources */,
 				586373552A5EA56300CF3F25 /* SearchResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
