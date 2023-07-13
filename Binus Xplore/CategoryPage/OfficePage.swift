@@ -1,18 +1,16 @@
 //
-//  SearchResult.swift
+//  OfficePage.swift
 //  Binus Xplore
 //
-//  Created by Aaron Alexander on 12/07/23.
+//  Created by Victor Chandra on 12/07/23.
 //
 
 import Foundation
 import SwiftUI
 
-//struct Constants {
-//        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-//    }
-struct SearchResult: View {
+struct OfficePage: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    //Soon to be changed integrated by Core Data
     
     var body: some View {
         NavigationView {
@@ -26,21 +24,10 @@ struct SearchResult: View {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
                             .foregroundColor(Color.white)
-<<<<<<< HEAD
-                            .padding(.horizontal, 19.0)
-                            .padding(.vertical, 8)
-                            .background(Color("MainColor"))
-                            .cornerRadius(12)
-                            .offset(x:5)
-                        
-
-
-=======
                             .padding(.horizontal, 10.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
                             .cornerRadius(12)
->>>>>>> main
                     }
                     .padding(.leading, 5)
                     Spacer()
@@ -123,7 +110,7 @@ struct SearchResult: View {
                     
                 }
                     .padding(.top, 15.0),
-                trailing: Text("Search Result")
+                trailing: Text("Available Offices")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.trailing, 74.0)
@@ -133,9 +120,8 @@ struct SearchResult: View {
     }
 }
 
-struct SearchResult_Previews: PreviewProvider {
+struct OfficePage_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResult()
+        OfficePage()
     }
 }
-
