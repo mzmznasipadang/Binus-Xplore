@@ -29,6 +29,7 @@ struct StartingPoint: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(maxHeight: .infinity, alignment: .topLeading)
                 
+                
                 Image("StartPointBG")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
