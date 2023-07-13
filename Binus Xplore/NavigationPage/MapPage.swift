@@ -194,7 +194,7 @@ struct MapPage: View {
                         }
                         .padding()
                         .edgesIgnoringSafeArea(.bottom)
-                        .offset(y:175)
+                        .offset(y:145)
                         
                         Spacer()
                     }

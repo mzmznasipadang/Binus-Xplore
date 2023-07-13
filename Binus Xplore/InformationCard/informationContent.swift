@@ -169,10 +169,7 @@ struct informationContent: View{
                     Text("Set Destination")
                         .foregroundColor(.white)
                         .kerning(0.374)
-                        .font(
-                          Font.custom("SF Pro Display", size: 20)
-                            .weight(.medium)
-                        )
+                        .font(.system(size: 20).weight(.medium))
                         .padding(.vertical, 8)
                         .frame(
                             maxWidth: .infinity

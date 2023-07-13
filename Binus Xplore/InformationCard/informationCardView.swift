@@ -43,7 +43,7 @@ struct informationCardView: View{
                   .foregroundColor(.clear)
                   .frame(width: 414, height: 586)
                   .background(.white)
-                  .cornerRadius(30)
+                  .cornerRadius(50)
                 ScrollView(.vertical){
                     informationContent()
                 }
