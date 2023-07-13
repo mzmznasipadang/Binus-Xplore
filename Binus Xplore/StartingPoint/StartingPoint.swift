@@ -15,13 +15,8 @@ struct StartingPoint: View {
     //    static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
     //    }
     
-    // Slider suggestion buttons
-    let items = [
-        Items(imageName: "building", title: "A0701"),
-        Items(imageName: "cup.and.saucer", title: "Tomoro Coffee"),
-        Items(imageName: "cup.and.saucer", title: "Dapur Nieta"),
-        Items(imageName: "cup.and.saucer", title: "Disrupt")
-    ]
+    // History List
+    var historyList: [History] = Histories.historyL
     
     var body: some View {
         VStack {
@@ -34,8 +29,16 @@ struct StartingPoint: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(maxHeight: .infinity, alignment: .topLeading)
                 
+                Image("StartPointBG")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 414, height: 350)
+                    .edgesIgnoringSafeArea(.all)
+                    .offset(y: 300)
                 
-                ZStack{
+                
+                
+                VStack{
                     // chevron button
                     
                     // Info Card
@@ -43,7 +46,7 @@ struct StartingPoint: View {
                         // Bar Atas
                         ZStack(alignment: .topLeading){
                             Rectangle()
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("MainColor"))
                                 .frame(width: 355, height: 200)
                                 .cornerRadius(20)
                                 .ignoresSafeArea()
@@ -61,7 +64,7 @@ struct StartingPoint: View {
                             .padding(16)
                         }
                         
-                        // Inside bar warna grey
+                        // Bar Bawah
                         ZStack{
                             Rectangle()
                                 .foregroundColor(.white)
@@ -133,19 +136,62 @@ struct StartingPoint: View {
                         }
                         .offset(y: 25)
                         
-                        // Bar Bawah/ History
-                        
                     }
                     .frame(maxHeight: .infinity, alignment: .topLeading)
                     .offset(y: 174)
                     
+                    // History View
+                    ScrollView {
+                        LazyVStack(spacing: 5) {
+                            ForEach(historyList, id: \.id) { history in
+                                VStack(alignment: .leading) {
+                                    HStack(spacing: 15) {
+                                        Image(systemName: "clock.fill")
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                            .foregroundColor(Color(red: 0.8, green: 0.87, blue: 1))
+                                        
+                                        Text(history.startPoint)
+                                            .font(.custom("SF Pro", size: 15))
+                                            .foregroundColor(.black)
+                                        
+                                        Image(systemName: "arrow.forward")
+                                        
+                                        Text(history.destination)
+                                            .font(.custom("SF Pro", size: 15))
+                                            .foregroundColor(.black)
+                                        
+                                        Spacer()
+                                        
+                                        //Favorites, gatau necessary atau engga
+                                        Image(systemName: "star")
+                                        
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.all, 15)
+                                    .padding(.leading, 15)
+                                    .background(Color.white)
+                                    Divider()
+                                        .background(Color.gray)
+                                }
+                                
+                            }
+                        }
+                        .background(Color.white)
+                    }
+                    .frame(width: 355, height: 285)
+                    .cornerRadius(20)
+                    
                 }
+                
+//                Image("StartPointBG")
                 
             }
             
+//            Image("StartPointBG")
             
             Button(action: {
-                
+                // Set Starting POint
             }) {
                 Text("Set Starting Point")
                     .font(Font.custom("SF Pro Display", size: 20)
@@ -159,7 +205,9 @@ struct StartingPoint: View {
             }
             .padding()
             
-        } .offset(y: -60)
+        }
+        .offset(y: -60)
+        .background(Color(red: 0.97, green: 0.97, blue: 0.97))
     }
     
     struct StartingPoint_Previews: PreviewProvider {
@@ -168,4 +216,3 @@ struct StartingPoint: View {
         }
     }
 }
-
