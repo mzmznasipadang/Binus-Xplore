@@ -36,7 +36,7 @@ struct HomeView: View {
                         }
                         Text("Office")
                             .font(.system(size: 13))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
@@ -52,7 +52,7 @@ struct HomeView: View {
                         }
                         Text("Class")
                             .font(.system(size: 13))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
@@ -68,7 +68,7 @@ struct HomeView: View {
                         }
                         Text("Labs")
                             .font(.system(size: 13))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                             .padding(.top, -2)
                     }
                     Spacer()
@@ -85,12 +85,12 @@ struct HomeView: View {
                         VStack {
                             Text("Public")
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(.apple)
+//                                .foregroundStyle(.apple)
                                 .font(.system(size: 13))
                                 .padding(.top, -2)
                             Text("Facility")
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(.apple)
+//                                .foregroundStyle(.apple)
                                 .font(.system(size: 13))
                         }
                         .frame(height: 8) // Add a fixed height to the VStack
@@ -246,33 +246,33 @@ struct BoxView: View {
                     Text("Event Title")
                         .font(.system(size: 18)
                             .weight(.semibold))
-                        .foregroundStyle(.apple)
+//                        .foregroundStyle(.apple)
                     HStack{
                         Image(systemName: "location")
                             .font(.system(size: 14))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                         Text("Location")
                             .font(.system(size: 12)) //Hati Hati Sering Crash
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                     }
                     HStack{
                         Image(systemName: "calendar")
                             .font(.system(size: 14))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                         Text("Date")
                             .font(.system(size: 12))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                             .fontWeight(.medium)
                             .kerning(0.374)
                     }
                     HStack{
                         Image(systemName: "clock")
                             .font(.system(size: 12))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                             .fontWeight(.medium)
                         Text("Time")
                             .font(.system(size: 12))
-                            .foregroundStyle(.apple)
+//                            .foregroundStyle(.apple)
                             .fontWeight(.medium)
                             .kerning(0.374)
                     }
