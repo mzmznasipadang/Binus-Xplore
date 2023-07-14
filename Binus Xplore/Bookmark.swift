@@ -13,8 +13,8 @@ struct Bookmark: View {
     var body: some View {
         
         NavigationView{
-//            ZStack {
-                // Your other views go here
+            //            ZStack {
+            // Your other views go here
             VStack {
                 VStack{
                     HStack{
@@ -37,22 +37,21 @@ struct Bookmark: View {
                                 .clipped()
                         )
                     Text("Any favorite spot in mind?")
-                        .font(Font.custom("SF Pro", size: 18))
-                        .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                        .fontWeight(.medium)
+                        .font(.system(size: 18))
+                        .foregroundColor(Color("Apple"))
                     Spacer()
                 }
                 .safeAreaInset(edge: .bottom){
                     //batas antara content sama navbar
                     ZStack{
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
-                            //                            NavigationLink(destination: Bookmark2()){
                             Image(systemName: "bookmark.fill")
-                                .font(Font.custom("SF Pro", size: 40))
-                                .foregroundColor(Color(red: 0, green: 0.29, blue: 0.68))
-                            //                            }
+                                .font(.system(size: 40))
+                                .foregroundColor(Color("MainColor"))
                             Spacer()
                             NavigationLink(destination: HomeView()){
                                 ZStack{
@@ -74,20 +73,18 @@ struct Bookmark: View {
                             NavigationLink(destination: Profile()){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
-                                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+                                    .foregroundColor(Color("MainColor"))
                             }
                         }.padding(.horizontal, 74.0)
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
-//                .navigationTitle("Bookmarked Places")
             }
-            .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-//            }.navigationTitle("Bookmarked Places")
+            .background(Color("WhiteBG"))
         }
         .navigationBarBackButtonHidden(true)
-
+        
     }
 }
 
