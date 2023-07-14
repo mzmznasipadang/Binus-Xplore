@@ -280,11 +280,13 @@ struct BoxView: View {
 
 struct SearchBar: View {
     @State private var searchText = ""
-    
+    @State private var isSearching = false
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
-            TextField("Where are you heading to?", text: $searchText)
+            TextField("Where are you heading to?", text: $searchText, onCommit: {
+                performSearch()
+            })
                 .font(.system(size: 15))
             Button(action: {
                 // action
@@ -298,6 +300,17 @@ struct SearchBar: View {
         .background(Color(.systemGray6))
         .cornerRadius(10)
         .padding(.horizontal)
+        
+        NavigationLink(
+            destination: SearchResult(), isActive: $isSearching
+        ){
+            EmptyView()
+        }.hidden()
+    }
+    private func performSearch(){
+        if !searchText.isEmpty{
+            isSearching = true
+        }
     }
 }
 
@@ -306,4 +319,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-
