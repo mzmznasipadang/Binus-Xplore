@@ -13,6 +13,10 @@
 		5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8B52A55B0BB00731E1C /* Splash.swift */; };
 		584972B52A5C5CCD00CE105F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584972B42A5C5CCD00CE105F /* CustomTabBar.swift */; };
 		584972B72A5C666200CE105F /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584972B62A5C666200CE105F /* TabBarButton.swift */; };
+		584DCE052A601EB500CB2AFC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584DCE042A601EB500CB2AFC /* SwiftUI.framework */; };
+		584DCE072A601EBB00CB2AFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584DCE062A601EBB00CB2AFC /* UIKit.framework */; };
+		584DCE092A601EC100CB2AFC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584DCE082A601EC100CB2AFC /* CoreData.framework */; };
+		58576C382A613BBA00281F08 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 58576C372A613BBA00281F08 /* .gitignore */; };
 		585A00B72A5F0E4F0039125D /* OfficePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585A00B62A5F0E4F0039125D /* OfficePage.swift */; };
 		586373552A5EA56300CF3F25 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586373542A5EA56300CF3F25 /* SearchResult.swift */; };
 		586373592A5EB13D00CF3F25 /* StartingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586373582A5EB13D00CF3F25 /* StartingPoint.swift */; };
@@ -61,6 +65,10 @@
 		5802E8B52A55B0BB00731E1C /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		584972B42A5C5CCD00CE105F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		584972B62A5C666200CE105F /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		584DCE042A601EB500CB2AFC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		584DCE062A601EBB00CB2AFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		584DCE082A601EC100CB2AFC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		58576C372A613BBA00281F08 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		585A00B62A5F0E4F0039125D /* OfficePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficePage.swift; sourceTree = "<group>"; };
 		586373542A5EA56300CF3F25 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		586373582A5EB13D00CF3F25 /* StartingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingPoint.swift; sourceTree = "<group>"; };
@@ -93,6 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				584DCE052A601EB500CB2AFC /* SwiftUI.framework in Frameworks */,
+				584DCE092A601EC100CB2AFC /* CoreData.framework in Frameworks */,
+				584DCE072A601EBB00CB2AFC /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +131,16 @@
 				584972B62A5C666200CE105F /* TabBarButton.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		584DCE032A601EB400CB2AFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				584DCE082A601EC100CB2AFC /* CoreData.framework */,
+				584DCE062A601EBB00CB2AFC /* UIKit.framework */,
+				584DCE042A601EB500CB2AFC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		585A00B52A5F0E380039125D /* CategoryPage */ = {
@@ -170,12 +191,14 @@
 		58E662052A55231F0050A269 = {
 			isa = PBXGroup;
 			children = (
+				58576C372A613BBA00281F08 /* .gitignore */,
 				58D5F6FA2A59C66D0025FE09 /* codemagic.yaml */,
 				8FB6EEC92A5C00E100B13F00 /* Model.xcdatamodeld */,
 				58E662102A55231F0050A269 /* Binus Xplore */,
 				58E662262A5523210050A269 /* Binus XploreTests */,
 				58E662302A5523210050A269 /* Binus XploreUITests */,
 				58E6620F2A55231F0050A269 /* Products */,
+				584DCE032A601EB400CB2AFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58576C382A613BBA00281F08 /* .gitignore in Resources */,
 				58D5F6FB2A59C66D0025FE09 /* codemagic.yaml in Resources */,
 				58E662192A5523210050A269 /* Preview Assets.xcassets in Resources */,
 				58E662162A5523210050A269 /* Assets.xcassets in Resources */,
@@ -560,7 +584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Binus Xplore/Preview Content\"";
 				DEVELOPMENT_TEAM = T8PA28UZH7;
 				ENABLE_PREVIEWS = YES;
@@ -592,7 +616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Binus Xplore/Preview Content\"";
 				DEVELOPMENT_TEAM = T8PA28UZH7;
 				ENABLE_PREVIEWS = YES;
