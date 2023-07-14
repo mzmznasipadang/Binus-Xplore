@@ -33,6 +33,8 @@
 		8FB6EEC32A5BD3DE00B13F00 /* navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */; };
 		8FB6EECB2A5C00E100B13F00 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6EEC92A5C00E100B13F00 /* Model.xcdatamodeld */; };
 		8FB794E12A6135020022725D /* ContentNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB794E02A6135020022725D /* ContentNav.swift */; };
+		8FB794E32A6144290022725D /* Loginpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB794E22A6144290022725D /* Loginpage.swift */; };
+		8FB794E52A6144970022725D /* Registerpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB794E42A6144970022725D /* Registerpage.swift */; };
 		8FC160C52A5EF1D300EB8053 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC160C42A5EF1D300EB8053 /* Profile.swift */; };
 		9A73A6092A6003B20054FD29 /* informationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73A6082A6003B20054FD29 /* informationCardView.swift */; };
 		9A73A60B2A6003D20054FD29 /* informationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73A60A2A6003D20054FD29 /* informationContent.swift */; };
@@ -86,6 +88,8 @@
 		8FB6EEC22A5BD3DE00B13F00 /* navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navbar.swift; sourceTree = "<group>"; };
 		8FB6EECA2A5C00E100B13F00 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8FB794E02A6135020022725D /* ContentNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentNav.swift; sourceTree = "<group>"; };
+		8FB794E22A6144290022725D /* Loginpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loginpage.swift; sourceTree = "<group>"; };
+		8FB794E42A6144970022725D /* Registerpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registerpage.swift; sourceTree = "<group>"; };
 		8FC160C42A5EF1D300EB8053 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		9A73A6082A6003B20054FD29 /* informationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = informationCardView.swift; sourceTree = "<group>"; };
 		9A73A60A2A6003D20054FD29 /* informationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = informationContent.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		58E662102A55231F0050A269 /* Binus Xplore */ = {
 			isa = PBXGroup;
 			children = (
+				8FB794E62A6144CA0022725D /* LoginRegister */,
 				9A73A6072A60034C0054FD29 /* InformationCard */,
 				584972B32A5C5CB700CE105F /* TabBar */,
 				586373522A5EA54F00CF3F25 /* Search */,
@@ -240,6 +245,15 @@
 				58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */,
 			);
 			path = "Binus XploreUITests";
+			sourceTree = "<group>";
+		};
+		8FB794E62A6144CA0022725D /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				8FB794E22A6144290022725D /* Loginpage.swift */,
+				8FB794E42A6144970022725D /* Registerpage.swift */,
+			);
+			path = LoginRegister;
 			sourceTree = "<group>";
 		};
 		9A73A6072A60034C0054FD29 /* InformationCard */ = {
@@ -392,6 +406,7 @@
 				8F7FA6372A5D8FD3006BC3A1 /* HomeView.swift in Sources */,
 				8FB794E12A6135020022725D /* ContentNav.swift in Sources */,
 				5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */,
+				8FB794E52A6144970022725D /* Registerpage.swift in Sources */,
 				58E6621B2A5523210050A269 /* Persistence.swift in Sources */,
 				8FC160C52A5EF1D300EB8053 /* Profile.swift in Sources */,
 				58E662142A55231F0050A269 /* Onboarding.swift in Sources */,
@@ -404,6 +419,7 @@
 				8FB6EECB2A5C00E100B13F00 /* Model.xcdatamodeld in Sources */,
 				585A00B72A5F0E4F0039125D /* OfficePage.swift in Sources */,
 				58E6621E2A5523210050A269 /* Binus_Xplore.xcdatamodeld in Sources */,
+				8FB794E32A6144290022725D /* Loginpage.swift in Sources */,
 				9A73A60F2A60044F0054FD29 /* back.swift in Sources */,
 				8FA26A042A5C718800B2A34D /* Bookmark.swift in Sources */,
 				586373552A5EA56300CF3F25 /* SearchResult.swift in Sources */,
