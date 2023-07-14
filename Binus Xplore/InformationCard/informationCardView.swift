@@ -55,7 +55,7 @@ struct informationCardView: View{
                 .offset(y: -60)
                 //            .background(.red)
                 
-                
+            
             }
         }
     }
