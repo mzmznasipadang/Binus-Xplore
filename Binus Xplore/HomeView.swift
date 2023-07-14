@@ -27,23 +27,26 @@ struct HomeView: View {
                     .padding(.leading, 30)
                 SearchBar()
                 HStack{
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainBlueIcon"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "briefcase.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
+                    NavigationLink(destination: OfficePage()){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon1"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "briefcase.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
+                            }
+                            Text("Office")
+                                .font(.system(size: 13))
+                                .foregroundStyle(.primary)
+                                .foregroundColor(.black)
+                                .padding(.top, -2)
                         }
-                        Text("Office")
-                            .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                     Spacer()
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainBlueIcon"))
+                                .fill(Color("ColorIcon1"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "books.vertical.fill")
                                 .frame(width: 46.0, height: 46.0)
@@ -58,7 +61,7 @@ struct HomeView: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainBlueIcon"))
+                                .fill(Color("ColorIcon1"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "desktopcomputer")
                                 .frame(width: 46.0, height: 46.0)
@@ -72,7 +75,7 @@ struct HomeView: View {
                     VStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("MainBlueIcon"))
+                                .fill(Color("ColorIcon1"))
                                 .frame(width: 58, height: 58)
                             Image(systemName: "person.2.fill")
                                 .frame(width: 46.0, height: 46.0)
@@ -102,7 +105,7 @@ struct HomeView: View {
                                 .frame(width: 58, height: 58)
                             Image(systemName: "building.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
                         }
-                        Text("A Building")
+                        Text("A Tower")
                             .font(.system(size: 13))
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
@@ -117,7 +120,7 @@ struct HomeView: View {
                                 .frame(width: 46.0, height: 46.0)
                                 .foregroundStyle(.white).font(.system(size: 30))
                         }
-                        Text("B Building")                   .font(.system(size: 13))
+                        Text("B Tower")                   .font(.system(size: 13))
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
@@ -131,7 +134,7 @@ struct HomeView: View {
                                 .frame(width: 46.0, height: 46.0)
                                 .foregroundStyle(.white).font(.system(size: 30))
                         }
-                        Text("C Building")               .font(.system(size: 13))
+                        Text("C Tower")               .font(.system(size: 13))
                             .foregroundStyle(.primary)
                             .padding(.top, -2)
                     }
@@ -178,7 +181,7 @@ struct HomeView: View {
                             .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
-                            NavigationLink(destination: BookmarkMessy()){ // Later Change to Bookmark
+                            NavigationLink(destination: Bookmark()){ // Later Change to Bookmark
                                 Image(systemName: "bookmark")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
@@ -234,7 +237,7 @@ struct BoxView: View {
                 Image("SunibAnggrek")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 130)
+                    .frame(width: 120, height: 120)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 
                 VStack(alignment: .leading, spacing: 5){
@@ -265,6 +268,8 @@ struct BoxView: View {
                             .kerning(0.374)
                     }
                 }
+                .padding(.leading, 15.0)
+                
             }
             .padding(.leading, -50.0)
             

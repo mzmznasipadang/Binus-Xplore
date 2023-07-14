@@ -13,7 +13,7 @@ import SwiftUI
 //    }
 struct SearchResult: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
             
@@ -27,7 +27,7 @@ struct SearchResult: View {
                             .font(.body)
                             .foregroundColor(Color.white)
 
-                            .padding(.horizontal, 19.0)
+                            .padding(.horizontal, 10.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
                             .cornerRadius(12)
@@ -61,7 +61,7 @@ struct SearchResult: View {
                                                 .foregroundColor(.white)
                                                 .background(Color("MainColor"))
                                                 .cornerRadius(8)
-                                                .offset(x:5)
+                                                .offset(x:17)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
                                                 Text("C0302")
@@ -77,10 +77,10 @@ struct SearchResult: View {
                                                         .foregroundColor(.black)
                                                         .padding(.leading)
                                                     
-                                                    Text("Floor 2, C Building")
+                                                    Text("Floor 2, C Tower")
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 16))
-                                                        .lineLimit(2)
+                                                        .lineLimit(1)
                                                         
             
                                                 }
@@ -99,12 +99,13 @@ struct SearchResult: View {
                                                 }.offset(y:5)
                                                 
                                                 
-                                            }.offset(x:-5)
+                                            }.offset(x:7)
+                                                .frame(width: 165, height: 300, alignment: .leading)
+                        
                                             
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(.black)
                                                 .padding()
-                                                .offset(x:10)
                                             
                                         }
                                             .padding(.horizontal)
@@ -126,7 +127,7 @@ struct SearchResult: View {
             .edgesIgnoringSafeArea(.vertical)
             .navigationBarItems(
                 leading: Button(action: {
-                    print("button pressed")
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .foregroundColor(Color.black)
@@ -142,7 +143,7 @@ struct SearchResult: View {
                     .padding(.trailing, 74.0)
                     .padding(.top, 19)
             )
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

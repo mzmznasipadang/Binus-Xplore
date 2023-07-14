@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct BookmarkMessy: View {
+struct Bookmark: View {
     
     var body: some View {
         
@@ -91,8 +91,8 @@ struct BookmarkMessy: View {
     }
 }
 
-struct BookMarkMessy_Previews: PreviewProvider {
+struct BookMark_Previews: PreviewProvider {
     static var previews: some View {
-        BookmarkMessy()
+        Bookmark()
     }
 }
