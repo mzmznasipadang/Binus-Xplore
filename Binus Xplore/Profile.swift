@@ -61,9 +61,12 @@ struct Profile: View{
                                     Button {
                             
                                     } label: {
-                                        Image("TeenyIcons")
+                                        Image("dropdown")
+                                            .resizable()
                                             
                                     }
+                                    .scaledToFit()
+                                    
                                     .frame(width: 30, height: 30)
                                     
                                        

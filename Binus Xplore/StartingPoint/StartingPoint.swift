@@ -57,8 +57,7 @@ struct StartingPoint: View {
                                     .foregroundColor(.white)
                                 
                                 Text("We ensure your data privacy!")
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.semibold))
+                                    .font(.system(size: 14).weight(.semibold))
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.white)
                             }
@@ -195,8 +194,7 @@ struct StartingPoint: View {
                 // Set Starting POint
             }) {
                 Text("Set Starting Point")
-                    .font(Font.custom("SF Pro Display", size: 20)
-                        .weight(.medium))
+                    .font(.system(size: 20).weight(.medium))
                     .foregroundColor(.white)
                     .frame(width: 354, height: 50)
                     .background(Color("MainColor"))
@@ -204,6 +202,7 @@ struct StartingPoint: View {
                     .edgesIgnoringSafeArea(.all)
                 
             }
+            .offset(y:70)
             .padding()
             
         }
