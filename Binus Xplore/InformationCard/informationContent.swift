@@ -165,7 +165,7 @@ struct informationContent: View{
                 .padding(.horizontal, 20)
 //                .background(.yellow)
                 
-                Button { } label: {
+                NavigationLink(destination: StartingPoint()){
                     Text("Set Destination")
                         .foregroundColor(.white)
                         .kerning(0.374)

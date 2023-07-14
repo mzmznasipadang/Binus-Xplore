@@ -237,7 +237,7 @@ struct BoxView: View {
                 Image("SunibAnggrek")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 130)
+                    .frame(width: 120, height: 120)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 
                 VStack(alignment: .leading, spacing: 5){
@@ -268,6 +268,8 @@ struct BoxView: View {
                             .kerning(0.374)
                     }
                 }
+                .padding(.leading, 15.0)
+                
             }
             .padding(.leading, -50.0)
             
