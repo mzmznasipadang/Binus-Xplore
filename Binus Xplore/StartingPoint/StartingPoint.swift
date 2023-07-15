@@ -191,7 +191,8 @@ struct StartingPoint: View {
 //            Image("StartPointBG")
             
             Button(action: {
-                // Set Starting POint
+                // Set Starting Point
+                //ke search results
             }) {
                 Text("Set Starting Point")
                     .font(.system(size: 20).weight(.medium))
