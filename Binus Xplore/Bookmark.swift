@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Bookmark: View {
-    @State private var isEmpty = false
+    @State private var isEmpty = true
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     var body: some View {
         
@@ -129,14 +129,12 @@ struct Bookmark: View {
                     //batas antara content sama navbar
                     ZStack{
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
-                            //                            NavigationLink(destination: Bookmark2()){
                             Image(systemName: "bookmark.fill")
-                                .font(Font.custom("SF Pro", size: 40))
-                                .foregroundColor(Color(red: 0, green: 0.29, blue: 0.68))
-                            //                            }
+                                .font(.system(size: 40))
+                                .foregroundColor(Color("MainColor"))
                             Spacer()
                             NavigationLink(destination: HomeView()){
                                 ZStack{
@@ -165,13 +163,10 @@ struct Bookmark: View {
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
-//                .navigationTitle("Bookmarked Places")
             }
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-//            }.navigationTitle("Bookmarked Places")
         }
         .navigationBarBackButtonHidden(true)
-
     }
 }
 

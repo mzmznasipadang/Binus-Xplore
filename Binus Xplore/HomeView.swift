@@ -91,7 +91,7 @@ struct HomeView: View {
                                 .multilineTextAlignment(.center)
                                 .font(.system(size: 13))
                         }
-                        .frame(height: 8) // Add a fixed height to the VStack
+                        .frame(height: 8)
                     }
                     
                 }.padding(.trailing, 53)
@@ -173,7 +173,6 @@ struct HomeView: View {
                     .padding()
                 }.frame(height: 290) //ScrollView
                 Spacer()
-                //            navbar(selectedTab: .home)
                 VStack{ //NavBar (OTW Ganti)
                     Spacer()
                     ZStack{
