@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Bookmark: View {
-    @State private var isEmpty = true
+    @State private var isEmpty = false
+    @State private var navigate = false
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     var body: some View {
         
@@ -44,10 +45,10 @@ struct Bookmark: View {
                     }
                     else{
                         ScrollView {
-                            VStack(spacing: 20) {
+                            VStack(spacing: 8) {
                                 ForEach(items, id: \.self) { item in
                                     Button(action: {
-                                        
+                                        self.navigate = true
                                     }) {
                                         RoundedRectangle(cornerRadius: 16)
                                             .foregroundColor(.white)
@@ -112,7 +113,7 @@ struct Bookmark: View {
                                                 
                                             )
                                     }
-                                    
+                                    NavigationLink(destination: StartingPoint(), isActive: $navigate) { EmptyView() }
                                 }
                             }
                             .padding()

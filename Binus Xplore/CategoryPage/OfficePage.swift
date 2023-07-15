@@ -10,6 +10,7 @@ import SwiftUI
 
 struct OfficePage: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    @State private var navigate = false
     //Soon to be changed integrated by Core Data
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -35,10 +36,10 @@ struct OfficePage: View {
                 .padding()
                 
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 8) {
                         ForEach(items, id: \.self) { item in
                             Button(action: {
-                                
+                                self.navigate = true
                             }) {
                                 RoundedRectangle(cornerRadius: 16)
                                     .foregroundColor(.white)
@@ -103,6 +104,7 @@ struct OfficePage: View {
                                         
                                     )
                             }
+                            NavigationLink(destination: informationCardView(), isActive: $navigate) { EmptyView() }
                             
                         }
                     }
@@ -123,6 +125,7 @@ struct OfficePage: View {
                 }) {
                     Image(systemName: "chevron.left")
                         .foregroundColor(Color.black)
+                        .font(.system(size: 12).weight(.semibold))
                         .frame(width: 40.0, height: 40.0)
                         .background(Color.white)
                         .clipShape(Circle())

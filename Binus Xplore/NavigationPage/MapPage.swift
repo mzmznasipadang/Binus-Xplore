@@ -213,7 +213,7 @@ struct MapPage: View {
             HStack {
                 Image(systemName: "chevron.left")
                     .foregroundColor(.black)
-                    .font(Font.system(size: 12).weight(.semibold))
+                    .font(.system(size: 12).weight(.semibold))
                     .padding(16)
                     .background(Color.white)
                     .clipShape(Circle())

@@ -13,7 +13,7 @@ struct informationContent: View{
         static let RedDanger3: Color = Color(red: 1, green: 0.27, blue: 0.27)
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
     }
-    @State private var isSaved = false
+    @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
     var body: some View{
         //------------ info card content
         VStack{
