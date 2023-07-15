@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 
 struct Bookmark: View {
-    
+    @State private var isEmpty = false
+    @State private var navigate = false
+    let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     var body: some View {
         
         NavigationView{
@@ -26,33 +28,114 @@ struct Bookmark: View {
                         Spacer()
                     }
                     Spacer()
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 354, height: 253)
-                        .background(
-                            Image("404")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 354, height: 253)
-                                .clipped()
-                        )
-                    Text("Any favorite spot in mind?")
-                        .font(Font.custom("SF Pro", size: 18))
-                        .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                    if (isEmpty == true){
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 354, height: 253)
+                            .background(
+                                Image("404")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 354, height: 253)
+                                    .clipped()
+                            )
+                        Text("Any favorite spot in mind?")
+                            .font(Font.custom("SF Pro", size: 18))
+                            .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                    }
+                    else{
+                        ScrollView {
+                            VStack(spacing: 8) {
+                                ForEach(items, id: \.self) { item in
+                                    Button(action: {
+                                        self.navigate = true
+                                    }) {
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .foregroundColor(.white)
+                                            .frame(width: 352.0, height: 169.0)
+                                            .overlay(
+                                                HStack(spacing: 8) {
+                                                    Image(systemName: "photo")
+                                                        .resizable()
+                                                        .padding()
+                                                        .frame(width: 138.0, height: 138.0)
+                                                        .foregroundColor(.white)
+                                                        .background(Color("MainColor"))
+                                                        .cornerRadius(8)
+                                                        .offset(x:17)
+                                                    
+                                                    VStack(alignment: .leading, spacing: 4) {
+                                                        Text("C0302")
+                                                            .font(.system(size: 24))
+                                                            .fontWeight(.bold)
+                                                            .foregroundColor(.black)
+                                                            .padding(.leading)
+                                                            
+                                                        
+                                                        
+                                                        HStack{
+                                                            Image(systemName: "location")
+                                                                .foregroundColor(.black)
+                                                                .padding(.leading)
+                                                            
+                                                            Text("Floor 2, C Tower")
+                                                                .foregroundColor(.black)
+                                                                .font(.system(size: 16))
+                                                                .lineLimit(1)
+                                                                
+                    
+                                                        }
+                                                        
+                                                        HStack{
+                                                            Image(systemName: "clock")
+                                                                .foregroundColor(.black)
+                                                                .padding(.leading)
+                                                            
+                                                            Text("07.00 - 15.00")
+                                                                .foregroundColor(.black)
+                                                                .font(.system(size: 16))
+                                                                .lineLimit(1)
+                                                                .frame(width: 95.0)
+                                                                
+                                                        }.offset(y:5)
+                                                        
+                                                        
+                                                    }.offset(x:7)
+                                                        .frame(width: 165, height: 300, alignment: .leading)
+                                
+                                                    
+                                                    Image(systemName: "chevron.right")
+                                                        .foregroundColor(.black)
+                                                        .padding()
+                                                    
+                                                }
+                                                    .padding(.horizontal)
+                                                
+                                            )
+                                    }
+                                    NavigationLink(destination: StartingPoint(), isActive: $navigate) { EmptyView() }
+                                }
+                            }
+                            .padding()
+                            .offset(y:-20)
+                            
+                            
+                            
+                            
+                        }
+                    }
                     Spacer()
                 }
                 .safeAreaInset(edge: .bottom){
                     //batas antara content sama navbar
                     ZStack{
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
-                            //                            NavigationLink(destination: Bookmark2()){
                             Image(systemName: "bookmark.fill")
-                                .font(Font.custom("SF Pro", size: 40))
-                                .foregroundColor(Color(red: 0, green: 0.29, blue: 0.68))
-                            //                            }
+                                .font(.system(size: 40))
+                                .foregroundColor(Color("MainColor"))
                             Spacer()
                             NavigationLink(destination: HomeView()){
                                 ZStack{
@@ -81,13 +164,10 @@ struct Bookmark: View {
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
-//                .navigationTitle("Bookmarked Places")
             }
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-//            }.navigationTitle("Bookmarked Places")
         }
         .navigationBarBackButtonHidden(true)
-
     }
 }
 

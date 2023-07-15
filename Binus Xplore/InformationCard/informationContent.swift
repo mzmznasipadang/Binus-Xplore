@@ -13,35 +13,56 @@ struct informationContent: View{
         static let RedDanger3: Color = Color(red: 1, green: 0.27, blue: 0.27)
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
     }
+    @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
     var body: some View{
         //------------ info card content
         VStack{
             VStack(alignment: .leading){
-//                Spacer()
-                HStack(){
-                    Text("Close")
-                      .font(
-                        Font.custom("SF Pro Display", size: 20)
-                          .weight(.medium)
-                      )
-                      .kerning(0.374)
-                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
-//                    if(calendar.component(.hour, from: date) < Date(.hour))
-//                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
+                HStack{
+                    HStack(){
+                        Text("Close")
+                            .font(
+                                Font.custom("SF Pro Display", size: 20)
+                                    .weight(.medium)
+                            )
+                            .kerning(0.374)
+                            .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
+                        //                    if(calendar.component(.hour, from: date) < Date(.hour))
+                        //                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 5)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .inset(by: -1)
+                            .stroke(Constants.RedDanger3, lineWidth: 2)
+                    )
+                    .padding(.horizontal,20)
+                    Spacer()
+                    Button {
+                        if (isSaved == false){
+                            isSaved = true
+                        }
+                        else{
+                            isSaved = false
+                        }
+                    } label: {
+                        if (isSaved == false){
+                            Image(systemName: "bookmark")
+                                .font(.system(size: 25))
+                                .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                        }
+                        else{
+                            Image(systemName: "bookmark.fill")
+                                .font(.system(size: 25))
+                                .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                        }
+                            
+
+                    }.offset(x: 42)
+
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 5)
-                .cornerRadius(12)
-                .overlay(
-                  RoundedRectangle(cornerRadius: 12)
-                    .inset(by: -1)
-                    .stroke(Constants.RedDanger3, lineWidth: 2)
-                )
-                .padding(.horizontal,20)
-//                    .frame(width: 300, alignment: .leading)
-//                    .padding(.horizontal, 20)
-//                    .padding(.vertical, 10)
-//                .background(Color.gray)
                 HStack{
                     Image(systemName: "location.fill")
                         .padding(.horizontal, 4)
@@ -164,9 +185,12 @@ struct informationContent: View{
                 }
                 .padding(.horizontal, 20)
 //                .background(.yellow)
-                
+                //2 opsi, starting point dan trip summary
+                //harus bikin flag variabel buat cek start node uda keisi apa belom
+                //kalo ya, trip summary
+                //kalo ga, strting point
                 NavigationLink(destination: StartingPoint()){
-                    Text("Set Destination")
+                    Text("Set Location")
                         .foregroundColor(.white)
                         .kerning(0.374)
                         .font(.system(size: 20).weight(.medium))

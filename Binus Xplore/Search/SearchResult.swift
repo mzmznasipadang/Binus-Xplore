@@ -14,6 +14,7 @@ import SwiftUI
 struct SearchResult: View {
     let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     @Environment(\.presentationMode) var presentationMode
+    @State private var navigate = false
     var body: some View {
         NavigationView {
             
@@ -44,10 +45,10 @@ struct SearchResult: View {
                 .padding()
                 
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 8) {
                         ForEach(items, id: \.self) { item in
                             Button(action: {
-                                
+                                self.navigate = true
                             }) {
                                 RoundedRectangle(cornerRadius: 16)
                                     .foregroundColor(.white)
@@ -112,7 +113,7 @@ struct SearchResult: View {
                                         
                                     )
                             }
-                            
+                            NavigationLink(destination: informationCardView(), isActive: $navigate) { EmptyView() }
                         }
                     }
                     .padding()
@@ -132,6 +133,7 @@ struct SearchResult: View {
                     Image(systemName: "chevron.left")
                         .foregroundColor(Color.black)
                         .frame(width: 40.0, height: 40.0)
+                        .font(.system(size: 12).weight(.semibold))
                         .background(Color.white)
                         .clipShape(Circle())
                     

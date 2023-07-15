@@ -91,7 +91,7 @@ struct HomeView: View {
                                 .multilineTextAlignment(.center)
                                 .font(.system(size: 13))
                         }
-                        .frame(height: 8) // Add a fixed height to the VStack
+                        .frame(height: 8)
                     }
                     
                 }.padding(.trailing, 53)
@@ -173,7 +173,6 @@ struct HomeView: View {
                     .padding()
                 }.frame(height: 290) //ScrollView
                 Spacer()
-                //            navbar(selectedTab: .home)
                 VStack{ //NavBar (OTW Ganti)
                     Spacer()
                     ZStack{
@@ -226,54 +225,56 @@ struct HomeView: View {
 
 struct BoxView: View {
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color("AppleText"))
-                .frame(width: 350, height: 150)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
-                )
-            HStack(spacing: 30){
-                Image("SunibAnggrek")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 120)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                
-                VStack(alignment: .leading, spacing: 5){
-                    Text("Event Title")
-                        .font(.system(size: 18)
-                            .weight(.semibold))
-                    HStack{
-                        Image(systemName: "location")
-                            .font(.system(size: 14))
-                        Text("Location")
-                            .font(.system(size: 12)) //Hati Hati Sering Crash
+        NavigationLink(destination: informationCardView()){
+            ZStack{
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color("AppleText"))
+                    .frame(width: 350, height: 150)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
+                    )
+                HStack(spacing: 30){
+                    Image("SunibAnggrek")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 120, height: 120)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text("Event Title")
+                            .font(.system(size: 18)
+                                .weight(.semibold))
+                        HStack{
+                            Image(systemName: "location")
+                                .font(.system(size: 14))
+                            Text("Location")
+                                .font(.system(size: 12)) //Hati Hati Sering Crash
+                        }
+                        HStack{
+                            Image(systemName: "calendar")
+                                .font(.system(size: 14))
+                            Text("Date")
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                                .kerning(0.374)
+                        }
+                        HStack{
+                            Image(systemName: "clock")
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                            Text("Time")
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                                .kerning(0.374)
+                        }
                     }
-                    HStack{
-                        Image(systemName: "calendar")
-                            .font(.system(size: 14))
-                        Text("Date")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                            .kerning(0.374)
-                    }
-                    HStack{
-                        Image(systemName: "clock")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                        Text("Time")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                            .kerning(0.374)
-                    }
+                    .padding(.leading, 15.0)
+                    
                 }
-                .padding(.leading, 15.0)
+                .padding(.leading, -50.0)
                 
-            }
-            .padding(.leading, -50.0)
-            
-        }.padding(.horizontal, 20.0)
+            }.padding(.horizontal, 20.0)
+        }.foregroundColor(.black)
         
     }
 }
