@@ -8,11 +8,14 @@
 import Foundation
 import SwiftUI
 
+
 //struct Constants {
 //        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
 //    }
 struct SearchResult: View {
-    let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    let searchText: String
+
+
     @Environment(\.presentationMode) var presentationMode
     @State private var navigate = false
     var body: some View {
@@ -46,7 +49,7 @@ struct SearchResult: View {
                 
                 ScrollView {
                     VStack(spacing: 8) {
-                        ForEach(items, id: \.self) { item in
+                        ForEach(pinpoints.filter { $0.name.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
                             Button(action: {
                                 self.navigate = true
                             }) {
@@ -55,17 +58,17 @@ struct SearchResult: View {
                                     .frame(width: 352.0, height: 169.0)
                                     .overlay(
                                         HStack(spacing: 8) {
-                                            Image(systemName: "photo")
+                                            Image(item.images.first ?? "default_image")
                                                 .resizable()
                                                 .padding()
                                                 .frame(width: 138.0, height: 138.0)
-                                                .foregroundColor(.white)
-                                                .background(Color("MainColor"))
+//                                                .foregroundColor(.white)
+//                                                .background(Color("MainColor"))
                                                 .cornerRadius(8)
                                                 .offset(x:17)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
-                                                Text("C0302")
+                                                Text(item.name)
                                                     .font(.system(size: 24))
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.black)
@@ -78,7 +81,7 @@ struct SearchResult: View {
                                                         .foregroundColor(.black)
                                                         .padding(.leading)
                                                     
-                                                    Text("Floor 2, C Tower")
+                                                    Text(item.floor + ", " + item.building)
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 16))
                                                         .lineLimit(1)
@@ -91,7 +94,7 @@ struct SearchResult: View {
                                                         .foregroundColor(.black)
                                                         .padding(.leading)
                                                     
-                                                    Text("07.00 - 15.00")
+                                                    Text(item.time)
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 16))
                                                         .lineLimit(1)
@@ -151,7 +154,7 @@ struct SearchResult: View {
 
 struct SearchResult_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResult()
+        SearchResult(searchText: "Item")
     }
 }
 
