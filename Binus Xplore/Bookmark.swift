@@ -165,7 +165,7 @@ struct Bookmark: View {
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
             }
-            .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+            .background(Color("WhiteBG"))
         }
         .navigationBarBackButtonHidden(true)
     }
