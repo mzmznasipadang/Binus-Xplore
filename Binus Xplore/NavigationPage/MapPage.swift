@@ -203,7 +203,7 @@ struct MapPage: View {
                 }
                 
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     var backButton: some View {

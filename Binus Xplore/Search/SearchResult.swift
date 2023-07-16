@@ -9,9 +9,6 @@ import Foundation
 import SwiftUI
 
 
-//struct Constants {
-//        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-//    }
 struct SearchResult: View {
     let searchText: String
 
