@@ -46,7 +46,7 @@ struct LandingPage: View {
                     }.offset(y: -100)//;Spacer(minLength: 300)
                     
                     HStack{
-                        NavigationLink(destination: HomeView()){
+                        NavigationLink(destination: Loginpage()){
                             Label("Login With Email", systemImage: "iphone.gen2")
                                 .foregroundColor(.white)
                                 .frame(width: 200, height: 30)

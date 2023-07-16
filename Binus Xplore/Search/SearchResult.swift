@@ -8,32 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct pinpoint: Identifiable, Hashable {
-    let id = UUID()
-    let name: String
-    let images: [String]
-    let status: Bool
-    let time: String
-    let description: String
-    let isSaved: Bool
-    let floor: String
-    let building: String
-}
-
 
 //struct Constants {
 //        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
 //    }
 struct SearchResult: View {
     let searchText: String
-    let items: [pinpoint] = [
-        pinpoint(name: "Item 1", images: ["404"], status: true, time: "10:00 - 11.00", description: "This is item 1", isSaved: false, floor: "Floor 2", building: "C Tower"),
-        pinpoint(name: "Item 112", images: ["404"], status: false, time: "11:00 - 12.00", description: "This is item 2", isSaved: true, floor: "Floor 3", building: "C Tower"),
-        pinpoint(name: "Item 113", images: ["404"], status: false, time: "12:00 - 13.00", description: "This is item 3", isSaved: true, floor: "Floor 4", building: "B Tower"),
-        pinpoint(name: "Item 145", images: ["404"], status: true, time: "13:00 - 14.00", description: "This is item 4", isSaved: true, floor: "Floor 4", building: "C Tower"),
-        pinpoint(name: "Item 125", images: ["404"], status: false, time: "14:00 - 15.00", description: "This is item 5", isSaved: true, floor: "Floor 5", building: "B Tower"),
-        // ... add more items as needed
-    ]
+
 
     @Environment(\.presentationMode) var presentationMode
     @State private var navigate = false
@@ -68,7 +49,7 @@ struct SearchResult: View {
                 
                 ScrollView {
                     VStack(spacing: 8) {
-                        ForEach(items.filter { $0.name.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
+                        ForEach(pinpoints.filter { $0.name.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
                             Button(action: {
                                 self.navigate = true
                             }) {

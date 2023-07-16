@@ -27,7 +27,7 @@ struct HomeView: View {
                     .padding(.leading, 30)
                 SearchBar()
                 HStack{
-                    NavigationLink(destination: OfficePage()){
+                    NavigationLink(destination: OfficePage(searchText: "Office")){
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -43,19 +43,22 @@ struct HomeView: View {
                         }
                     }
                     Spacer()
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon1"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "books.vertical.fill")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white).font(.system(size: 30))
+                    NavigationLink(destination: OfficePage(searchText: "Class")){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon1"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "books.vertical.fill")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white).font(.system(size: 30))
+                            }
+                            Text("Class")
+                                .font(.system(size: 13))
+                                .foregroundStyle(.primary)
+                                .foregroundColor(.black)
+                                .padding(.top, -2)
                         }
-                        Text("Class")
-                            .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                     Spacer()
                     VStack{
@@ -303,7 +306,7 @@ struct SearchBar: View {
         .padding(.horizontal)
         
         NavigationLink(
-            destination: SearchResult(searchText: searchText), isActive: $isSearching
+            destination: ContentNav(searchText: searchText), isActive: $isSearching
         ){
             EmptyView()
         }.hidden()

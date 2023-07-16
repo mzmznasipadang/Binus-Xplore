@@ -15,16 +15,18 @@ struct Node {
 
 
 struct ContentNav: View {
-    @StateObject private var viewModel = ContentViewModel()
-    @Environment(\.presentationMode) var presentationMode
-    struct Constants {
-        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-    }
+    let searchText: String
+       @StateObject private var viewModel: ContentViewModel
+       @Environment(\.presentationMode) var presentationMode
+
+       init(searchText: String) {
+           self.searchText = searchText
+           self._viewModel = StateObject(wrappedValue: ContentViewModel(endNode: searchText))
+       }
 
     var body: some View {
         ScrollView{
             VStack {
-                
                 HStack(alignment: .center, spacing: 0) { }
                     .padding(0)
                     .frame(width: 417, height: 250)
@@ -54,11 +56,12 @@ struct ContentNav: View {
                                 .background(Color.white.opacity(0.8))
                                 .cornerRadius(10)
                             
-                            TextField("Enter end node", text: $viewModel.endNode)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .frame(width: 350, height: 50)
-                                .background(Color.white.opacity(0.8))
-                                .cornerRadius(10)
+                            Text(searchText)
+//                            TextField("Enter end node", text: $viewModel.endNode)
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                                .frame(width: 350, height: 50)
+//                                .background(Color.white.opacity(0.8))
+//                                .cornerRadius(10)
                         }
                     }
                 }
@@ -130,11 +133,15 @@ struct ContentNav: View {
 
 class ContentViewModel: ObservableObject {
     @Published var startNode: String = ""
-    @Published var endNode: String = ""
+    @Published var endNode: String
     @Published var shortestPath: String = ""
     @Published var pathNodes: [String] = []
     @Published var nodeDistances: [String: Int] = [:]
     @Published var totalDistance: Int = 0
+//    @Published var searchText = searchText
+    init(endNode: String) { // Update this line
+            self.endNode = endNode // Update this line
+        }
 
     private var graph: [String: Node] = [
         "Lobby": Node(key: "Lobby", value: "Lobby Value", neighbors: ["Toilet": 5, "Kantin": 12, "Apple": 7]),
@@ -222,6 +229,6 @@ class ContentViewModel: ObservableObject {
 
 struct ContentNav_Previews: PreviewProvider {
     static var previews: some View {
-        ContentNav()
+        ContentNav(searchText : "item")
     }
 }
