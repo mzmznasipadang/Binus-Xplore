@@ -19,7 +19,6 @@ struct SearchResult: View {
     @State private var navigate = false
     var body: some View {
         NavigationView {
-            
             VStack {
                 Spacer(minLength: 100)
                 HStack(){
