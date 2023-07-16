@@ -303,7 +303,7 @@ struct SearchBar: View {
         .padding(.horizontal)
         
         NavigationLink(
-            destination: SearchResult(), isActive: $isSearching
+            destination: SearchResult(searchText: searchText), isActive: $isSearching
         ){
             EmptyView()
         }.hidden()
