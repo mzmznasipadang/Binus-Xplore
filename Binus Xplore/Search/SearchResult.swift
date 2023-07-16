@@ -11,9 +11,11 @@ import SwiftUI
 
 struct SearchResult: View {
     let searchText: String
+    @State private var selectedItem: pinpoint?
 
 
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var navigate = false
     var body: some View {
         NavigationView {
@@ -49,6 +51,7 @@ struct SearchResult: View {
                         ForEach(pinpoints.filter { $0.name.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
                             Button(action: {
                                 self.navigate = true
+                                self.selectedItem = item
                             }) {
                                 RoundedRectangle(cornerRadius: 16)
                                     .foregroundColor(.white)
@@ -113,7 +116,7 @@ struct SearchResult: View {
                                         
                                     )
                             }
-                            NavigationLink(destination: informationCardView(), isActive: $navigate) { EmptyView() }
+                            NavigationLink(destination: informationCardView(item: selectedItem), isActive: $navigate) { EmptyView() }
                         }
                     }
                     .padding()

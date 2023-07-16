@@ -228,7 +228,7 @@ struct HomeView: View {
 
 struct BoxView: View {
     var body: some View {
-        NavigationLink(destination: informationCardView()){
+        NavigationLink(destination: StartingPoint()){
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color("AppleText"))

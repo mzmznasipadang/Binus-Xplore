@@ -10,6 +10,7 @@ import SwiftUI
 
 struct informationCardView: View{
     @Environment(\.presentationMode) var presentationMode
+    let item: pinpoint?
     var body: some View{
         NavigationView{
             VStack(){
@@ -18,7 +19,7 @@ struct informationCardView: View{
                         .padding(0)
                         .frame(width: 417, height: 364)
                         .background(
-                            Image("admission-office-main")
+                            Image(item!.images.first!)
                                 .resizable()
                                 .opacity(0.8)
                                 .aspectRatio(contentMode: .fill)
@@ -31,7 +32,7 @@ struct informationCardView: View{
                                 .stroke(Color(red: 0.69, green: 0.69, blue: 0.71), lineWidth: 2)
                             
                         )
-                    Text("Admission Office")
+                    Text(item!.name)
                         .font(.system(size: 40).weight(.semibold))
                         .foregroundColor(Color(red: 0.97, green: 0.97, blue: 0.97))
                         .frame(width: 346, height: 35, alignment: .topLeading)
@@ -49,7 +50,7 @@ struct informationCardView: View{
                         .background(.white)
                         .cornerRadius(50)
                     ScrollView(.vertical){
-                        informationContent()
+                        informationContent(item: item)
                     }
                     
                 }
@@ -81,7 +82,8 @@ struct informationCardView: View{
 
 struct informationCardView_Previews: PreviewProvider {
     static var previews: some View {
-        informationCardView()
+        let dummyItem = pinpoint(name: "Admission Office", images: ["admission-office-main"], status: false, time: "08:00 - 17:00", description: "Information center and facility to provide important announcements regarding student admission.", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
+        informationCardView(item: dummyItem)
     }
 }
 //informationCardView
