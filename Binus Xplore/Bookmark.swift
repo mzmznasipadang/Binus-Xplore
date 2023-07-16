@@ -15,8 +15,8 @@ struct Bookmark: View {
     var body: some View {
         
         NavigationView{
-//            ZStack {
-                // Your other views go here
+            //            ZStack {
+            // Your other views go here
             VStack {
                 VStack{
                     HStack{
@@ -157,7 +157,7 @@ struct Bookmark: View {
                             NavigationLink(destination: Profile()){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
-                                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+                                    .foregroundColor(Color("MainColor"))
                             }
                         }.padding(.horizontal, 74.0)
                     }
