@@ -27,7 +27,7 @@ struct HomeView: View {
                     .padding(.leading, 30)
                 SearchBar()
                 HStack{
-                    NavigationLink(destination: OfficePage()){
+                    NavigationLink(destination: OfficePage(searchText: "Office")){
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -43,19 +43,22 @@ struct HomeView: View {
                         }
                     }
                     Spacer()
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon1"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "books.vertical.fill")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white).font(.system(size: 30))
+                    NavigationLink(destination: OfficePage(searchText: "Class")){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon1"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "books.vertical.fill")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white).font(.system(size: 30))
+                            }
+                            Text("Class")
+                                .font(.system(size: 13))
+                                .foregroundStyle(.primary)
+                                .foregroundColor(.black)
+                                .padding(.top, -2)
                         }
-                        Text("Class")
-                            .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                     Spacer()
                     VStack{
@@ -91,7 +94,7 @@ struct HomeView: View {
                                 .multilineTextAlignment(.center)
                                 .font(.system(size: 13))
                         }
-                        .frame(height: 8) // Add a fixed height to the VStack
+                        .frame(height: 8)
                     }
                     
                 }.padding(.trailing, 53)
@@ -173,8 +176,7 @@ struct HomeView: View {
                     .padding()
                 }.frame(height: 290) //ScrollView
                 Spacer()
-
-                VStack{
+                VStack{ //NavBar (OTW Ganti)
                     Spacer()
                     ZStack{
                         Rectangle()
@@ -226,65 +228,69 @@ struct HomeView: View {
 
 struct BoxView: View {
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color("AppleText"))
-                .frame(width: 350, height: 150)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
-                )
-            HStack(spacing: 30){
-                Image("SunibAnggrek")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 120)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                
-                VStack(alignment: .leading, spacing: 5){
-                    Text("Event Title")
-                        .font(.system(size: 18)
-                            .weight(.semibold))
-                    HStack{
-                        Image(systemName: "location")
-                            .font(.system(size: 14))
-                        Text("Location")
-                            .font(.system(size: 12)) //Hati Hati Sering Crash
+        NavigationLink(destination: informationCardView()){
+            ZStack{
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color("AppleText"))
+                    .frame(width: 350, height: 150)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
+                    )
+                HStack(spacing: 30){
+                    Image("SunibAnggrek")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 120, height: 120)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text("Event Title")
+                            .font(.system(size: 18)
+                                .weight(.semibold))
+                        HStack{
+                            Image(systemName: "location")
+                                .font(.system(size: 14))
+                            Text("Location")
+                                .font(.system(size: 12)) //Hati Hati Sering Crash
+                        }
+                        HStack{
+                            Image(systemName: "calendar")
+                                .font(.system(size: 14))
+                            Text("Date")
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                                .kerning(0.374)
+                        }
+                        HStack{
+                            Image(systemName: "clock")
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                            Text("Time")
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                                .kerning(0.374)
+                        }
                     }
-                    HStack{
-                        Image(systemName: "calendar")
-                            .font(.system(size: 14))
-                        Text("Date")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                            .kerning(0.374)
-                    }
-                    HStack{
-                        Image(systemName: "clock")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                        Text("Time")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                            .kerning(0.374)
-                    }
+                    .padding(.leading, 15.0)
+                    
                 }
-                .padding(.leading, 15.0)
+                .padding(.leading, -50.0)
                 
-            }
-            .padding(.leading, -50.0)
-            
-        }.padding(.horizontal, 20.0)
+            }.padding(.horizontal, 20.0)
+        }.foregroundColor(.black)
         
     }
 }
 
 struct SearchBar: View {
     @State private var searchText = ""
-    
+    @State private var isSearching = false
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
-            TextField("Where are you heading to?", text: $searchText)
+            TextField("Where are you heading to?", text: $searchText, onCommit: {
+                performSearch()
+            })
                 .font(.system(size: 15))
             Button(action: {
                 // action
@@ -298,6 +304,17 @@ struct SearchBar: View {
         .background(Color(.systemGray6))
         .cornerRadius(10)
         .padding(.horizontal)
+        
+        NavigationLink(
+            destination: SearchResult(searchText: searchText), isActive: $isSearching
+        ){
+            EmptyView()
+        }.hidden()
+    }
+    private func performSearch(){
+        if !searchText.isEmpty{
+            isSearching = true
+        }
     }
 }
 
@@ -306,4 +323,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-

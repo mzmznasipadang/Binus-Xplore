@@ -20,11 +20,156 @@ struct Profile: View{
                         .padding(.leading, 30)
                     Spacer()
                 }
-                Image("404")
-                    .padding(.top, 150.0)
-                Text("Dummy Page")
-                //navbar
-                VStack{
+                Image("SunibAnggrek")
+                                .resizable()
+                                .frame(width: 224, height: 179)
+                                .clipShape(Circle())
+                HStack{
+                    Text("Maya Rahayu")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .font(.system(size:30))
+                    Button {
+            
+                    } label: {
+                        Image(systemName:"pencil")
+                            .foregroundColor(Color.gray)
+
+                    }
+                }.offset(y:20)
+                VStack (spacing:35){
+                    VStack(alignment: .leading, spacing:25){
+                                Text("Biodata")
+                                  .font(
+                                    Font.custom("SF Pro", size: 15)
+                                      .weight(.semibold)
+                                  )
+                                  .kerning(0.374)
+                                  .foregroundColor(Color(red: 0.32, green: 0.31, blue: 0.31))
+                                
+                                HStack{
+                                    
+                                    Image(systemName: "figure.roll")
+                                    
+                                    Text("Special Needs")
+                                      .font(Font.custom("SF Pro", size: 14))
+                                      .kerning(0.374)
+                                      .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+
+                                    Spacer()
+                                    
+                                    Button {
+                            
+                                    } label: {
+                                        Image("dropdown")
+                                            .resizable()
+                                            
+                                    }
+                                    .scaledToFit()
+                                    
+                                    .frame(width: 30, height: 30)
+                                    
+                                       
+                                }
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 16.5)
+                                .frame(width: 340, height: 50, alignment: .leading)
+                                .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+                                .cornerRadius(10)
+                                .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 1)
+                                )
+                                
+                                HStack{
+                                    
+                                    Image(systemName: "phone.fill")
+                                    
+                                    Text("081234567819")
+                                      .font(Font.custom("SF Pro", size: 14))
+                                      .kerning(0.374)
+                                      .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 16.5)
+                                .frame(width: 340, height: 50, alignment: .leading)
+                                .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+                                .cornerRadius(10)
+                                .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 1)
+                                )
+                            }
+                            
+                            // perlu space betwen keduanya
+                            
+                    VStack(alignment: .leading, spacing:25){
+                        
+                                Text("Emergency Contact")
+                                  .font(
+                                    Font.custom("SF Pro", size: 15)
+                                      .weight(.semibold)
+                                  )
+                                  .kerning(0.374)
+                                  .foregroundColor(Color(red: 0.32, green: 0.31, blue: 0.31))
+                                
+                                HStack{
+                                    
+                                    Image(systemName: "phone.fill")
+                                    
+                                    Text("081234567819")
+                                      .font(Font.custom("SF Pro", size: 14))
+                                      .kerning(0.374)
+                                      .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                    
+                                    Text("Assistant")
+                                      .font(Font.custom("SF Pro", size: 14))
+                                      .kerning(0.374)
+                                      .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59))
+                                      .offset(x:70)
+                                      
+                                     
+                                }
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 16.5)
+                                .frame(width: 340, height: 50, alignment: .leading)
+                                .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+                                .cornerRadius(10)
+                                .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 1)
+                                )
+                                
+                                HStack{
+                                    
+                                    Image(systemName: "phone.fill")
+                                    
+                                    Text("081234567819")
+                                      .font(Font.custom("SF Pro", size: 14))
+                                      .kerning(0.374)
+                                      .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                    
+                                    Text("Dad")
+                                      .font(Font.custom("SF Pro", size: 14))
+                                      .kerning(0.374)
+                                      .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59))
+                                      .offset(x:85)
+
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 16.5)
+                                .frame(width: 340, height: 50, alignment: .leading)
+                                .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+                                .cornerRadius(10)
+                                .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 1)
+                                )
+                            }
+                }.offset(y:41)
+                
+                VStack {
                     Spacer()
                     ZStack{
                         Rectangle()

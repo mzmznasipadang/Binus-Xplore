@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct informationCardView: View{
+    @Environment(\.presentationMode) var presentationMode
     var body: some View{
         NavigationView{
             VStack(){
@@ -36,7 +37,8 @@ struct informationCardView: View{
                         .frame(width: 346, height: 35, alignment: .topLeading)
                         .offset(y:70)
                     //                back()
-                }
+                }.padding(.top, -20.0)
+                
                 //            Spacer()
                 //------------ info card content
                 ZStack{
@@ -51,13 +53,29 @@ struct informationCardView: View{
                     }
                     
                 }
+                .padding(.top, -20.0)
                 //            .resizable()
                 .offset(y: -60)
                 //            .background(.red)
                 
             
             }
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 12).weight(.semibold))
+                        .frame(width: 40.0, height: 40.0)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                    
+                }
+                    .padding(.top, 15.0)
+            )
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
