@@ -15,7 +15,9 @@ struct informationContent: View{
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
         static let Green: Color = Color(red: 0, green: 1, blue: 0.27)
     }
+    @EnvironmentObject var globalData: GlobalData
     @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
+    @State private var navigate = false
     var body: some View{
         //------------ info card content
         VStack{
@@ -214,22 +216,92 @@ struct informationContent: View{
                 //harus bikin flag variabel buat cek start node uda keisi apa belom
                 //kalo ya, trip summary
                 //kalo ga, strting point
-                NavigationLink(destination: StartingPoint()){
-                    Text("Set Location")
-                        .foregroundColor(.white)
-                        .kerning(0.374)
-                        .font(.system(size: 20).weight(.medium))
-                        .padding(.vertical, 8)
-                        .frame(
-                            maxWidth: .infinity
-                        )
+                
+                if (globalData.startNode.isEmpty){
+                    Button(action: {
+                        self.navigate = true
+                        globalData.endNode = item!.name
+                    }) {
+                        Text("Set Location")
+                            .foregroundColor(.white)
+                            .kerning(0.374)
+                            .font(.system(size: 20).weight(.medium))
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+                    .cornerRadius(15)
+                    .padding(.top)
+                    .frame(width: 372, height: 50, alignment: .center)  // <-- adjust height as necessary
+                    .background(
+                        NavigationLink(destination: StartingPoint(), isActive: $navigate) {
+                            EmptyView()
+                        }
+                            .hidden()
+                    )
                 }
-                .buttonStyle(.bordered)
-//                .padding(.horizontal, 20)
-                .background(Color(red: 0, green: 0.29, blue: 0.68))
-                .cornerRadius(15)
-                .padding(.top)
-                .frame(width: 372, alignment: .center)
+                else{
+                    Button(action: {
+                        self.navigate = true
+                    }) {
+                        Text("Set Location")
+                            .foregroundColor(.white)
+                            .kerning(0.374)
+                            .font(.system(size: 20).weight(.medium))
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+                    .cornerRadius(15)
+                    .padding(.top)
+                    .frame(width: 372, height: 50, alignment: .center)  // <-- adjust height as necessary
+                    .background(
+                        NavigationLink(destination: MapPage(), isActive: $navigate) {
+                            EmptyView()
+                        }
+                            .hidden()
+                    )
+                }
+
+                
+                
+//                if (globalData.startNode.isEmpty){
+//                    NavigationLink(destination: StartingPoint()){
+//                        Text("Set Location")
+//                            .foregroundColor(.white)
+//                            .kerning(0.374)
+//                            .font(.system(size: 20).weight(.medium))
+//                            .padding(.vertical, 8)
+//                            .frame(
+//                                maxWidth: .infinity
+//                            )
+//                    }
+//                    .buttonStyle(.bordered)
+//    //                .padding(.horizontal, 20)
+//                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+//                    .cornerRadius(15)
+//                    .padding(.top)
+//                    .frame(width: 372, alignment: .center)
+//                }
+//                else{
+//                    NavigationLink(destination: MapPage()){
+//                        Text("Set Location")
+//                            .foregroundColor(.white)
+//                            .kerning(0.374)
+//                            .font(.system(size: 20).weight(.medium))
+//                            .padding(.vertical, 8)
+//                            .frame(
+//                                maxWidth: .infinity
+//                            )
+//                    }
+//                    .buttonStyle(.bordered)
+//    //                .padding(.horizontal, 20)
+//                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+//                    .cornerRadius(15)
+//                    .padding(.top)
+//                    .frame(width: 372, alignment: .center)
+//                }
+                
 //                .background(.blue)
             }
 //            .background(.red)
@@ -249,7 +321,7 @@ struct informationContent: View{
 struct informationContent_Previews: PreviewProvider {
     static var previews: some View {
         let dummyItem = pinpoint(name: "Dummy", images: ["default_image"], status: false, time: "00:00 - 00:00", description: "Dummy description", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
-        informationContent(item: dummyItem)
+        informationContent(item: dummyItem).environmentObject(GlobalData())
     }
 }
 //informationContentView

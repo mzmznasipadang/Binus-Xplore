@@ -137,9 +137,9 @@ struct Loginpage: View {
     }
     
     func authenticateUser(username: String, password: String) {
-        if username == "Marco@gmail.com" {
+        if username == "Test" {
             wrongUsername = false
-            if password == "abc123" {
+            if password == "Test" {
                 wrongPassword = false
                 showingLoginScreen = true
             } else {

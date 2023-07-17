@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct pinpoint: Identifiable, Hashable {
     let id = UUID()
@@ -30,3 +31,8 @@ let pinpoints: [pinpoint] = [
     pinpoint(name: "Admission", images: ["404", "SunibAnggrek", "auditorium"], status: false, time: "09:00 - 18.00", description: "The Admissions Office aims to facilitate student enrollment and guide applicants throughout the process.", isSaved: true, floor: "Floor 1", building: "C Tower", category: "Office"),
     // ... add more items as needed
 ]
+
+class GlobalData: ObservableObject {
+    @Published var endNode: String = ""
+    @Published var startNode: String = ""
+}

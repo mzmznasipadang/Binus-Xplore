@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StartingPoint: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var globalData: GlobalData
+
     
     // Color
     //    struct Constants {
@@ -198,7 +200,7 @@ struct StartingPoint: View {
                     // Set Starting Point
                     //ke search results
                 }) {
-                    Text("Set Starting Point")
+                    Text(globalData.endNode)
                         .font(.system(size: 20).weight(.medium))
                         .foregroundColor(.white)
                         .frame(width: 354, height: 50)
@@ -234,7 +236,7 @@ struct StartingPoint: View {
     
     struct StartingPoint_Previews: PreviewProvider {
         static var previews: some View {
-            StartingPoint()
+            StartingPoint().environmentObject(GlobalData())
         }
     }
 }
