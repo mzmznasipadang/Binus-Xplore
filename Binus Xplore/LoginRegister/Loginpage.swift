@@ -41,11 +41,11 @@ struct Loginpage: View {
                     Text("Login")
                         .font(.largeTitle)
                         .bold()
-                        .foregroundStyle(Color("AppleText").opacity(0.8))
+                        .foregroundStyle(Color("Apple").opacity(0.8))
                         .padding(.bottom,50)
                     Text("Email")
                         .padding(.horizontal,-170)
-                        .foregroundStyle(Color("AppleText").opacity(0.8))
+                        .foregroundStyle(Color("Apple").opacity(0.8))
                     TextField("Email", text: $username)
                         .padding()
                         .frame(width: 350, height: 50)
@@ -57,7 +57,7 @@ struct Loginpage: View {
                         )
                     Text("Password")
                         .padding(.horizontal,-170)
-                        .foregroundStyle(Color("AppleText").opacity(0.8))
+                        .foregroundStyle(Color("Apple").opacity(0.8))
                     SecureField("Password", text: $password)
                         .padding()
                         .frame(width: 350, height: 50)
@@ -69,10 +69,10 @@ struct Loginpage: View {
                         )
                     HStack{
                         Text("Forgot Password? ")
-                            .foregroundStyle(Color("AppleText").opacity(0.8))
+                            .foregroundStyle(Color("Apple").opacity(0.8))
                         Text("Click Here")
                             .fontWeight(.bold)
-                            .foregroundStyle(Color("AppleText"))
+                            .foregroundStyle(Color("Apple"))
                     }
                     .padding(.horizontal,-100)
                     
@@ -92,7 +92,7 @@ struct Loginpage: View {
                     VStack{
                         HStack{
                             Text("Or Use")
-                                .foregroundStyle(Color("AppleText"))
+                                .foregroundStyle(Color("Apple"))
                         }
                         .padding(20)
                         HStack{
@@ -125,10 +125,10 @@ struct Loginpage: View {
                     .padding(.bottom,50)
                     HStack{
                         Text("Don't have account?")
-                            .foregroundStyle(Color("AppleText").opacity(0.8))
+                            .foregroundStyle(Color("Apple").opacity(0.8))
                         Text("Sign In")
                             .bold()
-                            .foregroundStyle(Color("AppleText").opacity(0.8))
+                            .foregroundStyle(Color("Apple").opacity(0.8))
                     }
                 }
             }
@@ -137,9 +137,9 @@ struct Loginpage: View {
     }
     
     func authenticateUser(username: String, password: String) {
-        if username == "Marco@gmail.com" {
+        if username == "Test" {
             wrongUsername = false
-            if password == "abc123" {
+            if password == "Test" {
                 wrongPassword = false
                 showingLoginScreen = true
             } else {

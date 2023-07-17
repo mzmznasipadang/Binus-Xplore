@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StartingPoint: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var globalData: GlobalData
+
     
     // Color
     //    struct Constants {
@@ -198,7 +200,7 @@ struct StartingPoint: View {
                     // Set Starting Point
                     //ke search results
                 }) {
-                    Text("Set Starting Point")
+                    Text(globalData.endNode)
                         .font(.system(size: 20).weight(.medium))
                         .foregroundColor(.white)
                         .frame(width: 354, height: 50)
@@ -211,6 +213,7 @@ struct StartingPoint: View {
                 .padding()
                 
             }
+            
             .navigationBarItems(
                 leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
@@ -226,15 +229,14 @@ struct StartingPoint: View {
                     .padding(.top, 15.0)
             )
             
-            .navigationBarBackButtonHidden(true)
             .offset(y: -60)
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     struct StartingPoint_Previews: PreviewProvider {
         static var previews: some View {
-            StartingPoint()
+            StartingPoint().environmentObject(GlobalData())
         }
     }
 }
