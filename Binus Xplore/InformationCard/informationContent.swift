@@ -227,12 +227,11 @@ struct informationContent: View{
                             .kerning(0.374)
                             .font(.system(size: 20).weight(.medium))
                             .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
+                            .frame(width: 354, height: 50)
                     }
                     .background(Color(red: 0, green: 0.29, blue: 0.68))
                     .cornerRadius(15)
                     .padding(.top)
-                    .frame(width: 372, height: 50, alignment: .center)  // <-- adjust height as necessary
                     .background(
                         NavigationLink(destination: StartingPoint().environmentObject(GlobalData()), isActive: $navigate) {
                             EmptyView()
@@ -250,12 +249,12 @@ struct informationContent: View{
                             .kerning(0.374)
                             .font(.system(size: 20).weight(.medium))
                             .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
+                            .frame(width: 354, height: 50)
                     }
                     .background(Color(red: 0, green: 0.29, blue: 0.68))
                     .cornerRadius(15)
                     .padding(.top)
-                    .frame(width: 372, height: 50, alignment: .center)  // <-- adjust height as necessary
+                    
                     .background(
                         NavigationLink(destination: MapPage(), isActive: $navigate) {
                             EmptyView()
