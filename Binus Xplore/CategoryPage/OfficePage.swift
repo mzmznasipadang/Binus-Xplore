@@ -177,10 +177,10 @@ struct LeadingButton: View {
 
 struct TrailingText: View {
     var body: some View {
-        Text("Available Offices")
+        Text("Available Places")
             .font(.largeTitle)
             .fontWeight(.bold)
-            .padding(.trailing, 25.0)
+            .padding(.trailing, 28.0)
             .padding(.top, 19)
     }
 }
