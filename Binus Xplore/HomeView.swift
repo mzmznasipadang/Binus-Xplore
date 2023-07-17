@@ -183,7 +183,7 @@ struct HomeView: View {
                             .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
-                            NavigationLink(destination: Bookmark()){ // Later Change to Bookmark
+                            NavigationLink(destination: Bookmark()){
                                 Image(systemName: "bookmark")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
