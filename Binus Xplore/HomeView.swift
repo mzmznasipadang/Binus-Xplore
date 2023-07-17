@@ -228,7 +228,8 @@ struct HomeView: View {
 
 struct BoxView: View {
     var body: some View {
-        NavigationLink(destination: informationCardView()){
+        //sementara diganti dulu, ini configure jadi button nanti
+        NavigationLink(destination: StartingPoint()){
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color("AppleText"))

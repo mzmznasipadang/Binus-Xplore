@@ -211,6 +211,7 @@ struct StartingPoint: View {
                 .padding()
                 
             }
+            
             .navigationBarItems(
                 leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
@@ -226,10 +227,9 @@ struct StartingPoint: View {
                     .padding(.top, 15.0)
             )
             
-            .navigationBarBackButtonHidden(true)
             .offset(y: -60)
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     struct StartingPoint_Previews: PreviewProvider {

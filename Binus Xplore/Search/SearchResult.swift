@@ -9,18 +9,16 @@ import Foundation
 import SwiftUI
 
 
-//struct Constants {
-//        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-//    }
 struct SearchResult: View {
     let searchText: String
+    @State private var selectedItem: pinpoint?
 
 
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var navigate = false
     var body: some View {
         NavigationView {
-            
             VStack {
                 Spacer(minLength: 100)
                 HStack(){
@@ -52,6 +50,7 @@ struct SearchResult: View {
                         ForEach(pinpoints.filter { $0.name.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
                             Button(action: {
                                 self.navigate = true
+                                self.selectedItem = item
                             }) {
                                 RoundedRectangle(cornerRadius: 16)
                                     .foregroundColor(.white)
@@ -116,7 +115,7 @@ struct SearchResult: View {
                                         
                                     )
                             }
-                            NavigationLink(destination: informationCardView(), isActive: $navigate) { EmptyView() }
+                            NavigationLink(destination: informationCardView(item: selectedItem), isActive: $navigate) { EmptyView() }
                         }
                     }
                     .padding()

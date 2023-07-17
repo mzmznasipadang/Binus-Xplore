@@ -7,6 +7,7 @@ struct OfficePage: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var navigate = false
     
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -14,7 +15,7 @@ struct OfficePage: View {
                 
                 ScrollView {
                     VStack(spacing: 8) {
-                        ForEach(pinpoints.filter { $0.category.first?.localizedCaseInsensitiveContains(searchText) ?? false }, id: \.id) { item in
+                        ForEach(pinpoints.filter { $0.category.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
                             NavigationButton(item: item, navigate: $navigate)
                         }
                     }
@@ -62,14 +63,16 @@ struct TopView: View {
 struct NavigationButton: View {
     let item: pinpoint
     @Binding var navigate: Bool
+    @State private var selectedItem: pinpoint?
     
     var body: some View {
         Button(action: {
             self.navigate = true
+            self.selectedItem = item
         }) {
             OverlayView(item: item)
         }
-        NavigationLink(destination: informationCardView(), isActive: $navigate) { EmptyView() }
+        NavigationLink(destination: informationCardView(item: selectedItem), isActive: $navigate) { EmptyView() }
     }
 }
 

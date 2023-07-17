@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 
 struct informationContent: View{
+    let item: pinpoint?
     struct Constants {
         static let RedDanger3: Color = Color(red: 1, green: 0.27, blue: 0.27)
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
+        static let Green: Color = Color(red: 0, green: 1, blue: 0.27)
     }
     @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
     var body: some View{
@@ -19,26 +21,49 @@ struct informationContent: View{
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    HStack(){
-                        Text("Close")
-                            .font(
-                                Font.custom("SF Pro Display", size: 20)
-                                    .weight(.medium)
-                            )
-                            .kerning(0.374)
-                            .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
+                    if (item!.status == false){
+                        HStack{
+                            Text("Close")
+                                .font(
+                                    Font.custom("SF Pro Display", size: 20)
+                                        .weight(.medium)
+                                )
+                                .kerning(0.374)
+                                .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 5)
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .inset(by: -1)
+                                .stroke(Constants.RedDanger3, lineWidth: 2)
+                        )
+                        .padding(.horizontal,20)
+                    }
+                    else{
+                        HStack{
+                            Text("Open")
+                                .font(
+                                    Font.custom("SF Pro Display", size: 20)
+                                        .weight(.medium)
+                                )
+                                .kerning(0.374)
+                                .foregroundColor(Color(red: 0, green: 1, blue: 0.27))
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 5)
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .inset(by: -1)
+                                .stroke(Constants.Green, lineWidth: 2)
+                        )
+                        .padding(.horizontal,20)
+                    }
+                        
                         //                    if(calendar.component(.hour, from: date) < Date(.hour))
                         //                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 5)
-                    .cornerRadius(12)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .inset(by: -1)
-                            .stroke(Constants.RedDanger3, lineWidth: 2)
-                    )
-                    .padding(.horizontal,20)
                     Spacer()
                     Button {
                         if (isSaved == false){
@@ -76,7 +101,7 @@ struct informationContent: View{
                     // ----------
                     Image(systemName: "clock.fill")
                         .padding(.horizontal, 4)
-                    Text("08.00 - 17.00")
+                    Text(item!.time)
                       .font(
                         Font.custom("SF Pro Display", size: 17)
                           .weight(.medium)
@@ -93,7 +118,7 @@ struct informationContent: View{
                     Text("Description")
                         .bold()
                         .padding(.vertical,10)
-                    Text("Information center and facility to provide important announcements regarding student admission.  ")
+                    Text(item!.description)
                         .font(.system(size: 15).weight(.light))
                       .kerning(0.374)
                       .foregroundColor(.black)
@@ -153,7 +178,7 @@ struct informationContent: View{
                                     .foregroundColor(Color(red: 0.02, green: 0.09, blue: 0.42))
                               )
                           )
-                        Text("Office")
+                        Text(item!.category)
                           .font(Font.custom("SF Pro Display", size: 14))
                           .kerning(0.374)
                           .foregroundColor(.black)
@@ -175,7 +200,7 @@ struct informationContent: View{
                                     .foregroundColor(Color(red: 0.13, green: 0.31, blue: 0.41))
                               )
                           )
-                        Text("C Building")
+                        Text(item!.building)
                           .font(Font.custom("SF Pro Display", size: 14))
                           .kerning(0.374)
                           .foregroundColor(.black)
@@ -223,7 +248,8 @@ struct informationContent: View{
 }
 struct informationContent_Previews: PreviewProvider {
     static var previews: some View {
-        informationContent()
+        let dummyItem = pinpoint(name: "Dummy", images: ["default_image"], status: false, time: "00:00 - 00:00", description: "Dummy description", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
+        informationContent(item: dummyItem)
     }
 }
 //informationContentView
