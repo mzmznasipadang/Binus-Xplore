@@ -217,7 +217,7 @@ struct StartingPoint: View {
                 .padding()
                 //masukkin search bar
                 .background(
-                    NavigationLink(destination: SearchResult(searchText: inputStarting).environmentObject(GlobalData()), isActive: $navigate) {
+                    NavigationLink(destination: SearchResult(searchText: inputStarting), isActive: $navigate) {
                         EmptyView()
                     }
                         .hidden()
