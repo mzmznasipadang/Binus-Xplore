@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 struct informationContent: View{
     let item: pinpoint?
@@ -18,6 +19,8 @@ struct informationContent: View{
     @EnvironmentObject var globalData: GlobalData
     @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
     @State private var navigate = false
+    @State private var updateView: Bool = false
+
     var body: some View{
         //------------ info card content
         VStack{
@@ -221,6 +224,8 @@ struct informationContent: View{
                     Button(action: {
                         self.navigate = true
                         globalData.endNode = item!.name
+                        updateView.toggle()
+                        print("End node: \(globalData.endNode)")
                     }) {
                         Text("Set Location")
                             .foregroundColor(.white)
@@ -233,7 +238,7 @@ struct informationContent: View{
                     .cornerRadius(15)
                     .padding(.top)
                     .background(
-                        NavigationLink(destination: StartingPoint().environmentObject(GlobalData()), isActive: $navigate) {
+                        NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigate) {
                             EmptyView()
                         }
                             .hidden()
@@ -243,6 +248,7 @@ struct informationContent: View{
                     Button(action: {
                         self.navigate = true
                         globalData.startNode = item!.name
+                        updateView.toggle()
                     }) {
                         Text("Set Location")
                             .foregroundColor(.white)
@@ -256,51 +262,12 @@ struct informationContent: View{
                     .padding(.top)
                     
                     .background(
-                        NavigationLink(destination: MapPage(), isActive: $navigate) {
+                        NavigationLink(destination: MapPage().environmentObject(globalData), isActive: $navigate) {
                             EmptyView()
                         }
                             .hidden()
                     )
                 }
-
-                
-                
-//                if (globalData.startNode.isEmpty){
-//                    NavigationLink(destination: StartingPoint()){
-//                        Text("Set Location")
-//                            .foregroundColor(.white)
-//                            .kerning(0.374)
-//                            .font(.system(size: 20).weight(.medium))
-//                            .padding(.vertical, 8)
-//                            .frame(
-//                                maxWidth: .infinity
-//                            )
-//                    }
-//                    .buttonStyle(.bordered)
-//    //                .padding(.horizontal, 20)
-//                    .background(Color(red: 0, green: 0.29, blue: 0.68))
-//                    .cornerRadius(15)
-//                    .padding(.top)
-//                    .frame(width: 372, alignment: .center)
-//                }
-//                else{
-//                    NavigationLink(destination: MapPage()){
-//                        Text("Set Location")
-//                            .foregroundColor(.white)
-//                            .kerning(0.374)
-//                            .font(.system(size: 20).weight(.medium))
-//                            .padding(.vertical, 8)
-//                            .frame(
-//                                maxWidth: .infinity
-//                            )
-//                    }
-//                    .buttonStyle(.bordered)
-//    //                .padding(.horizontal, 20)
-//                    .background(Color(red: 0, green: 0.29, blue: 0.68))
-//                    .cornerRadius(15)
-//                    .padding(.top)
-//                    .frame(width: 372, alignment: .center)
-//                }
                 
 //                .background(.blue)
             }

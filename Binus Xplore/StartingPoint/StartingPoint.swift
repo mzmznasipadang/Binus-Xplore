@@ -11,7 +11,7 @@ struct StartingPoint: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var globalData: GlobalData
 
-    
+    @State private var navigate = false
     // Color
     //    struct Constants {
     //    static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
@@ -199,8 +199,9 @@ struct StartingPoint: View {
                 Button(action: {
                     // Set Starting Point
                     //ke search results
+                    self.navigate = true
                 }) {
-                    Text(globalData.endNode)
+                    Text("Set Starting Point")
                         .font(.system(size: 20).weight(.medium))
                         .foregroundColor(.white)
                         .frame(width: 354, height: 50)
@@ -211,6 +212,13 @@ struct StartingPoint: View {
                 }
                 .offset(y:70)
                 .padding()
+                //masukkin search bar
+                .background(
+                    NavigationLink(destination: SearchResult(searchText: "Test").environmentObject(globalData), isActive: $navigate) {
+                        EmptyView()
+                    }
+                        .hidden()
+                )
                 
             }
             

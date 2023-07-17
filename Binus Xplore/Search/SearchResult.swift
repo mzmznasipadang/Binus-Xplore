@@ -13,7 +13,7 @@ struct SearchResult: View {
     let searchText: String
     @State private var selectedItem: pinpoint?
 
-
+    @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
     
     @State private var navigate = false
@@ -115,7 +115,7 @@ struct SearchResult: View {
                                         
                                     )
                             }
-                            NavigationLink(destination: informationCardView(item: selectedItem), isActive: $navigate) { EmptyView() }
+                            NavigationLink(destination: informationCardView(item: selectedItem).environmentObject(globalData), isActive: $navigate) { EmptyView() }
                         }
                     }
                     .padding()
@@ -153,7 +153,7 @@ struct SearchResult: View {
 
 struct SearchResult_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResult(searchText: "Item")
+        SearchResult(searchText: "Item").environmentObject(GlobalData())
     }
 }
 
