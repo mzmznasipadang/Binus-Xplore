@@ -234,7 +234,7 @@ struct informationContent: View{
                     .padding(.top)
                     .frame(width: 372, height: 50, alignment: .center)  // <-- adjust height as necessary
                     .background(
-                        NavigationLink(destination: StartingPoint(), isActive: $navigate) {
+                        NavigationLink(destination: StartingPoint().environmentObject(GlobalData()), isActive: $navigate) {
                             EmptyView()
                         }
                             .hidden()
@@ -243,6 +243,7 @@ struct informationContent: View{
                 else{
                     Button(action: {
                         self.navigate = true
+                        globalData.startNode = item!.name
                     }) {
                         Text("Set Location")
                             .foregroundColor(.white)

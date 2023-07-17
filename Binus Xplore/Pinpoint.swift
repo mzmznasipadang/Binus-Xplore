@@ -33,6 +33,6 @@ let pinpoints: [pinpoint] = [
 ]
 
 class GlobalData: ObservableObject {
-    @Published var endNode: String = ""
+    @Published var endNode: String = "LKC"
     @Published var startNode: String = ""
 }
