@@ -153,7 +153,7 @@ struct OfficePage: View {
 
 struct OfficePage_Previews: PreviewProvider {
     static var previews: some View {
-        OfficePage(searchText: "Office").environmentObject(GlobalData())
+        OfficePage(searchText:"Office").environmentObject(GlobalData())
     }
 }
 
