@@ -18,6 +18,7 @@ struct SummarizePage: View {
     let searchText: String
     let searchWord: String
     @StateObject private var viewModel: ContentViewModel
+    @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
     struct Constants {
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
@@ -64,7 +65,7 @@ struct SummarizePage: View {
                             .fontWeight(.medium)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal,80)
-                            .padding(.vertical,-35)
+                            .padding(.vertical,-15)
                         
                         HStack (spacing:35){
                             
@@ -97,7 +98,7 @@ struct SummarizePage: View {
                             .frame(width:200)
                         }
                         .padding(.horizontal,84)
-                        .padding(.vertical,-10)
+                        .padding(.vertical,10)
                         
                         ScrollView{
                             ZStack{
@@ -241,13 +242,13 @@ struct SummarizePage: View {
 //
 //        }
         private var graph: [String: Node] = [
-            "Lobby": Node(key: "Lobby", value: "Lobby Value", neighbors: ["Toilet": 5, "Kantin": 12, "Apple": 7]),
-            "Toilet": Node(key: "Toilet", value: "Toilet Value", neighbors: ["Lobby": 5, "GOR": 6, "Apple": 7]),
-            "Kantin": Node(key: "Kantin", value: "Kantin Value", neighbors: ["Lobby": 12, "Library": 13, "Apple": 1]),
-            "Apple": Node(key: "Apple", value: "Apple Value", neighbors: ["Lobby": 7, "Toilet": 5, "Apple": 1, "Library": 10, "GOR": 5]),
-            "Library": Node(key: "Library", value: "Library Value", neighbors: ["Kantin": 13, "Apple": 10, "GOR": 2, "Lift": 3]),
-            "GOR": Node(key: "GOR", value: "GOR Value", neighbors: ["Toilet": 6, "Apple": 5, "Library": 2, "Lift": 7]),
-            "Lift": Node(key: "Lift", value: "Lift Value", neighbors: ["Library": 3, "GOR": 7]),
+            "LKC": Node(key: "LKC", value: "LKC Value", neighbors: ["Drop Off": 5, "Kantin": 12, "Tomoro": 7]),
+            "Drop Off": Node(key: "Drop Off", value: "Drop Off Value", neighbors: ["LKC": 5, "GOR": 6, "Tomoro": 7]),
+            "Kantin": Node(key: "Kantin", value: "Kantin Value", neighbors: ["LKC": 12, "Admission": 13, "Tomoro": 1]),
+            "Tomoro": Node(key: "Tomoro", value: "Tomoro Value", neighbors: ["LKC": 7, "Drop Off": 5, "Tomoro": 1, "Admission": 10, "GOR": 5]),
+            "Admission": Node(key: "Admission", value: "Admission Value", neighbors: ["Kantin": 13, "Tomoro": 10, "GOR": 2, "SSC": 3]),
+            "GOR": Node(key: "GOR", value: "GOR Value", neighbors: ["Drop Off": 6, "Tomoro": 5, "Admission": 2, "SSC": 7]),
+            "SSC": Node(key: "SSC", value: "SSC Value", neighbors: ["Admission": 3, "GOR": 7]),
         ]
         
         
@@ -318,6 +319,6 @@ struct SummarizePage: View {
 
 struct ContentNav_Previews: PreviewProvider {
     static var previews: some View {
-        SummarizePage(searchText : "item", searchWord : "item" )
+        SummarizePage(searchText : "item", searchWord : "item" ).environmentObject(GlobalData())
     }
 }

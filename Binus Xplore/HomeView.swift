@@ -29,7 +29,7 @@ struct HomeView: View {
                     .padding(.leading, 30)
                 SearchBar()
                 HStack{
-                    NavigationLink(destination: OfficePage(searchText: "Office")){
+                    NavigationLink(destination: OfficePage(searchText: "Office").environmentObject(GlobalData())){
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -45,7 +45,7 @@ struct HomeView: View {
                         }
                     }
                     Spacer()
-                    NavigationLink(destination: OfficePage(searchText: "Class")){
+                    NavigationLink(destination: OfficePage(searchText: "Class").environmentObject(GlobalData())){
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -144,19 +144,22 @@ struct HomeView: View {
                             .padding(.top, -2)
                     }
                     Spacer()
-                    VStack{
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon3"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "cup.and.saucer.fill")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white).font(.system(size: 30))
+                    NavigationLink(destination: OfficePage(searchText: "F & B").environmentObject(GlobalData())){
+                        VStack{
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon3"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "cup.and.saucer.fill")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white).font(.system(size: 30))
+                            }
+                            Text("F & B")
+                                .font(.system(size: 13))
+                                .foregroundStyle(.primary)
+                                .foregroundColor(.black)
+                                .padding(.top, -2)
                         }
-                        Text("F & B")
-                            .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                 }.padding(.trailing, 53)
                     .padding(.leading, 53)
@@ -309,7 +312,7 @@ struct SearchBar: View {
         .padding(.horizontal)
         
         NavigationLink(
-            destination: SearchResult(searchText: searchText), isActive: $isSearching
+            destination: SearchResult(searchText: searchText).environmentObject(GlobalData()), isActive: $isSearching
         ){
             EmptyView()
         }.hidden()

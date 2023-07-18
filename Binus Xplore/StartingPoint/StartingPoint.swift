@@ -78,26 +78,8 @@ struct StartingPoint: View {
                                     .cornerRadius(20)
                                     .overlay(
                                         VStack{
+                                            SearchBar(inputStarting: $inputStarting)
                                             // search bar
-                                            ZStack(alignment: .leading){
-                                                Rectangle()
-                                                    .foregroundColor(.clear)
-                                                    .frame(width: 330, height: 46)
-                                                    .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-                                                    .cornerRadius(30)
-                                                
-//                                                HStack{
-//                                                    Image(systemName: "magnifyingglass")
-//                                                        .frame(width: 24, height: 24)
-//
-//                                                    Text("Where are you now?")
-//                                                        .font(Font.custom("SF Pro", size: 14))
-//                                                        .foregroundColor(Color(red: 0.54, green: 0.54, blue: 0.55))
-//                                                }
-//                                                .padding(11)
-                                                SearchBar(inputStarting: $inputStarting)
-                                            }
-                                            .padding(.top, 20)
                                             
                                             // Filter/Selection items
                                             ScrollView(.horizontal, showsIndicators: false){

@@ -240,12 +240,12 @@ struct informationContent: View{
                         .kerning(0.374)
                         .font(.system(size: 20).weight(.medium))
                         .padding(.vertical, 8)
-                        .frame(width: 320, height: 50)
+                        .frame(width: 354, height: 50)
                 }
                 .background(Color(red: 0, green: 0.29, blue: 0.68))
                 .cornerRadius(15)
                 .padding(.top)
-                .padding(.leading)
+//                .padding(.leading)
                 .background(
                     
                 )
