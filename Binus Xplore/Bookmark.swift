@@ -135,7 +135,7 @@ struct Bookmark: View {
                                 .font(.system(size: 40))
                                 .foregroundColor(Color("MainColor"))
                             Spacer()
-                            NavigationLink(destination: HomeView()){
+                            NavigationLink(destination: HomeView().environmentObject(globalData)){
                                 ZStack{
                                     Circle()
                                         .fill(Color(red: 0.53, green: 0.73, blue: 1))
@@ -152,10 +152,10 @@ struct Bookmark: View {
                             }
                             Spacer()
                             
-                            NavigationLink(destination: Profile()){
+                            NavigationLink(destination: Profile().environmentObject(globalData)){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
-                                    .foregroundColor(Color("MainColor"))
+                                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                             }
                         }.padding(.horizontal, 74.0)
                     }

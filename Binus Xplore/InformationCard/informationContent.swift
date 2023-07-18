@@ -129,24 +129,27 @@ struct informationContent: View{
                 .padding(.horizontal, 20)
                 VStack{
                     HStack{
-                        Image(systemName: "clock.fill")
+                        Image(item!.images[0])
                           .resizable()
                           .aspectRatio(contentMode: .fill)
                           .frame(width: 85, height: 85)
+                          .cornerRadius(10)
                           .clipped()
                           .padding(.horizontal, 10)
                         Spacer()
-                        Image(systemName: "clock.fill")
+                        Image(item!.images[1])
                           .resizable()
                           .aspectRatio(contentMode: .fill)
                           .frame(width: 85, height: 85)
+                          .cornerRadius(10)
                           .clipped()
                           .padding(.horizontal, 10)
                         Spacer()
-                        Image(systemName: "clock.fill")
+                        Image(item!.images[2])
                           .resizable()
                           .aspectRatio(contentMode: .fill)
                           .frame(width: 85, height: 85)
+                          .cornerRadius(10)
                           .clipped()
                           .padding(.horizontal, 10)
                         Spacer()
@@ -241,10 +244,12 @@ struct informationContent: View{
                         .font(.system(size: 20).weight(.medium))
                         .padding(.vertical, 8)
                         .frame(width: 354, height: 50)
+                        
                 }
                 .background(Color(red: 0, green: 0.29, blue: 0.68))
                 .cornerRadius(15)
                 .padding(.top)
+                .offset(x: 8)
 //                .padding(.leading)
                 .background(
                     

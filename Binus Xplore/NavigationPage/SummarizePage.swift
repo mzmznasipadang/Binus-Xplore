@@ -41,7 +41,7 @@ struct SummarizePage: View {
         NavigationView {
             VStack {
                 
-                Image ("auditorium")
+                Image ("GOR")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 200.0)
@@ -84,10 +84,10 @@ struct SummarizePage: View {
                                     .lineSpacing(22)
                                 
                                 
-                                Image("guideIcon")
+                                Image(systemName: "arrowshape.right.fill")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 20)
+                                    .frame(width: 15)
                                     .clipped()
                                 
                                 Text(searchText)
@@ -109,7 +109,7 @@ struct SummarizePage: View {
                                     if !viewModel.shortestPath.isEmpty {
                                             VStack {
                                                 HStack{
-                                                    Text("Start \(viewModel.startNode):")
+                                                    Text("Start (\(viewModel.startNode)):")
                                                         .font(.headline)
                                                         .padding()
                                                         .padding(.horizontal,50)
@@ -182,8 +182,7 @@ struct SummarizePage: View {
                             viewModel.findShortestPath()
                         }) {
                             Text("Let's Go!")
-                                .font(Font.custom("SF Pro Display", size: 22)
-                                    .weight(.medium))
+                                .font(.system(size: 22).weight(.medium))
                                 .foregroundColor(.white)
                                 .frame(width: 354, height: 54)
                                 .background(Constants.Primary)

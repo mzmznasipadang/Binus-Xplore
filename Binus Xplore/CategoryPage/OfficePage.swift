@@ -63,7 +63,7 @@ struct OfficePage: View {
                                                 .frame(width: 138.0, height: 138.0)
 //                                                .foregroundColor(.white)
 //                                                .background(Color("MainColor"))
-                                                .cornerRadius(8)
+                                                .cornerRadius(10)
                                                 .offset(x:17)
                                             
                                             VStack(alignment: .leading, spacing: 4) {

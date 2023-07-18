@@ -16,6 +16,11 @@ import UIKit
 struct HomeView: View {
     @State var searchText = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var selectedItem: pinpoint?
+    @State private var navigate = false
+
+    @EnvironmentObject var globalData: GlobalData
+
     
     var body: some View {
         NavigationView{
@@ -27,7 +32,7 @@ struct HomeView: View {
                     Spacer()
                 }.padding(.top, 10).padding(.bottom, -1)
                     .padding(.leading, 30)
-                SearchBar()
+                SearchBar().environmentObject(GlobalData())
                 HStack{
                     NavigationLink(destination: OfficePage(searchText: "Office").environmentObject(GlobalData())){
                         VStack{
@@ -172,14 +177,80 @@ struct HomeView: View {
                     Text("Latest Events").font(.system(size: 24).weight(.bold))
                     Spacer()
                 }.padding(.leading, 30)
-                ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: [GridItem(.flexible())]) {
-                        ForEach(0..<5) { index in
-                            BoxView()
+                
+                
+                ScrollView {
+                    VStack(spacing: 8) {
+                        ForEach(pinpoints.filter { $0.category.localizedCaseInsensitiveContains("Event") }, id: \.id) { item in
+                            Button(action: {
+                                self.navigate = true
+                                self.selectedItem = item
+                            }) {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color("AppleText"))
+                                        .frame(width: 350, height: 150)
+                                    HStack(spacing: 30){
+                                        Image(item.images.first ?? "default_image")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 120, height: 120)
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        
+                                        VStack(alignment: .leading, spacing: 5){
+                                            Text(item.name)
+                                                .font(.system(size: 18)
+                                                    .weight(.semibold))
+                                            HStack{
+                                                Image(systemName: "location")
+                                                    .font(.system(size: 14))
+                                                Text(item.floor + ", " + item.building)
+                                                    .font(.system(size: 12))
+                                                    .fontWeight(.medium)
+                                                //Hati Hati Sering Crash
+                                            }
+                                            HStack{
+                                                Image(systemName: "calendar")
+                                                                                    .font(.system(size: 14))
+                                                Text({ () -> String in
+                                                    let date = Date()
+                                                    let formatter = DateFormatter()
+                                                    formatter.dateStyle = .long
+                                                    return formatter.string(from: date)
+                                                }())
+                                                                                .font(.system(size: 12))
+                                                                                .fontWeight(.medium)
+                                                                                .kerning(0.374)
+                                            }
+                                            HStack{
+                                                Image(systemName: "clock")
+                                                    .font(.system(size: 12))
+                                                    .fontWeight(.medium)
+                                                Text(item.time)
+                                                    .font(.system(size: 12))
+                                                    .fontWeight(.medium)
+                                                    .kerning(0.374)
+                                            }
+                                        }
+                                        .padding(.leading, 15.0)
+                                        
+                                    }
+                                    .padding(.leading, -10.0)
+                                    
+                                }
+                                .padding(.horizontal, 20.0)
+                                .foregroundColor(Color.black)
+                            }
+                            NavigationLink(destination: informationCardView(item: selectedItem).environmentObject(globalData), isActive: $navigate) { EmptyView() }
                         }
                     }
                     .padding()
-                }.frame(height: 290) //ScrollView
+                    .offset(y:-20)
+                    
+                    
+                    
+                    
+                }.frame(height: 290)//ScrollView
                 Spacer()
                 VStack{ //NavBar (OTW Ganti)
                     Spacer()
@@ -194,7 +265,7 @@ struct HomeView: View {
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                             }
                             Spacer()
-                            NavigationLink(destination: HomeView()){
+//                            NavigationLink(destination: HomeView()){
                                 ZStack{
                                     Circle()
                                         .fill(Color(red: 0, green: 0.29, blue: 0.68))
@@ -209,10 +280,10 @@ struct HomeView: View {
                                         .offset(y:-28)
                                 }
                                 
-                            }
+//                            }
                             Spacer()
                             
-                            NavigationLink(destination: Profile()){
+                            NavigationLink(destination: Profile().environmentObject(GlobalData())){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
@@ -231,62 +302,6 @@ struct HomeView: View {
     }
 }
 
-struct BoxView: View {
-    var body: some View {
-        //sementara diganti dulu, ini configure jadi button nanti
-        NavigationLink(destination: StartingPoint()){
-            ZStack{
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color("AppleText"))
-                    .frame(width: 350, height: 150)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 0.2)
-                    )
-                HStack(spacing: 30){
-                    Image("SunibAnggrek")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 120, height: 120)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                    
-                    VStack(alignment: .leading, spacing: 5){
-                        Text("Event Title")
-                            .font(.system(size: 18)
-                                .weight(.semibold))
-                        HStack{
-                            Image(systemName: "location")
-                                .font(.system(size: 14))
-                            Text("Location")
-                                .font(.system(size: 12)) //Hati Hati Sering Crash
-                        }
-                        HStack{
-                            Image(systemName: "calendar")
-                                .font(.system(size: 14))
-                            Text("Date")
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
-                                .kerning(0.374)
-                        }
-                        HStack{
-                            Image(systemName: "clock")
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
-                            Text("Time")
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
-                                .kerning(0.374)
-                        }
-                    }
-                    .padding(.leading, 15.0)
-                    
-                }
-                .padding(.leading, -50.0)
-                
-            }.padding(.horizontal, 20.0)
-        }.foregroundColor(.black)
-        
-    }
-}
 
 struct SearchBar: View {
     @State private var searchText = ""
@@ -326,6 +341,6 @@ struct SearchBar: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView().environmentObject(GlobalData())
     }
 }
