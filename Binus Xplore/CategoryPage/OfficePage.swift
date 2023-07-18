@@ -7,7 +7,7 @@ struct OfficePage: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var navigate = false
     
-    
+    @EnvironmentObject var globalData: GlobalData
     var body: some View {
         NavigationView {
             VStack {
@@ -16,7 +16,7 @@ struct OfficePage: View {
                 ScrollView {
                     VStack(spacing: 8) {
                         ForEach(pinpoints.filter { $0.category.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
-                            NavigationButton(item: item, navigate: $navigate)
+                            NavigationButton(item: item, navigate: $navigate).environmentObject(globalData)
                         }
                     }
                     .padding()
@@ -64,6 +64,7 @@ struct NavigationButton: View {
     let item: pinpoint
     @Binding var navigate: Bool
     @State private var selectedItem: pinpoint?
+    @EnvironmentObject var globalData: GlobalData
     
     var body: some View {
         Button(action: {
@@ -72,7 +73,7 @@ struct NavigationButton: View {
         }) {
             OverlayView(item: item)
         }
-        NavigationLink(destination: informationCardView(item: selectedItem), isActive: $navigate) { EmptyView() }
+        NavigationLink(destination: informationCardView(item: selectedItem).environmentObject(globalData), isActive: $navigate) { EmptyView() }
     }
 }
 
@@ -187,7 +188,7 @@ struct TrailingText: View {
 
 struct OfficePage_Previews: PreviewProvider {
     static var previews: some View {
-        OfficePage(searchText: "Office")
+        OfficePage(searchText: "Office").environmentObject(GlobalData())
     }
 }
 

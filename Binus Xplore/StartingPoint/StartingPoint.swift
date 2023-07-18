@@ -202,6 +202,7 @@ struct StartingPoint: View {
                 Button(action: {
                     // Set Starting Point
                     //ke search results
+                    globalData.visitedStartingPoint = true
                     self.navigate = true
                 }) {
                     Text("Set Starting Point")

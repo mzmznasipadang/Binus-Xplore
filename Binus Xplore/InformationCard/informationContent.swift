@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import CoreData
 
 struct informationContent: View{
     let item: pinpoint?
@@ -19,7 +18,6 @@ struct informationContent: View{
     @EnvironmentObject var globalData: GlobalData
     @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
     @State private var navigate = false
-    @State private var updateView: Bool = false
 
     var body: some View{
         //------------ info card content
@@ -220,11 +218,10 @@ struct informationContent: View{
                 //kalo ya, trip summary
                 //kalo ga, strting point
                 
-                if (globalData.startNode.isEmpty){
+                if (globalData.visitedStartingPoint == false){
                     Button(action: {
                         self.navigate = true
                         globalData.endNode = item!.name
-                        updateView.toggle()
                         print("End node: \(globalData.endNode)")
                     }) {
                         Text("Set Location")
@@ -232,11 +229,12 @@ struct informationContent: View{
                             .kerning(0.374)
                             .font(.system(size: 20).weight(.medium))
                             .padding(.vertical, 8)
-                            .frame(width: 354, height: 50)
+                            .frame(width: 320, height: 50)
                     }
                     .background(Color(red: 0, green: 0.29, blue: 0.68))
                     .cornerRadius(15)
                     .padding(.top)
+                    .padding(.leading)
                     .background(
                         NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigate) {
                             EmptyView()
@@ -248,19 +246,19 @@ struct informationContent: View{
                     Button(action: {
                         self.navigate = true
                         globalData.startNode = item!.name
-                        updateView.toggle()
+                        print("Start node: \(globalData.startNode)")
                     }) {
                         Text("Set Location")
                             .foregroundColor(.white)
                             .kerning(0.374)
                             .font(.system(size: 20).weight(.medium))
                             .padding(.vertical, 8)
-                            .frame(width: 354, height: 50)
+                            .frame(width: 320, height: 50)
                     }
                     .background(Color(red: 0, green: 0.29, blue: 0.68))
                     .cornerRadius(15)
                     .padding(.top)
-                    
+                    .padding(.leading)
                     .background(
                         NavigationLink(destination: MapPage().environmentObject(globalData), isActive: $navigate) {
                             EmptyView()
@@ -268,7 +266,6 @@ struct informationContent: View{
                             .hidden()
                     )
                 }
-                
 //                .background(.blue)
             }
 //            .background(.red)
@@ -276,13 +273,28 @@ struct informationContent: View{
             .padding(20)
 //                .offset(y: -25)
         }
-//        .background(.red)
-            
-            
-            
-            
-            
-        
+        .onAppear(){
+                    
+                    //jika item pinpoint ada di dalam listOfBookmark, maka isSaved dibuat true
+                    
+        }
+        .onChange(of: isSaved) { currentState in
+            print("pressed bookmark : \(isSaved) \(currentState)")
+            if currentState == true{
+                //save menambah array
+                if let pinpoint = item {
+                    globalData.listOfBookMark.append(pinpoint)
+                    print("saved bookmark : \(pinpoint) \(currentState)")
+                    print(globalData.listOfBookMark)
+                }
+            }else{
+                
+                globalData.listOfBookMark.removeLast()
+                //menghapus bookmark
+                //harus pada posisi array yang sesuai
+            }
+
+        }
     }
 }
 struct informationContent_Previews: PreviewProvider {

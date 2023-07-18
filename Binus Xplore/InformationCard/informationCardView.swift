@@ -52,7 +52,7 @@ struct informationCardView: View{
                         .background(.white)
                         .cornerRadius(50)
                     ScrollView(.vertical){
-                        informationContent(item: item).environmentObject(GlobalData())
+                        informationContent(item: item).environmentObject(globalData)
                     }
                     
                 }
