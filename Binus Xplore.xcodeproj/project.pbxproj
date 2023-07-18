@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340204002A6691BA00BEB036 /* MapNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340203FF2A6691BA00BEB036 /* MapNavigation.swift */; };
 		5802E8AC2A55732200731E1C /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AB2A55732200731E1C /* Onboarding2.swift */; };
 		5802E8AE2A55803D00731E1C /* Onboarding3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AD2A55803D00731E1C /* Onboarding3.swift */; };
 		5802E8B02A55830900731E1C /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802E8AF2A55830900731E1C /* LandingPage.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		340203FF2A6691BA00BEB036 /* MapNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigation.swift; sourceTree = "<group>"; };
 		5802E8AB2A55732200731E1C /* Onboarding2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
 		5802E8AD2A55803D00731E1C /* Onboarding3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3.swift; sourceTree = "<group>"; };
 		5802E8AF2A55830900731E1C /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				655D6E4C2A668079004554C3 /* MapNavView.swift */,
 				655D6E4E2A6680AA004554C3 /* MapNavChecked.swift */,
 				8FB91F8A2A65293000E4AD10 /* SummarizePage.swift */,
+				340203FF2A6691BA00BEB036 /* MapNavigation.swift */,
 			);
 			path = NavigationPage;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				585A00B72A5F0E4F0039125D /* OfficePage.swift in Sources */,
 				8F0CFB792A6432C600EDDFE4 /* Pinpoint.swift in Sources */,
 				58E6621E2A5523210050A269 /* Binus_Xplore.xcdatamodeld in Sources */,
+				340204002A6691BA00BEB036 /* MapNavigation.swift in Sources */,
 				8FB794E32A6144290022725D /* Loginpage.swift in Sources */,
 				9A73A60F2A60044F0054FD29 /* back.swift in Sources */,
 				8FA26A042A5C718800B2A34D /* Bookmark.swift in Sources */,

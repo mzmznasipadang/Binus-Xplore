@@ -15,17 +15,26 @@ struct Node {
 }
 
 struct SummarizePage: View {
-    //searchText = dummy
     let searchText: String
+    let searchWord: String
     @StateObject private var viewModel: ContentViewModel
     @Environment(\.presentationMode) var presentationMode
     struct Constants {
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
     }
-    init(searchText: String) {
+    init(searchText: String, searchWord : String) {
         self.searchText = searchText
-        self._viewModel = StateObject(wrappedValue: ContentViewModel(endNode: searchText))
+        self.searchWord = searchWord
+        self._viewModel = StateObject(wrappedValue: ContentViewModel(endNode: searchText,startNode : searchWord))
     }
+    
+//    init(searchWord: String){
+//
+//    }
+//    init(searchWord: String) {
+//        self.searchWord = searchWord
+//        self._viewModel = StateObject(wrappedValue: ContentViewModel(startNode: searchWord))
+//    }
     
     var body: some View {
         NavigationView {
@@ -66,9 +75,12 @@ struct SummarizePage: View {
                             HStack (spacing:15){
                                 //                                Text ("Lobby")
                                 //                                    .fontWeight(.medium)
-                                //                                    .font(.system(size:16))
-                                TextField("Enter start node", text: $viewModel.startNode)
-                                    .frame(width:70)
+                                //                                    .font(.system(size:16)
+                                
+                                Text(searchWord)
+                                    .fontWeight(.medium)
+                                    .font(.system(size:16))
+                                    .lineSpacing(22)
                                 
                                 
                                 Image("guideIcon")
@@ -81,9 +93,6 @@ struct SummarizePage: View {
                                     .fontWeight(.medium)
                                     .font(.system(size:16))
                                     .lineSpacing(22)
-                                
-                                
-                                
                             }
                             .frame(width:200)
                         }
@@ -91,14 +100,11 @@ struct SummarizePage: View {
                         .padding(.vertical,-10)
                         
                         ScrollView{
-                            
                             ZStack{
                                 Rectangle()
                                     .frame(width: 500, height: 500)
                                     .foregroundColor(.clear)
-
                                     VStack{
-                                    
                                     if !viewModel.shortestPath.isEmpty {
                                             VStack {
                                                 HStack{
@@ -108,17 +114,10 @@ struct SummarizePage: View {
                                                         .padding(.horizontal,50)
                                                     Spacer()
                                                 }
-                                                
-                                                
                                                 ForEach(viewModel.pathNodes, id: \.self) { node in
                                                     if let distance = viewModel.nodeDistances[node] {
-                                                        
-                                                        
-                                                        
                                                         HStack{
-                                                            
                                                             VStack(alignment: .leading){
-                                                                
                                                                 VStack{
                                                                     Text("\(node)")
                                                                         .font(.system(size:16))
@@ -161,15 +160,11 @@ struct SummarizePage: View {
                                                     .foregroundColor(.white)
                                                     
                                             }
-                                        
-                                        
                                     }
                                 }
                                 Spacer()
                             }
                         }
-                        
-                        
                     }
                     
                     
@@ -181,21 +176,6 @@ struct SummarizePage: View {
                     
                     HStack {
                         Spacer()
-                        
-                        //                        Button(action:{}) {
-                        //                            Text("Let's Go!")
-                        //                                .font(Font.custom("SF Pro Display", size: 22)
-                        //                                    .weight(.medium))
-                        //                                .foregroundColor(.white)
-                        //                                .frame(width: 354, height: 54)
-                        //                                .background(Constants.Primary)
-                        //                                .cornerRadius(15)
-                        //                                .edgesIgnoringSafeArea(.all)
-                        //
-                        //                        }
-                        //                        .padding()
-                        //                        .edgesIgnoringSafeArea(.bottom)
-                        //                        .offset(y:145)
                         
                         Button(action: {
                             viewModel.findShortestPath()
@@ -222,7 +202,7 @@ struct SummarizePage: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-    
+       
     
     var backButton: some View {
         Button(action: {
@@ -246,17 +226,20 @@ struct SummarizePage: View {
     
     
     class ContentViewModel: ObservableObject {
-        @Published var startNode: String = ""
+        @Published var startNode: String
         @Published var endNode: String
         @Published var shortestPath: String = ""
         @Published var pathNodes: [String] = []
         @Published var nodeDistances: [String: Int] = [:]
         @Published var totalDistance: Int = 0
         //    @Published var searchText = searchText
-        init(endNode: String) { // Update this line
-            self.endNode = endNode // Update this line
+        init(endNode: String,startNode:String) { // Update this line
+            self.endNode = endNode
+            self.startNode = startNode// Update this line
         }
-        
+//        init(){
+//
+//        }
         private var graph: [String: Node] = [
             "Lobby": Node(key: "Lobby", value: "Lobby Value", neighbors: ["Toilet": 5, "Kantin": 12, "Apple": 7]),
             "Toilet": Node(key: "Toilet", value: "Toilet Value", neighbors: ["Lobby": 5, "GOR": 6, "Apple": 7]),
@@ -307,8 +290,6 @@ struct SummarizePage: View {
                     return
                 }
                 path.append(currentNode)
-                //            totalDistance += graph[prev]?.neighbors[currentNode] ?? 0
-                //            print(graph[prev]?.neighbors[currentNode])
                 currentNode = prev
             }
             
@@ -317,11 +298,6 @@ struct SummarizePage: View {
             nodeDistances = distances
             self.totalDistance = totalDistance
             shortestPath = pathNodes.joined(separator: " -> ")
-            
-            //        for i in 0..<path.count {
-            //            print(path[i])
-            //            totalDistance += graph["Library"]?.neighbors["GOR"] ?? 0
-            //        }
         }
         
         
@@ -340,8 +316,8 @@ struct SummarizePage: View {
         }
     }
 
-struct SummarizePage_Previews: PreviewProvider {
+struct ContentNav_Previews: PreviewProvider {
     static var previews: some View {
-        SummarizePage(searchText : "Lift")
+        SummarizePage(searchText : "item", searchWord : "item" )
     }
 }

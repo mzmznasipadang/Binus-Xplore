@@ -16,7 +16,6 @@ struct OfficePage: View {
     @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
     @State private var navigate = false
-
     var body: some View {
         NavigationView {
             VStack {
