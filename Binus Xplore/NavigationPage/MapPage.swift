@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MapPage: View {
+    @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
     struct Constants {
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
@@ -183,8 +184,7 @@ struct MapPage: View {
                         
                         Button(action:{}) {
                             Text("Let's Go!")
-                                .font(Font.custom("SF Pro Display", size: 22)
-                                    .weight(.medium))
+                                .font(.system(size: 22).weight(.medium))
                                 .foregroundColor(.white)
                                 .frame(width: 354, height: 54)
                                 .background(Constants.Primary)
@@ -226,7 +226,7 @@ struct MapPage: View {
 }
 struct MapPage_Previews: PreviewProvider {
     static var previews: some View {
-        MapPage()
+        MapPage().environmentObject(GlobalData())
     }
 }
 

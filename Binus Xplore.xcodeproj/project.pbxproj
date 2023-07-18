@@ -32,6 +32,9 @@
 		58E662282A5523210050A269 /* Binus_XploreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662272A5523210050A269 /* Binus_XploreTests.swift */; };
 		58E662322A5523210050A269 /* Binus_XploreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662312A5523210050A269 /* Binus_XploreUITests.swift */; };
 		58E662342A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */; };
+		655D6E4B2A668021004554C3 /* MapNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D6E4A2A668021004554C3 /* MapNav.swift */; };
+		655D6E4D2A668079004554C3 /* MapNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D6E4C2A668079004554C3 /* MapNavView.swift */; };
+		655D6E4F2A6680AA004554C3 /* MapNavChecked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D6E4E2A6680AA004554C3 /* MapNavChecked.swift */; };
 		8F0CFB792A6432C600EDDFE4 /* Pinpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0CFB782A6432C600EDDFE4 /* Pinpoint.swift */; };
 		8F34C87D2A62269D000C16CE /* comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34C87C2A62269D000C16CE /* comparison.swift */; };
 		8F7FA6372A5D8FD3006BC3A1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7FA6362A5D8FD3006BC3A1 /* HomeView.swift */; };
@@ -93,6 +96,9 @@
 		58E6622D2A5523210050A269 /* Binus XploreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Binus XploreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E662312A5523210050A269 /* Binus_XploreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreUITests.swift; sourceTree = "<group>"; };
 		58E662332A5523210050A269 /* Binus_XploreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binus_XploreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		655D6E4A2A668021004554C3 /* MapNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNav.swift; sourceTree = "<group>"; };
+		655D6E4C2A668079004554C3 /* MapNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavView.swift; sourceTree = "<group>"; };
+		655D6E4E2A6680AA004554C3 /* MapNavChecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavChecked.swift; sourceTree = "<group>"; };
 		8F0CFB782A6432C600EDDFE4 /* Pinpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pinpoint.swift; sourceTree = "<group>"; };
 		8F34C87C2A62269D000C16CE /* comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = comparison.swift; sourceTree = "<group>"; };
 		8F7FA6362A5D8FD3006BC3A1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -196,6 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				586373602A5EB74D00CF3F25 /* MapPage.swift */,
+				655D6E4A2A668021004554C3 /* MapNav.swift */,
+				655D6E4C2A668079004554C3 /* MapNavView.swift */,
+				655D6E4E2A6680AA004554C3 /* MapNavChecked.swift */,
 				8FB91F8A2A65293000E4AD10 /* SummarizePage.swift */,
 			);
 			path = NavigationPage;
@@ -430,11 +439,14 @@
 				8F34C87D2A62269D000C16CE /* comparison.swift in Sources */,
 				5802E8B02A55830900731E1C /* LandingPage.swift in Sources */,
 				5802E8AE2A55803D00731E1C /* Onboarding3.swift in Sources */,
+				655D6E4B2A668021004554C3 /* MapNav.swift in Sources */,
 				586373612A5EB74D00CF3F25 /* MapPage.swift in Sources */,
 				9A73A60B2A6003D20054FD29 /* informationContent.swift in Sources */,
 				584972B52A5C5CCD00CE105F /* CustomTabBar.swift in Sources */,
 				586373592A5EB13D00CF3F25 /* StartingPoint.swift in Sources */,
+				655D6E4F2A6680AA004554C3 /* MapNavChecked.swift in Sources */,
 				8F7FA6372A5D8FD3006BC3A1 /* HomeView.swift in Sources */,
+				655D6E4D2A668079004554C3 /* MapNavView.swift in Sources */,
 				8FB794E12A6135020022725D /* ContentNav.swift in Sources */,
 				5802E8B62A55B0BB00731E1C /* Splash.swift in Sources */,
 				8FB794E52A6144970022725D /* Registerpage.swift in Sources */,

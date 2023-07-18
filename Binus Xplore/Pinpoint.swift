@@ -8,15 +8,16 @@
 import Foundation
 import SwiftUI
 import Combine
+import CoreData
 
-struct pinpoint: Identifiable, Hashable {
+struct pinpoint: Identifiable, Equatable {
     let id = UUID()
     let name: String
     let images: [String]
     let status: Bool
     let time: String
     let description: String
-    let isSaved: Bool
+    var isSaved: Bool // Change let to var to make it mutable
     let floor: String
     let building: String
     let category: String
@@ -32,7 +33,22 @@ let pinpoints: [pinpoint] = [
     // ... add more items as needed
 ]
 
+
+
 class GlobalData: ObservableObject {
     @Published var endNode: String = ""
     @Published var startNode: String = ""
+    @Published var visitedStartingPoint: Bool = false
+    
+    @Published var listOfBookMark: [pinpoint] = []
+    
+//    func addToBookmark(_ item: pinpoint) {
+//        if let index = listOfBookMark.firstIndex(of: item) {
+//            listOfBookMark.remove(at: index)
+//        } else {
+//            var updatedItem = item
+//            updatedItem.isSaved.toggle()
+//            listOfBookMark.append(updatedItem)
+//        }
+//    }
 }

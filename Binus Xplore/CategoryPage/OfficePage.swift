@@ -1,46 +1,143 @@
+//
+//  SearchResult.swift
+//  Binus Xplore
+//
+//  Created by Aaron Alexander on 12/07/23.
+//
+
 import Foundation
 import SwiftUI
 
+
 struct OfficePage: View {
     let searchText: String
+    @State private var selectedItem: pinpoint?
 
+    @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
     @State private var navigate = false
-    
-    
+
     var body: some View {
         NavigationView {
             VStack {
-                TopView()
+                Spacer(minLength: 100)
+                HStack(){
+                    Button(action: {
+                        
+                    }) {
+                        Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
+                            .font(.body)
+                            .foregroundColor(Color.white)
+
+                            .padding(.horizontal, 10.0)
+                            .padding(.vertical, 8)
+                            .background(Color("MainColor"))
+                            .cornerRadius(12)
+                            .offset(x:5)
+                        
+
+
+
+                            
+                    }
+                    .padding(.leading, 5)
+                    Spacer()
+                }
+                .padding()
                 
                 ScrollView {
                     VStack(spacing: 8) {
                         ForEach(pinpoints.filter { $0.category.localizedCaseInsensitiveContains(searchText) }, id: \.id) { item in
-                            NavigationButton(item: item, navigate: $navigate)
+                            Button(action: {
+                                self.navigate = true
+                                self.selectedItem = item
+                            }) {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .foregroundColor(.white)
+                                    .frame(width: 352.0, height: 169.0)
+                                    .overlay(
+                                        HStack(spacing: 8) {
+                                            Image(item.images.first ?? "default_image")
+                                                .resizable()
+                                                .padding()
+                                                .frame(width: 138.0, height: 138.0)
+//                                                .foregroundColor(.white)
+//                                                .background(Color("MainColor"))
+                                                .cornerRadius(8)
+                                                .offset(x:17)
+                                            
+                                            VStack(alignment: .leading, spacing: 4) {
+                                                Text(item.name)
+                                                    .font(.system(size: 24))
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.black)
+                                                    .padding(.leading)
+                                                    
+                                                
+                                                
+                                                HStack{
+                                                    Image(systemName: "location")
+                                                        .foregroundColor(.black)
+                                                        .padding(.leading)
+                                                    
+                                                    Text(item.floor + ", " + item.building)
+                                                        .foregroundColor(.black)
+                                                        .font(.system(size: 16))
+                                                        .lineLimit(1)
+                                                        
+            
+                                                }
+                                                
+                                                HStack{
+                                                    Image(systemName: "clock")
+                                                        .foregroundColor(.black)
+                                                        .padding(.leading)
+                                                    
+                                                    Text(item.time)
+                                                        .foregroundColor(.black)
+                                                        .font(.system(size: 16))
+                                                        .lineLimit(1)
+                                                        .frame(width: 95.0)
+                                                        
+                                                }.offset(y:5)
+                                                
+                                                
+                                            }.offset(x:7)
+                                                .frame(width: 165, height: 300, alignment: .leading)
+                        
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.black)
+                                                .padding()
+                                            
+                                        }
+                                            .padding(.horizontal)
+                                        
+                                    )
+                            }
+                            NavigationLink(destination: informationCardView(item: selectedItem).environmentObject(globalData), isActive: $navigate) { EmptyView() }
                         }
                     }
                     .padding()
                     .offset(y:-20)
+                    
+                    
+                    
+                    
                 }
             }
             .background(Color(hue: 0, saturation: 0, brightness: 0.97))
             .edgesIgnoringSafeArea(.vertical)
             .navigationBarItems(
-                leading: LeadingButton(presentationMode: _presentationMode),
-                trailing: TrailingText()
-            )
-        }.navigationBarBackButtonHidden(true)
-    }
-}
-
-struct TopView: View {
-    var body: some View {
-        VStack {
-//            Spacer(minLength: 100)
-            HStack(){
-                Button(action: {
-                    
+                leading: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color.black)
+                        .frame(width: 40.0, height: 40.0)
+                        .font(.system(size: 12).weight(.semibold))
+                        .background(Color.white)
+                        .clipShape(Circle())
                     Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                         .font(.body)
                         .foregroundColor(Color.white)
@@ -94,100 +191,22 @@ struct OverlayView: View {
                     
                     InfoView(item: item)
                     
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.black)
-                        .padding()
                 }
-                .padding(.horizontal)
+                    .padding(.top, 15.0),
+                trailing: Text("Available Places")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.trailing, 25.0)
+                    .padding(.top, 19)
             )
-    }
-}
-
-struct InfoView: View {
-    let item: pinpoint
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(item.name)
-                .font(.system(size: 24))
-                .fontWeight(.bold)
-                .foregroundColor(.black)
-                .padding(.leading)
-            
-            LocationView(item: item)
-            
-            TimeView(item: item)
-        }.offset(x:7)
-            .frame(width: 165, height: 300, alignment: .leading)
-    }
-}
-
-struct LocationView: View {
-    let item: pinpoint
-    
-    var body: some View {
-        HStack{
-            Image(systemName: "location")
-                .foregroundColor(.black)
-                .padding(.leading)
-            
-            Text(item.floor + ", " + item.building)
-                .foregroundColor(.black)
-                .font(.system(size: 16))
-                .lineLimit(1)
-        }
-    }
-}
-
-struct TimeView: View {
-    let item: pinpoint
-    
-    var body: some View {
-        HStack{
-            Image(systemName: "clock")
-                .foregroundColor(.black)
-                .padding(.leading)
-            
-            Text(item.time)
-                .foregroundColor(.black)
-                .font(.system(size: 16))
-                .lineLimit(1)
-                .frame(width: 95.0)
-        }.offset(y:5)
-    }
-}
-
-struct LeadingButton: View {
-    @Environment(\.presentationMode) var presentationMode
-
-    var body: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color.black)
-                .frame(width: 40.0, height: 40.0)
-                .font(.system(size: 12).weight(.semibold))
-                .background(Color.white)
-                .clipShape(Circle())
-        }
-        .padding(.top, 15.0)
-    }
-}
-
-struct TrailingText: View {
-    var body: some View {
-        Text("Available Places")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .padding(.trailing, 28.0)
-            .padding(.top, 19)
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
 struct OfficePage_Previews: PreviewProvider {
     static var previews: some View {
-        OfficePage(searchText: "Office")
+        OfficePage(searchText: "Office").environmentObject(GlobalData())
     }
 }
+
 

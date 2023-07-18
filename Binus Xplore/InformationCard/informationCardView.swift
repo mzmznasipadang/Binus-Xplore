@@ -1,6 +1,6 @@
 //
 //  informationCardView.swift
-//  travel_unbound
+//  Binus_Xplore
 //
 //  Created by Tyogo Utomo on 07/07/23.
 //
@@ -11,7 +11,7 @@ import SwiftUI
 struct informationCardView: View{
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var globalData: GlobalData
-
+  
     let item: pinpoint?
     var body: some View{
         NavigationView{
@@ -52,7 +52,7 @@ struct informationCardView: View{
                         .background(.white)
                         .cornerRadius(50)
                     ScrollView(.vertical){
-                        informationContent(item: item).environmentObject(GlobalData())
+                        informationContent(item: item).environmentObject(globalData)
                     }
                     
                 }
