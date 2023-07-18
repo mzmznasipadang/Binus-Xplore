@@ -11,7 +11,9 @@ import SwiftUI
 struct Bookmark: View {
     @State private var isEmpty = false
     @State private var navigate = false
-    let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    @EnvironmentObject var globalData: GlobalData
+    
+//    @ObservedObject var globalData = GlobalData()
     var body: some View {
         
         NavigationView{
@@ -46,26 +48,22 @@ struct Bookmark: View {
                     else{
                         ScrollView {
                             VStack(spacing: 8) {
-                                ForEach(items, id: \.self) { item in
-                                    Button(action: {
-                                        self.navigate = true
-                                    }) {
+                                ForEach(globalData.listOfBookMark) { bookmark in
                                         RoundedRectangle(cornerRadius: 16)
                                             .foregroundColor(.white)
                                             .frame(width: 352.0, height: 169.0)
                                             .overlay(
                                                 HStack(spacing: 8) {
-                                                    Image(systemName: "photo")
+                                                    Image(bookmark.images.first!)
                                                         .resizable()
                                                         .padding()
                                                         .frame(width: 138.0, height: 138.0)
                                                         .foregroundColor(.white)
-                                                        .background(Color("MainColor"))
                                                         .cornerRadius(8)
                                                         .offset(x:17)
                                                     
                                                     VStack(alignment: .leading, spacing: 4) {
-                                                        Text("C0302")
+                                                        Text(bookmark.name)
                                                             .font(.system(size: 24))
                                                             .fontWeight(.bold)
                                                             .foregroundColor(.black)
@@ -78,7 +76,7 @@ struct Bookmark: View {
                                                                 .foregroundColor(.black)
                                                                 .padding(.leading)
                                                             
-                                                            Text("Floor 2, C Tower")
+                                                            Text("\(bookmark.floor), \(bookmark.building)")
                                                                 .foregroundColor(.black)
                                                                 .font(.system(size: 16))
                                                                 .lineLimit(1)
@@ -91,7 +89,7 @@ struct Bookmark: View {
                                                                 .foregroundColor(.black)
                                                                 .padding(.leading)
                                                             
-                                                            Text("07.00 - 15.00")
+                                                            Text("\(bookmark.time)")
                                                                 .foregroundColor(.black)
                                                                 .font(.system(size: 16))
                                                                 .lineLimit(1)
@@ -112,9 +110,9 @@ struct Bookmark: View {
                                                     .padding(.horizontal)
                                                 
                                             )
-                                    }
-                                    NavigationLink(destination: StartingPoint(), isActive: $navigate) { EmptyView() }
+                                    
                                 }
+                                
                             }
                             .padding()
                             .offset(y:-20)
@@ -165,7 +163,7 @@ struct Bookmark: View {
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
             }
-            .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+            .background(Color("WhiteBG"))
         }
         .navigationBarBackButtonHidden(true)
     }

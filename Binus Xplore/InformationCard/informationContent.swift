@@ -15,7 +15,10 @@ struct informationContent: View{
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
         static let Green: Color = Color(red: 0, green: 1, blue: 0.27)
     }
+    @EnvironmentObject var globalData: GlobalData
     @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
+    @State private var navigate = false
+
     var body: some View{
         //------------ info card content
         VStack{
@@ -214,22 +217,55 @@ struct informationContent: View{
                 //harus bikin flag variabel buat cek start node uda keisi apa belom
                 //kalo ya, trip summary
                 //kalo ga, strting point
-                NavigationLink(destination: StartingPoint()){
-                    Text("Set Location")
-                        .foregroundColor(.white)
-                        .kerning(0.374)
-                        .font(.system(size: 20).weight(.medium))
-                        .padding(.vertical, 8)
-                        .frame(
-                            maxWidth: .infinity
-                        )
+                
+                if (globalData.visitedStartingPoint == false){
+                    Button(action: {
+                        self.navigate = true
+                        globalData.endNode = item!.name
+                        print("End node: \(globalData.endNode)")
+                    }) {
+                        Text("Set Location")
+                            .foregroundColor(.white)
+                            .kerning(0.374)
+                            .font(.system(size: 20).weight(.medium))
+                            .padding(.vertical, 8)
+                            .frame(width: 320, height: 50)
+                    }
+                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+                    .cornerRadius(15)
+                    .padding(.top)
+                    .padding(.leading)
+                    .background(
+                        NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigate) {
+                            EmptyView()
+                        }
+                            .hidden()
+                    )
                 }
-                .buttonStyle(.bordered)
-//                .padding(.horizontal, 20)
-                .background(Color(red: 0, green: 0.29, blue: 0.68))
-                .cornerRadius(15)
-                .padding(.top)
-                .frame(width: 372, alignment: .center)
+                else{
+                    Button(action: {
+                        self.navigate = true
+                        globalData.startNode = item!.name
+                        print("Start node: \(globalData.startNode)")
+                    }) {
+                        Text("Set Location")
+                            .foregroundColor(.white)
+                            .kerning(0.374)
+                            .font(.system(size: 20).weight(.medium))
+                            .padding(.vertical, 8)
+                            .frame(width: 320, height: 50)
+                    }
+                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+                    .cornerRadius(15)
+                    .padding(.top)
+                    .padding(.leading)
+                    .background(
+                        NavigationLink(destination: MapPage().environmentObject(globalData), isActive: $navigate) {
+                            EmptyView()
+                        }
+                            .hidden()
+                    )
+                }
 //                .background(.blue)
             }
 //            .background(.red)
@@ -237,19 +273,34 @@ struct informationContent: View{
             .padding(20)
 //                .offset(y: -25)
         }
-//        .background(.red)
-            
-            
-            
-            
-            
-        
+        .onAppear(){
+                    
+                    //jika item pinpoint ada di dalam listOfBookmark, maka isSaved dibuat true
+                    
+        }
+        .onChange(of: isSaved) { currentState in
+            print("pressed bookmark : \(isSaved) \(currentState)")
+            if currentState == true{
+                //save menambah array
+                if let pinpoint = item {
+                    globalData.listOfBookMark.append(pinpoint)
+                    print("saved bookmark : \(pinpoint) \(currentState)")
+                    print(globalData.listOfBookMark)
+                }
+            }else{
+                
+                globalData.listOfBookMark.removeLast()
+                //menghapus bookmark
+                //harus pada posisi array yang sesuai
+            }
+
+        }
     }
 }
 struct informationContent_Previews: PreviewProvider {
     static var previews: some View {
         let dummyItem = pinpoint(name: "Dummy", images: ["default_image"], status: false, time: "00:00 - 00:00", description: "Dummy description", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
-        informationContent(item: dummyItem)
+        informationContent(item: dummyItem).environmentObject(GlobalData())
     }
 }
 //informationContentView

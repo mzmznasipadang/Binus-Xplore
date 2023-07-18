@@ -1,6 +1,6 @@
 //
 //  informationCardView.swift
-//  travel_unbound
+//  Binus_Xplore
 //
 //  Created by Tyogo Utomo on 07/07/23.
 //
@@ -10,6 +10,8 @@ import SwiftUI
 
 struct informationCardView: View{
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var globalData: GlobalData
+  
     let item: pinpoint?
     var body: some View{
         NavigationView{
@@ -50,7 +52,7 @@ struct informationCardView: View{
                         .background(.white)
                         .cornerRadius(50)
                     ScrollView(.vertical){
-                        informationContent(item: item)
+                        informationContent(item: item).environmentObject(globalData)
                     }
                     
                 }
@@ -83,7 +85,7 @@ struct informationCardView: View{
 struct informationCardView_Previews: PreviewProvider {
     static var previews: some View {
         let dummyItem = pinpoint(name: "Admission Office", images: ["admission-office-main"], status: false, time: "08:00 - 17:00", description: "Information center and facility to provide important announcements regarding student admission.", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
-        informationCardView(item: dummyItem)
+        informationCardView(item: dummyItem).environmentObject(GlobalData())
     }
 }
 //informationCardView

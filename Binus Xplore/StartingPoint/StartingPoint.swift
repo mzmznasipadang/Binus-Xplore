@@ -9,7 +9,11 @@ import SwiftUI
 
 struct StartingPoint: View {
     @Environment(\.presentationMode) var presentationMode
-    
+    @EnvironmentObject var globalData: GlobalData
+    @State private var inputStarting = ""
+    @State private var isSearching = false
+    @State private var showInformationCard = false
+    @State private var navigate = false
     // Color
     //    struct Constants {
     //    static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
@@ -82,15 +86,16 @@ struct StartingPoint: View {
                                                     .background(Color(red: 0.97, green: 0.97, blue: 0.97))
                                                     .cornerRadius(30)
                                                 
-                                                HStack{
-                                                    Image(systemName: "magnifyingglass")
-                                                        .frame(width: 24, height: 24)
-                                                    
-                                                    Text("Where are you now?")
-                                                        .font(Font.custom("SF Pro", size: 14))
-                                                        .foregroundColor(Color(red: 0.54, green: 0.54, blue: 0.55))
-                                                }
-                                                .padding(11)
+//                                                HStack{
+//                                                    Image(systemName: "magnifyingglass")
+//                                                        .frame(width: 24, height: 24)
+//
+//                                                    Text("Where are you now?")
+//                                                        .font(Font.custom("SF Pro", size: 14))
+//                                                        .foregroundColor(Color(red: 0.54, green: 0.54, blue: 0.55))
+//                                                }
+//                                                .padding(11)
+                                                SearchBar(inputStarting: $inputStarting)
                                             }
                                             .padding(.top, 20)
                                             
@@ -197,6 +202,8 @@ struct StartingPoint: View {
                 Button(action: {
                     // Set Starting Point
                     //ke search results
+                    globalData.visitedStartingPoint = true
+                    self.navigate = true
                 }) {
                     Text("Set Starting Point")
                         .font(.system(size: 20).weight(.medium))
@@ -209,6 +216,13 @@ struct StartingPoint: View {
                 }
                 .offset(y:70)
                 .padding()
+                //masukkin search bar
+                .background(
+                    NavigationLink(destination: SearchResult(searchText: inputStarting), isActive: $navigate) {
+                        EmptyView()
+                    }
+                        .hidden()
+                )
                 
             }
             
@@ -232,9 +246,47 @@ struct StartingPoint: View {
         }.navigationBarBackButtonHidden(true)
     }
     
+    struct SearchBar: View {
+        @Binding var inputStarting: String
+        @State private var searchText = ""
+        @State private var isSearching = false
+        var body: some View {
+            HStack {
+                Image(systemName: "magnifyingglass").foregroundColor(.gray)
+                TextField("Where are you heading to?", text: $searchText, onCommit: {
+                    performSearch()
+                })
+                    .font(.system(size: 15))
+                Button(action: {
+                    // action
+                }) {
+                    Image(systemName: "mic.fill")
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding(.horizontal, 11)
+            .padding(.vertical, 6)
+            .background(Color(.systemGray6))
+            .cornerRadius(10)
+            .padding(.horizontal)
+            
+            NavigationLink(
+                destination: SearchResult(searchText: searchText), isActive: $isSearching
+            ){
+                EmptyView()
+            }.hidden()
+        }
+        private func performSearch(){
+            if !searchText.isEmpty{
+                isSearching = true
+                inputStarting = searchText
+            }
+        }
+    }
+    
     struct StartingPoint_Previews: PreviewProvider {
         static var previews: some View {
-            StartingPoint()
+            StartingPoint().environmentObject(GlobalData())
         }
     }
 }
