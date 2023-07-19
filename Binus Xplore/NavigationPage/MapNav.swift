@@ -50,13 +50,10 @@ struct MapNav: View {
                         .padding(.top, 19)
                         .foregroundColor(.white)
                 )
-                }
-                
             }
-
-        }
-   
+        }.navigationBarBackButtonHidden(true)
     }
+}
 
 
 

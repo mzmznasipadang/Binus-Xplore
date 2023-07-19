@@ -225,7 +225,7 @@ struct SummarizePage: View {
                     .padding(16)
                     .background(Color.white)
                     .clipShape(Circle())
-                    .offset(x: 13, y: 18)
+                    .offset(x: 13, y: 12)
 
             }
         }

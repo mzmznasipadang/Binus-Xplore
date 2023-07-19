@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct Bookmark: View {
-    @State private var isEmpty = false
     @State private var navigate = false
     @EnvironmentObject var globalData: GlobalData
     
@@ -30,7 +29,7 @@ struct Bookmark: View {
                         Spacer()
                     }
                     Spacer()
-                    if (isEmpty == true){
+                    if (globalData.listOfBookMark.isEmpty){
                         Rectangle()
                             .foregroundColor(.clear)
                             .frame(width: 354, height: 253)
