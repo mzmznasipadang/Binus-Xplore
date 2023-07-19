@@ -201,7 +201,7 @@ struct SummarizePage: View {
                         .padding()
                         .edgesIgnoringSafeArea(.bottom)
                         .offset(y:145)
-                        NavigationLink(destination: MapNav(), isActive: $navigate) { EmptyView() }
+                        NavigationLink(destination: MapNav().environmentObject(globalData), isActive: $navigate) { EmptyView() }
                         Spacer()
                     }
                     
