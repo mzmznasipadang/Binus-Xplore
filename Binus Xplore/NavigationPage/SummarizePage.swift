@@ -17,8 +17,10 @@ struct Node {
 struct SummarizePage: View {
     let searchText: String
     let searchWord: String
+    @State private var navigate = false
     @StateObject private var viewModel: ContentViewModel
     @EnvironmentObject var globalData: GlobalData
+//    @EnvironmentObject var sharedData: SharedDataModel
     @Environment(\.presentationMode) var presentationMode
     struct Constants {
         static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
@@ -117,6 +119,7 @@ struct SummarizePage: View {
                                                 }
                                                 ForEach(viewModel.pathNodes, id: \.self) { node in
                                                     if let distance = viewModel.nodeDistances[node] {
+                                                        
                                                         HStack{
                                                             VStack(alignment: .leading){
                                                                 VStack{
@@ -144,17 +147,21 @@ struct SummarizePage: View {
                                                         }
                                                         
                                                         
-                                                    } else {
+                                                    }
+                                                    else {
                                                         Text(node)
                                                             .multilineTextAlignment(.center)
                                                             .padding()
                                                     }
                                                 }
                                                 
-                                                Text("Total Distance: \(viewModel.nodeDistances[viewModel.endNode] ?? 0) step")
-                                                    .font(.largeTitle)
-                                                    .padding(50)
-                                                    .padding(.horizontal,-170)
+                                                HStack{
+                                                    Text(" \(viewModel.endNode)")
+                                                        .font(.headline)
+                                                        .padding()
+                                                        .padding(.horizontal,50)
+                                                    Spacer()
+                                                }
                                                 
                                                 Rectangle()
                                                     .frame(height:240)
@@ -173,13 +180,15 @@ struct SummarizePage: View {
                         .foregroundColor(.white)
                         .frame(width: 418.0, height: 200.0)
                         .offset(y:205)
+                        .onAppear(perform: viewModel.findShortestPath)
                     
                     
                     HStack {
                         Spacer()
                         
                         Button(action: {
-                            viewModel.findShortestPath()
+//                            viewModel.findShortestPath()
+                            self.navigate = true
                         }) {
                             Text("Let's Go!")
                                 .font(.system(size: 22).weight(.medium))
@@ -192,6 +201,7 @@ struct SummarizePage: View {
                         .padding()
                         .edgesIgnoringSafeArea(.bottom)
                         .offset(y:145)
+                        NavigationLink(destination: MapNav(), isActive: $navigate) { EmptyView() }
                         Spacer()
                     }
                     

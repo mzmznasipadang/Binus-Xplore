@@ -46,3 +46,8 @@ class GlobalData: ObservableObject {
     @Published var visitedStartingPoint: Bool = false
     @Published var listOfBookMark: [pinpoint] = []
 }
+
+class SharedDataModel: ObservableObject {
+    @Published var nodeName: String = ""
+    @Published var nodeDistance: String = ""
+}

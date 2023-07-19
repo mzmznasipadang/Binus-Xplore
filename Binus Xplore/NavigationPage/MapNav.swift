@@ -46,29 +46,22 @@ struct MapNav: View {
                     trailing: Text("Navigation")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .padding(.trailing, 95.0)
+                        .padding(.trailing, 105.0)
                         .padding(.top, 19)
                         .foregroundColor(.white)
                 )
                 }
                 
             }
-                
-        
-            
-            
+
         }
-        
-    
-        
-        
-        
+   
     }
 
 
 
 struct MapNav_Previews: PreviewProvider {
-static var previews: some View {
-    MapNav()
-}
+    static var previews: some View {
+        MapNav()
+    }
 }

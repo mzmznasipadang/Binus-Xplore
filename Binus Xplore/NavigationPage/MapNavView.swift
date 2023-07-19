@@ -55,7 +55,7 @@ struct MapNavView: View {
 
 
  ///
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 MapNavChecked()
 
                 MapNavChecked()
