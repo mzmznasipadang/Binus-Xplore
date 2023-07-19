@@ -294,11 +294,13 @@ struct HomeView: View {
                 }
             }
             .background(Color("WhiteBG"))
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
+//            .navigationBarHidden(true)
         }
         .background(Color("WhiteBG"))
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 
