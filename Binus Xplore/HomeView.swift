@@ -1,5 +1,3 @@
-
-
 //
 //  HomeView.swift
 //  Binus Xplore
@@ -18,22 +16,23 @@ struct HomeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var selectedItem: pinpoint?
     @State private var navigate = false
-
+    
     @EnvironmentObject var globalData: GlobalData
-
+    
     
     var body: some View {
         NavigationView{
+            
             VStack{
-                HStack{
+                HStack{ //Title Page
                     Text("Explore").font(.system(size: 34).weight(.bold))
                         .foregroundStyle(Color("Apple"))
                     Text("BINUS").font(.system(size: 34).weight(.bold)).foregroundColor(Color("MainColor"))
                     Spacer()
                 }.padding(.top, 10).padding(.bottom, -1)
                     .padding(.leading, 30)
-                SearchBar().environmentObject(globalData)
-                HStack{
+                SearchBar().environmentObject(globalData) //Search Bar
+                HStack{ //Icon Stack
                     NavigationLink(destination: OfficePage(searchText: "Office").environmentObject(globalData)){
                         VStack{
                             ZStack{
@@ -107,7 +106,7 @@ struct HomeView: View {
                 }.padding(.trailing, 53)
                     .padding(.leading, 53)
                     .padding(.top, 8)
-                HStack{
+                HStack{ //Icon Stack 2
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
@@ -170,102 +169,103 @@ struct HomeView: View {
                     .padding(.leading, 53)
                     .padding(.top, 8)
                 Divider()
-                    .background(Color.gray)
+                    .background(Color("WhiteBG"))
                     .padding(.horizontal, 20)
                     .frame(height: 10)
                 HStack{ //Latest Events
-                    Text("Latest Events").font(.system(size: 24).weight(.bold))
+                    Text("Latest Events")
+                        .font(.system(size: 24)
+                            .weight(.bold))
                     Spacer()
                 }.padding(.leading, 30)
                 
-                
-                ScrollView {
-                    VStack(spacing: 8) {
-                        ForEach(pinpoints.filter { $0.category.localizedCaseInsensitiveContains("Event") }, id: \.id) { item in
-                            Button(action: {
-                                self.navigate = true
-                                self.selectedItem = item
-                            }) {
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color("AppleText"))
-                                        .frame(width: 350, height: 150)
-                                    HStack(spacing: 30){
-                                        Image(item.images.first ?? "default_image")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .frame(width: 120, height: 120)
-                                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        
-                                        VStack(alignment: .leading, spacing: 5){
-                                            Text(item.name)
-                                                .font(.system(size: 18)
-                                                    .weight(.semibold))
-                                            HStack{
-                                                Image(systemName: "location")
-                                                    .font(.system(size: 14))
-                                                Text(item.floor + ", " + item.building)
-                                                    .font(.system(size: 12))
-                                                    .fontWeight(.medium)
-                                                //Hati Hati Sering Crash
-                                            }
-                                            HStack{
-                                                Image(systemName: "calendar")
-                                                                                    .font(.system(size: 14))
-                                                Text({ () -> String in
-                                                    let date = Date()
-                                                    let formatter = DateFormatter()
-                                                    formatter.dateStyle = .long
-                                                    return formatter.string(from: date)
-                                                }())
-                                                                                .font(.system(size: 12))
-                                                                                .fontWeight(.medium)
-                                                                                .kerning(0.374)
-                                            }
-                                            HStack{
-                                                Image(systemName: "clock")
-                                                    .font(.system(size: 12))
-                                                    .fontWeight(.medium)
-                                                Text(item.time)
+                ZStack{
+                    ScrollView {
+                        VStack(spacing: 8) {
+                            ForEach(pinpoints.filter { $0.category.localizedCaseInsensitiveContains("Event") }, id: \.id) { item in
+                                Button(action: {
+                                    self.navigate = true
+                                    self.selectedItem = item
+                                }) {
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color("AppleText"))
+                                            .frame(width: 350, height: 150)
+                                        HStack(spacing: 30){
+                                            Image(item.images.first ?? "default_image")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 120, height: 120)
+                                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            
+                                            VStack(alignment: .leading, spacing: 5){
+                                                Text(item.name)
+                                                    .font(.system(size: 18)
+                                                        .weight(.semibold))
+                                                HStack{
+                                                    Image(systemName: "location")
+                                                        .font(.system(size: 14))
+                                                    Text(item.floor + ", " + item.building)
+                                                        .font(.system(size: 12))
+                                                        .fontWeight(.medium)
+                                                    //Hati Hati Sering Crash
+                                                }
+                                                HStack{
+                                                    Image(systemName: "calendar")
+                                                        .font(.system(size: 14))
+                                                    Text({ () -> String in
+                                                        let date = Date()
+                                                        let formatter = DateFormatter()
+                                                        formatter.dateStyle = .long
+                                                        return formatter.string(from: date)
+                                                    }())
                                                     .font(.system(size: 12))
                                                     .fontWeight(.medium)
                                                     .kerning(0.374)
+                                                }
+                                                HStack{
+                                                    Image(systemName: "clock")
+                                                        .font(.system(size: 12))
+                                                        .fontWeight(.medium)
+                                                    Text(item.time)
+                                                        .font(.system(size: 12))
+                                                        .fontWeight(.medium)
+                                                        .kerning(0.374)
+                                                }
                                             }
+                                            .padding(.leading, 15.0)
+                                            
                                         }
-                                        .padding(.leading, 15.0)
+                                        .padding(.leading, -10.0)
                                         
                                     }
-                                    .padding(.leading, -10.0)
-                                    
+                                    .padding(.horizontal, 20.0)
+                                    .foregroundColor(Color.black)
                                 }
-                                .padding(.horizontal, 20.0)
-                                .foregroundColor(Color.black)
+                                NavigationLink(destination: informationCardView(item: selectedItem).environmentObject(globalData), isActive: $navigate) { EmptyView() }
                             }
-                            NavigationLink(destination: informationCardView(item: selectedItem).environmentObject(globalData), isActive: $navigate) { EmptyView() }
                         }
-                    }
-                    .padding()
-                    .offset(y:-20)
+                        .padding(.top, 10.0)
+                        .padding()
+                        .offset(y:-20)
+                    }.frame(height: 400)//ScrollView
                     
                     
-                    
-                    
-                }.frame(height: 290)//ScrollView
-                Spacer()
-                VStack{ //NavBar (OTW Ganti)
                     Spacer()
-                    ZStack{
-                        Rectangle()
-                            .fill(Color("AppleText"))
-                            .frame(height: 94)
-                        HStack{
-                            NavigationLink(destination: Bookmark()){
-                                Image(systemName: "bookmark")
-                                    .font(Font.custom("SF Pro", size: 40))
-                                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
-                            }
-                            Spacer()
-//                            NavigationLink(destination: HomeView()){
+                    VStack{ //NavBar
+                        Spacer()
+                        ZStack{
+                            Rectangle()
+                                .fill(Color("AppleText"))
+                                .frame(height: 94)
+                            HStack{
+                                NavigationLink(destination: Bookmark()){
+                                    Image(systemName: "bookmark")
+                                        .font(Font.custom("SF Pro", size: 40))
+                                        .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+                                }
+                                Spacer()
+                                //                            NavigationLink(destination: HomeView()){
                                 ZStack{
                                     Circle()
                                         .fill(Color(red: 0, green: 0.29, blue: 0.68))
@@ -279,29 +279,28 @@ struct HomeView: View {
                                         .foregroundColor(.white)
                                         .offset(y:-28)
                                 }
+                                Spacer()
                                 
-//                            }
-                            Spacer()
-                            
-                            NavigationLink(destination: Profile().environmentObject(globalData)){
-                                Image(systemName: "person")
-                                    .font(Font.custom("SF Pro", size: 40))
-                                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
-                            }
-                        }.padding(.horizontal, 74.0)
+                                NavigationLink(destination: Profile().environmentObject(globalData)){
+                                    Image(systemName: "person")
+                                        .font(Font.custom("SF Pro", size: 40))
+                                        .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+                                }
+                            }.padding(.horizontal, 74.0)
+                        }
                     }
+                    .edgesIgnoringSafeArea(.bottom)
+                    .frame(maxHeight: .infinity)
                 }
-                .edgesIgnoringSafeArea(.bottom)
-                .frame(maxHeight: .infinity)
-                
             }
             .background(Color("WhiteBG"))
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+        .background(Color("WhiteBG"))
+        .ignoresSafeArea()
     }
 }
-
 
 struct SearchBar: View {
     @State private var searchText = ""
@@ -313,7 +312,7 @@ struct SearchBar: View {
             TextField("Where are you heading to?", text: $searchText, onCommit: {
                 performSearch()
             })
-                .font(.system(size: 15))
+            .font(.system(size: 15))
             Button(action: {
                 // action
             }) {

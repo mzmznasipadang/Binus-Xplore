@@ -14,7 +14,7 @@ struct back: View {
             Button(action: {
                 // Action to be performed when the button is tapped
                 //                print("Button tapped")
-                BackFunc()
+//                BackFunc()
             }) {
                 Image("back-chevron")
                     .position(x:65, y:100)
