@@ -16,15 +16,16 @@ struct Profile: View{
     var body: some View{
         NavigationView{
             VStack{
-                HStack{
-                    Text("Profile")
-                        .font(.system(size: 34)
-                            .weight(.bold))
-                        .padding(.top, 10)
-                        .padding(.bottom, -1)
-                        .padding(.leading, 30)
-                    Spacer()
-                }
+                Spacer(minLength: 30)
+//                HStack{
+//                    Text("Profile")
+//                        .font(.system(size: 34)
+//                            .weight(.bold))
+//                        .padding(.top, 10)
+//                        .padding(.bottom, -1)
+//                        .padding(.leading, 30)
+//                    Spacer()
+//                }
                 Image("JohnDoe")
                     .resizable()
                     .frame(width: 224, height: 179)
@@ -83,13 +84,8 @@ struct Profile: View{
                             Picker(selection: $selectedOption, label: Text("PICK")) {
                                 ForEach(0..<globalData.special_needs_options.count) { index in
                                     Text(globalData.special_needs_options[index])
-                                        .foregroundColor(Color.black)
+                                        .accentColor(.black)
                                 }
-                            }.onAppear {
-                                UILabel.appearance().textColor = UIColor.black
-                            }
-                            .onDisappear {
-                                UILabel.appearance().textColor = UIColor.label
                             }
                             
 //                            Text("Special Needs")
@@ -312,8 +308,8 @@ struct Profile: View{
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
             }
+            .background(Color("WhiteBG"))
         }
-        .background(Color("WhiteBG"))//For DarkMode Purposes
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }

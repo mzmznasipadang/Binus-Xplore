@@ -21,7 +21,7 @@ struct Bookmark: View {
             VStack {
                 VStack{
                     HStack{
-                        Text("Bookmarked Places")
+                        Text("Bookmark")
                             .font(.system(size: 34).weight(.bold))
                             .padding(.top, 10)
                             .padding(.bottom, -1)

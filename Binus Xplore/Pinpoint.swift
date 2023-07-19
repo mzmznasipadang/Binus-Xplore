@@ -43,7 +43,7 @@ let pinpoints: [pinpoint] = [
 class GlobalData: ObservableObject {
     @Published var endNode: String = ""
     @Published var startNode: String = ""
-    @Published var visitedStartingPoint: Bool = false
+//    @Published var visitedStartingPoint: Bool = false
     @Published var listOfBookMark: [pinpoint] = []
     @Published var name: String = ""
     @Published var phone: String = ""

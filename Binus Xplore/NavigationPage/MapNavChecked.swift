@@ -97,17 +97,17 @@ struct MapNavChecked: View {
 
 
                 VStack(alignment: .leading) {
-                    Text("Walk")
-                      .font(
-                        Font.custom("SF Pro", size: 16)
-                          .weight(.semibold)
-                      )
-                      .foregroundColor(.black)
-                      .frame(width: 203, height: 21, alignment: .topLeading)
+//                    Text("Walk")
+//                      .font(
+//                        Font.custom("SF Pro", size: 16)
+//                          .weight(.semibold)
+//                      )
+//                      .foregroundColor(.black)
+//                      .frame(width: 203, height: 21, alignment: .topLeading)
 
                     Text("\(node.distance)")
                       .font(
-                        Font.custom("SF Pro", size: 12)
+                        Font.custom("SF Pro", size: 14)
                           .weight(.medium)
                       )
                       .foregroundColor(.black)

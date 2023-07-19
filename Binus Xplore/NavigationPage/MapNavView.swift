@@ -21,27 +21,34 @@ struct MapNavView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 15){
             HStack {
-                Text("10 mins")
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width:35,height:34)
-                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
-                    .overlay(
-                        Image(systemName:"figure.roll"))
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width:35,height:34)
-                    .foregroundColor(Color(red: 1, green: 0.72, blue: 0.72))
-                    .overlay(
-                        Image(systemName:"figure.roll"))
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width:35,height:34)
-                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
-                    .overlay(
-                        Image(systemName:"figure.roll"))
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width:35,height:34)
-                    .foregroundColor(Color(red: 0.2, green: 0.75, blue: 0.36).opacity(0.76))
-                    .overlay(
-                        Image(systemName:"arrow.right"))
+                Text("\(viewModel.nodeDistances[viewModel.endNode] ?? 0) meters")
+                ForEach(viewModel.pathNodes, id: \.self){ node in
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width:35,height:34)
+                        .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+                        .overlay(
+                            Image(systemName:"figure.roll"))
+                }
+//                RoundedRectangle(cornerRadius: 10)
+//                    .frame(width:35,height:34)
+//                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+//                    .overlay(
+//                        Image(systemName:"figure.roll"))
+//                RoundedRectangle(cornerRadius: 10)
+//                    .frame(width:35,height:34)
+//                    .foregroundColor(Color(red: 1, green: 0.72, blue: 0.72))
+//                    .overlay(
+//                        Image(systemName:"figure.roll"))
+//                RoundedRectangle(cornerRadius: 10)
+//                    .frame(width:35,height:34)
+//                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
+//                    .overlay(
+//                        Image(systemName:"figure.roll"))
+//                RoundedRectangle(cornerRadius: 10)
+//                    .frame(width:35,height:34)
+//                    .foregroundColor(Color(red: 0.2, green: 0.75, blue: 0.36).opacity(0.76))
+//                    .overlay(
+//                        Image(systemName:"arrow.right"))
             }
             .frame(width: 265, height: 48)
             .background(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -59,14 +66,16 @@ struct MapNavView: View {
  ///
             ScrollView(showsIndicators: false){
                 ForEach(viewModel.pathNodes, id: \.self) { node in
-                        if let distance = viewModel.nodeDistances[node] {
-                            let nodeInfo = NodeInfo(name: node, distance: "\(distance) meters walk")
-                            MapNavChecked(node: nodeInfo)
-                        }
+                    if let distance = viewModel.nodeDistances[node] {
+                        let nodeInfo = NodeInfo(name: node, distance: "\(distance) meters")
+                        MapNavChecked(node: nodeInfo)
                     }
+                }
             }
             .frame(height:440)
             .offset(y:-40)
+            
+            
 
 ///
             NavigationLink(destination: HomeView().environmentObject(globalData)) {
