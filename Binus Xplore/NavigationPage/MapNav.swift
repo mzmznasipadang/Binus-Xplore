@@ -13,6 +13,9 @@ struct MapNav: View {
     @State private var isSaved = false
     @State private var isRectangleGreen = false
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var globalData: GlobalData
+    let viewModel: ContentViewModel
+
     
     var body: some View {
         NavigationView{
@@ -20,7 +23,7 @@ struct MapNav: View {
                 
         
                 ZStack {
-                    MapNavView()
+                    MapNavView(viewModel: viewModel).environmentObject(globalData)
                         .foregroundColor(.black)
                       .frame(width: 414, height: 721)
                       .background(.white)
@@ -60,6 +63,6 @@ struct MapNav: View {
 
 struct MapNav_Previews: PreviewProvider {
     static var previews: some View {
-        MapNav()
+        MapNav(viewModel: ContentViewModel(endNode: "LKC", startNode: "GOR")).environmentObject(GlobalData())
     }
 }
