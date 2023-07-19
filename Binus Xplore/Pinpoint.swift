@@ -45,6 +45,12 @@ class GlobalData: ObservableObject {
     @Published var startNode: String = ""
     @Published var visitedStartingPoint: Bool = false
     @Published var listOfBookMark: [pinpoint] = []
+    @Published var name: String = ""
+    @Published var phone: String = ""
+    @Published var emergency_1: String = ""
+    @Published var emergency_2: String = "08XXXXXXXXXX"
+    @Published var selectedOption: Int = 0
+    @Published var special_needs_options = ["Wheelchair", "Cane", "Walker", "Crutch"]
 }
 
 class SharedDataModel: ObservableObject {

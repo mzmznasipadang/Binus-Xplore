@@ -10,13 +10,8 @@ import SwiftUI
 import CoreData
 
 struct Profile: View{
-//    @EnvironmentObject var globalData: GlobalData
-    @State private var name = "John Doe"
-    @State private var phone = "08XXXXXXXXXX"
-    @State private var emergency_1 = "08XXXXXXXXXX"
-    @State private var emergency_2 = "08XXXXXXXXXX"
+    @EnvironmentObject var globalData: GlobalData
     @State private var selectedOption = 0
-    @State private var special_needs_options = ["wheelchair", "cane"]
 //    let context = PersistenceController.shared.container.viewContext
     var body: some View{
         NavigationView{
@@ -36,16 +31,30 @@ struct Profile: View{
                     .clipShape(Circle())
                 
                 HStack {
-                    Text(name)
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .font(.system(size: 30))
-                    
+                    if(globalData.name == ""){
+                        Text("John Doe")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .font(.system(size: 30))
+                    }else{
+                        Text(globalData.name)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .font(.system(size: 30))
+                    }
                     Button(action: {
-                        // Action to be performed when the pencil button is tapped
-                        // In this example, we'll present an alert to enter a new name
-                        // You can replace this with your desired logic
-                        presentNameChangeAlert()
+                        let alert = UIAlertController(title: "Change Phone Number", message: nil, preferredStyle: .alert)
+                        alert.addTextField { textField in
+                            textField.placeholder = "Enter a phone number"
+                        }
+                        alert.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+                            if let newName = alert.textFields?.first?.text {
+                                globalData.name = newName
+                            }
+                        })
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                        // Present the alert
+                        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                     }) {
                         Image(systemName: "pencil")
                             .foregroundColor(Color.gray)
@@ -71,11 +80,22 @@ struct Profile: View{
                         HStack{
                             
                             Image(systemName: "figure.roll")
+                            Picker(selection: $selectedOption, label: Text("PICK")) {
+                                ForEach(0..<globalData.special_needs_options.count) { index in
+                                    Text(globalData.special_needs_options[index])
+                                        .foregroundColor(Color.black)
+                                }
+                            }.onAppear {
+                                UILabel.appearance().textColor = UIColor.black
+                            }
+                            .onDisappear {
+                                UILabel.appearance().textColor = UIColor.label
+                            }
                             
-                            Text("Special Needs")
-                                .font(Font.custom("SF Pro", size: 14))
-                                .kerning(0.374)
-                                .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+//                            Text("Special Needs")
+//                                .font(Font.custom("SF Pro", size: 14))
+//                                .kerning(0.374)
+//                                .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
                             
                             Spacer()
                             
@@ -87,7 +107,7 @@ struct Profile: View{
                                 
                             }
                             .scaledToFit()
-                            
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                             .frame(width: 30, height: 30)
                             
                             
@@ -108,7 +128,7 @@ struct Profile: View{
                             }
                             alert.addAction(UIAlertAction(title: "Save", style: .default) { _ in
                                 if let newPhone = alert.textFields?.first?.text {
-                                    phone = newPhone
+                                    globalData.phone = newPhone
                                 }
                             })
                             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -117,17 +137,24 @@ struct Profile: View{
                         }){
                             HStack{
                                 Image(systemName: "phone.fill")
-                                Text(phone)
-                                    .font(Font.custom("SF Pro", size: 14))
-                                    .kerning(0.374)
-                                    .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                    .foregroundColor(Color.black)
+                                if(globalData.phone == ""){
+                                    Text("08XXXXXXXXX")
+                                        .font(Font.custom("SF Pro", size: 14))
+                                        .kerning(0.374)
+                                        .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }else{
+                                    Text(globalData.phone)
+                                        .font(Font.custom("SF Pro", size: 14))
+                                        .kerning(0.374)
+                                        .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }
                             }
                             .padding(.horizontal, 18)
                             .padding(.vertical, 16.5)
                             .frame(width: 340, height: 50, alignment: .leading)
                             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
                             .cornerRadius(10)
-                            .foregroundColor(Color.black)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 1)
@@ -153,7 +180,7 @@ struct Profile: View{
                             }
                             alert.addAction(UIAlertAction(title: "Save", style: .default) { _ in
                                 if let newEmergency1 = alert.textFields?.first?.text {
-                                    emergency_1 = newEmergency1
+                                    globalData.emergency_1 = newEmergency1
                                 }
                             })
                             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -163,12 +190,18 @@ struct Profile: View{
                             HStack{
                                 
                                 Image(systemName: "phone.fill")
-                                
-                                Text(emergency_1)
-                                    .font(Font.custom("SF Pro", size: 14))
-                                    .kerning(0.374)
-                                    .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
-                                
+                                    .foregroundColor(Color.black)
+                                if(globalData.emergency_1 == ""){
+                                    Text("08XXXXXXXXX")
+                                        .font(Font.custom("SF Pro", size: 14))
+                                        .kerning(0.374)
+                                        .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }else{
+                                    Text(globalData.emergency_1)
+                                        .font(Font.custom("SF Pro", size: 14))
+                                        .kerning(0.374)
+                                        .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }
                                 Text("Assistant")
                                     .font(Font.custom("SF Pro", size: 14))
                                     .kerning(0.374)
@@ -180,7 +213,6 @@ struct Profile: View{
                             .frame(width: 340, height: 50, alignment: .leading)
                             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
                             .cornerRadius(10)
-                            .foregroundColor(Color.black)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 1)
@@ -194,7 +226,7 @@ struct Profile: View{
                             }
                             alert.addAction(UIAlertAction(title: "Save", style: .default) { _ in
                                 if let newEmergency2 = alert.textFields?.first?.text {
-                                    emergency_2 = newEmergency2
+                                    globalData.emergency_2 = newEmergency2
                                 }
                             })
                             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -204,12 +236,18 @@ struct Profile: View{
                             HStack{
                                 
                                 Image(systemName: "phone.fill")
-                                
-                                Text(emergency_2)
-                                    .font(Font.custom("SF Pro", size: 14))
-                                    .kerning(0.374)
-                                    .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
-                                
+                                    .foregroundColor(Color.black)
+                                if(globalData.emergency_1 == ""){
+                                    Text("08XXXXXXXXX")
+                                        .font(Font.custom("SF Pro", size: 14))
+                                        .kerning(0.374)
+                                        .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }else{
+                                    Text(globalData.emergency_2)
+                                        .font(Font.custom("SF Pro", size: 14))
+                                        .kerning(0.374)
+                                        .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
+                                }
                                 Text("Dad")
                                     .font(Font.custom("SF Pro", size: 14))
                                     .kerning(0.374)
@@ -223,7 +261,6 @@ struct Profile: View{
                             .frame(width: 340, height: 50, alignment: .leading)
                             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
                             .cornerRadius(10)
-                            .foregroundColor(Color.black)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 1)
@@ -237,7 +274,7 @@ struct Profile: View{
                     Spacer()
                     ZStack{
                         Rectangle()
-                            .fill(Color.white)
+                            .fill(Color("AppleText"))
                             .frame(height: 94)
                         HStack{
                             NavigationLink(destination: Bookmark()){ // Later Change to Bookmark
@@ -246,7 +283,7 @@ struct Profile: View{
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                             }
                             Spacer()
-                            NavigationLink(destination: HomeView().environmentObject(GlobalData())){
+                            NavigationLink(destination: HomeView().environmentObject(globalData)){
                                 ZStack{
                                     Circle()
                                         .fill(Color(red: 0.53, green: 0.73, blue: 1))
@@ -275,60 +312,42 @@ struct Profile: View{
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxHeight: .infinity)
             }
-            .background(Color("WhiteBG"))
         }
-//        .background(Color("WhiteBG"))//For DarkMode Purposes
+        .background(Color("WhiteBG"))//For DarkMode Purposes
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }
-    private func presentNameChangeAlert() {
-        // Create an alert with a text field to enter a new name
-        let alert = UIAlertController(title: "Change Name", message: nil, preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Enter a new name"
-        }
-        alert.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-            // Update the name with the entered text
-            if let newName = alert.textFields?.first?.text {
-//                let newEntity = User(context: context)
-//                newEntity.name = newName
-                name = newName
-            }
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        // Present the alert
-        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
-    }
-    func updateEntity(name: String, email:String, phoneNumber:String, emergencycontact: String, specialNeeds: Bool) {
-        let context = PersistenceController.shared.container.viewContext
-        
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", "123") // Use a specific condition to fetch the entity
-        
-        do {
-            let result = try context.fetch(fetchRequest)
-            if let entityToUpdate = result.first {
-                // Update the properties of the entity
-                entityToUpdate.name = name
-                entityToUpdate.specialneeds = specialNeeds
-                entityToUpdate.email = email
-                entityToUpdate.phonenumber = phoneNumber
-                entityToUpdate.emergencycontact = emergencycontact
-                
-                // Save the changes
-                try context.save()
-            }
-        } catch {
-            // Handle the error appropriately
-            print("Error updating entity: \(error)")
-        }
-    }
+    
+//    func updateEntity(name: String, email:String, phoneNumber:String, emergencycontact: String, specialNeeds: Bool) {
+//        let context = PersistenceController.shared.container.viewContext
+//
+//        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", "123") // Use a specific condition to fetch the entity
+//
+//        do {
+//            let result = try context.fetch(fetchRequest)
+//            if let entityToUpdate = result.first {
+//                // Update the properties of the entity
+//                entityToUpdate.name = name
+//                entityToUpdate.specialneeds = specialNeeds
+//                entityToUpdate.email = email
+//                entityToUpdate.phonenumber = phoneNumber
+//                entityToUpdate.emergencycontact = emergencycontact
+//
+//                // Save the changes
+//                try context.save()
+//            }
+//        } catch {
+//            // Handle the error appropriately
+//            print("Error updating entity: \(error)")
+//        }
+//    }
 
 }
 
 struct Profile_Previews: PreviewProvider{
     static var previews: some View{
-        Profile()
+        Profile().environmentObject(GlobalData())
     }
 }
+
