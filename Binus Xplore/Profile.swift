@@ -304,7 +304,7 @@ struct Profile: View{
                             //                            NavigationLink(destination: Onboarding2()){
                             Image(systemName: "person.fill")
                                 .font(Font.custom("SF Pro", size: 40))
-                                .foregroundColor(Color("MainBlueIcon"))
+                                .foregroundColor(Color(red: 0, green: 0.29, blue: 0.68))
                             //                            }
                         }.padding(.horizontal, 74.0)
                     }

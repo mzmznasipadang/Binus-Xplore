@@ -69,29 +69,23 @@ struct MapNavView: View {
             .offset(y:-40)
 
 ///
-            Button {
-                self.navigate = true
-            } label: {
+            NavigationLink(destination: HomeView().environmentObject(globalData)) {
                 HStack(alignment: .center, spacing: 10) {
                     Text("Arrived at Destination")
-                      .font(
-                        Font.custom("SF Pro Display", size: 20)
-                          .weight(.medium)
-                      )
-                      .lineLimit(1)
-                      .kerning(0.374)
-                      .foregroundColor(.white)
-                      .frame(width:200)
+                        .font(Font.custom("SF Pro Display", size: 20).weight(.medium))
+                        .lineLimit(1)
+                        .kerning(0.374)
+                        .foregroundColor(.white)
+                        .frame(width:200)
                 }
                 .padding(.horizontal, 120)
                 .padding(.vertical, 14)
                 .frame(width: 354, alignment: .center)
                 .background(Color(red: 0, green: 0.29, blue: 0.68))
                 .cornerRadius(15)
-                .offset(y:-40)
-                NavigationLink(destination: HomeView().environmentObject(globalData), isActive: $navigate) { EmptyView() }
-                
             }
+            .offset(y:-40)
+
 
         }
     }

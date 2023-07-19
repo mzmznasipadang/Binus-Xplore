@@ -186,6 +186,8 @@ struct HomeView: View {
                                 Button(action: {
                                     self.navigate = true
                                     self.selectedItem = item
+                                    print("HomeView has appeared. visitedStartingPoint value: \(globalData.visitedStartingPoint)")
+                                    
                                 }) {
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 10)
@@ -294,6 +296,11 @@ struct HomeView: View {
                 }
             }
             .background(Color("WhiteBG"))
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        globalData.visitedStartingPoint = false
+                    }
+            }
 //            .navigationBarBackButtonHidden(true)
 //            .navigationBarHidden(true)
         }

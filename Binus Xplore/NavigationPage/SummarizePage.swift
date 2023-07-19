@@ -188,6 +188,7 @@ struct SummarizePage: View {
                         
                         Button(action: {
 //                            viewModel.findShortestPath()
+                            
                             self.navigate = true
                         }) {
                             Text("Let's Go!")

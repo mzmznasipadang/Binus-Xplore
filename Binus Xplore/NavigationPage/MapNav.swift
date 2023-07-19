@@ -20,7 +20,6 @@ struct MapNav: View {
     var body: some View {
         NavigationView{
             VStack{
-                
         
                 ZStack {
                     MapNavView(viewModel: viewModel).environmentObject(globalData)
