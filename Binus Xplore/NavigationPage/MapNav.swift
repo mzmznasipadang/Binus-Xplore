@@ -12,6 +12,7 @@ struct MapNav: View {
     
     @State private var isSaved = false
     @State private var isRectangleGreen = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView{
@@ -32,7 +33,7 @@ struct MapNav: View {
                 .edgesIgnoringSafeArea(.vertical)
                 .navigationBarItems(
                     leading: Button(action: {
-                    
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(Color.black)
