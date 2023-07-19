@@ -171,6 +171,6 @@ struct Bookmark: View {
 
 struct BookMark_Previews: PreviewProvider {
     static var previews: some View {
-        Bookmark()
+        Bookmark().environmentObject(GlobalData())
     }
 }

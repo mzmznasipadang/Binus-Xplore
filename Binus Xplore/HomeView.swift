@@ -32,9 +32,9 @@ struct HomeView: View {
                     Spacer()
                 }.padding(.top, 10).padding(.bottom, -1)
                     .padding(.leading, 30)
-                SearchBar().environmentObject(GlobalData())
+                SearchBar().environmentObject(globalData)
                 HStack{
-                    NavigationLink(destination: OfficePage(searchText: "Office").environmentObject(GlobalData())){
+                    NavigationLink(destination: OfficePage(searchText: "Office").environmentObject(globalData)){
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -50,7 +50,7 @@ struct HomeView: View {
                         }
                     }
                     Spacer()
-                    NavigationLink(destination: OfficePage(searchText: "Class").environmentObject(GlobalData())){
+                    NavigationLink(destination: OfficePage(searchText: "Class").environmentObject(globalData)){
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -149,7 +149,7 @@ struct HomeView: View {
                             .padding(.top, -2)
                     }
                     Spacer()
-                    NavigationLink(destination: OfficePage(searchText: "F & B").environmentObject(GlobalData())){
+                    NavigationLink(destination: OfficePage(searchText: "F & B").environmentObject(globalData)){
                         VStack{
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
@@ -283,7 +283,7 @@ struct HomeView: View {
 //                            }
                             Spacer()
                             
-                            NavigationLink(destination: Profile().environmentObject(GlobalData())){
+                            NavigationLink(destination: Profile().environmentObject(globalData)){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
                                     .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
@@ -306,6 +306,7 @@ struct HomeView: View {
 struct SearchBar: View {
     @State private var searchText = ""
     @State private var isSearching = false
+    @EnvironmentObject var globalData: GlobalData
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
@@ -327,7 +328,7 @@ struct SearchBar: View {
         .padding(.horizontal)
         
         NavigationLink(
-            destination: SearchResult(searchText: searchText).environmentObject(GlobalData()), isActive: $isSearching
+            destination: SearchResult(searchText: searchText).environmentObject(globalData), isActive: $isSearching
         ){
             EmptyView()
         }.hidden()
