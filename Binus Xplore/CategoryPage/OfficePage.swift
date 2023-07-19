@@ -15,8 +15,8 @@ struct OfficePage: View {
 
     @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var navigate = false
-
     var body: some View {
         NavigationView {
             VStack {
@@ -63,7 +63,7 @@ struct OfficePage: View {
                                                 .frame(width: 138.0, height: 138.0)
 //                                                .foregroundColor(.white)
 //                                                .background(Color("MainColor"))
-                                                .cornerRadius(8)
+                                                .cornerRadius(10)
                                                 .offset(x:17)
                                             
                                             VStack(alignment: .leading, spacing: 4) {
@@ -138,58 +138,6 @@ struct OfficePage: View {
                         .font(.system(size: 12).weight(.semibold))
                         .background(Color.white)
                         .clipShape(Circle())
-                    Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
-                        .font(.body)
-                        .foregroundColor(Color.white)
-
-                        .padding(.horizontal, 10.0)
-                        .padding(.vertical, 8)
-                        .background(Color("MainColor"))
-                        .cornerRadius(12)
-                        .offset(x:5)
-                }
-                .padding(.leading, 5)
-                .padding(.top, 100.0)
-                Spacer()
-            }
-            .padding()
-        }
-    }
-}
-
-struct NavigationButton: View {
-    let item: pinpoint
-    @Binding var navigate: Bool
-    @State private var selectedItem: pinpoint?
-    
-    var body: some View {
-        Button(action: {
-            self.navigate = true
-            self.selectedItem = item
-        }) {
-            OverlayView(item: item)
-        }
-        NavigationLink(destination: informationCardView(item: selectedItem), isActive: $navigate) { EmptyView() }
-    }
-}
-
-struct OverlayView: View {
-    let item: pinpoint
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: 16)
-            .foregroundColor(.white)
-            .frame(width: 352.0, height: 169.0)
-            .overlay(
-                HStack(spacing: 8) {
-                    Image(item.images.first ?? "default_image")
-                        .resizable()
-                        .padding()
-                        .frame(width: 138.0, height: 138.0)
-                        .cornerRadius(8)
-                        .offset(x:17)
-                    
-                    InfoView(item: item)
                     
                 }
                     .padding(.top, 15.0),
@@ -205,8 +153,9 @@ struct OverlayView: View {
 
 struct OfficePage_Previews: PreviewProvider {
     static var previews: some View {
-        OfficePage(searchText: "Office").environmentObject(GlobalData())
+        OfficePage(searchText:"Office").environmentObject(GlobalData())
     }
 }
+
 
 

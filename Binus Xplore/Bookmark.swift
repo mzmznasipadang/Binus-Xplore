@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct Bookmark: View {
-    @State private var isEmpty = false
     @State private var navigate = false
     @EnvironmentObject var globalData: GlobalData
     
@@ -30,7 +29,7 @@ struct Bookmark: View {
                         Spacer()
                     }
                     Spacer()
-                    if (isEmpty == true){
+                    if (globalData.listOfBookMark.isEmpty){
                         Rectangle()
                             .foregroundColor(.clear)
                             .frame(width: 354, height: 253)
@@ -135,7 +134,7 @@ struct Bookmark: View {
                                 .font(.system(size: 40))
                                 .foregroundColor(Color("MainColor"))
                             Spacer()
-                            NavigationLink(destination: HomeView()){
+                            NavigationLink(destination: HomeView().environmentObject(globalData)){
                                 ZStack{
                                     Circle()
                                         .fill(Color(red: 0.53, green: 0.73, blue: 1))
@@ -152,10 +151,10 @@ struct Bookmark: View {
                             }
                             Spacer()
                             
-                            NavigationLink(destination: Profile()){
+                            NavigationLink(destination: Profile().environmentObject(globalData)){
                                 Image(systemName: "person")
                                     .font(Font.custom("SF Pro", size: 40))
-                                    .foregroundColor(Color("MainColor"))
+                                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
                             }
                         }.padding(.horizontal, 74.0)
                     }
@@ -171,6 +170,6 @@ struct Bookmark: View {
 
 struct BookMark_Previews: PreviewProvider {
     static var previews: some View {
-        Bookmark()
+        Bookmark().environmentObject(GlobalData())
     }
 }

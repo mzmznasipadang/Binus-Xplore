@@ -12,6 +12,7 @@ struct MapNav: View {
     
     @State private var isSaved = false
     @State private var isRectangleGreen = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView{
@@ -32,7 +33,7 @@ struct MapNav: View {
                 .edgesIgnoringSafeArea(.vertical)
                 .navigationBarItems(
                     leading: Button(action: {
-                    
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(Color.black)
@@ -46,29 +47,19 @@ struct MapNav: View {
                     trailing: Text("Navigation")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .padding(.trailing, 95.0)
+                        .padding(.trailing, 105.0)
                         .padding(.top, 19)
                         .foregroundColor(.white)
                 )
-                }
-                
             }
-                
-        
-            
-            
-        }
-        
-    
-        
-        
-        
+        }.navigationBarBackButtonHidden(true)
     }
+}
 
 
 
 struct MapNav_Previews: PreviewProvider {
-static var previews: some View {
-    MapNav()
-}
+    static var previews: some View {
+        MapNav()
+    }
 }

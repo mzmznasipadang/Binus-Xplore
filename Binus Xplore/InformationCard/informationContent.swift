@@ -18,6 +18,7 @@ struct informationContent: View{
     @EnvironmentObject var globalData: GlobalData
     @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
     @State private var navigate = false
+    @State private var navigates = false
 
     var body: some View{
         //------------ info card content
@@ -64,9 +65,6 @@ struct informationContent: View{
                         )
                         .padding(.horizontal,20)
                     }
-                        
-                        //                    if(calendar.component(.hour, from: date) < Date(.hour))
-                        //                      .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
                     Spacer()
                     Button {
                         if (isSaved == false){
@@ -131,24 +129,27 @@ struct informationContent: View{
                 .padding(.horizontal, 20)
                 VStack{
                     HStack{
-                        Image(systemName: "clock.fill")
+                        Image(item!.images[0])
                           .resizable()
                           .aspectRatio(contentMode: .fill)
                           .frame(width: 85, height: 85)
+                          .cornerRadius(10)
                           .clipped()
                           .padding(.horizontal, 10)
                         Spacer()
-                        Image(systemName: "clock.fill")
+                        Image(item!.images[1])
                           .resizable()
                           .aspectRatio(contentMode: .fill)
                           .frame(width: 85, height: 85)
+                          .cornerRadius(10)
                           .clipped()
                           .padding(.horizontal, 10)
                         Spacer()
-                        Image(systemName: "clock.fill")
+                        Image(item!.images[2])
                           .resizable()
                           .aspectRatio(contentMode: .fill)
                           .frame(width: 85, height: 85)
+                          .cornerRadius(10)
                           .clipped()
                           .padding(.horizontal, 10)
                         Spacer()
@@ -217,55 +218,111 @@ struct informationContent: View{
                 //harus bikin flag variabel buat cek start node uda keisi apa belom
                 //kalo ya, trip summary
                 //kalo ga, strting point
-                
-                if (globalData.visitedStartingPoint == false){
-                    Button(action: {
-                        self.navigate = true
+                Button(action: {
+                    if globalData.visitedStartingPoint == false {
                         globalData.endNode = item!.name
                         print("End node: \(globalData.endNode)")
-                    }) {
-                        Text("Set Location")
-                            .foregroundColor(.white)
-                            .kerning(0.374)
-                            .font(.system(size: 20).weight(.medium))
-                            .padding(.vertical, 8)
-                            .frame(width: 320, height: 50)
-                    }
-                    .background(Color(red: 0, green: 0.29, blue: 0.68))
-                    .cornerRadius(15)
-                    .padding(.top)
-                    .padding(.leading)
-                    .background(
-                        NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigate) {
-                            EmptyView()
-                        }
-                            .hidden()
-                    )
-                }
-                else{
-                    Button(action: {
-                        self.navigate = true
+                        globalData.visitedStartingPoint = true
+                        
+                        //self.navigates = false
+                    } else {
                         globalData.startNode = item!.name
                         print("Start node: \(globalData.startNode)")
-                    }) {
-                        Text("Set Location")
-                            .foregroundColor(.white)
-                            .kerning(0.374)
-                            .font(.system(size: 20).weight(.medium))
-                            .padding(.vertical, 8)
-                            .frame(width: 320, height: 50)
+                        globalData.visitedStartingPoint = false
+                        //self.navigates = true
+                        //self.navigate = false
                     }
-                    .background(Color(red: 0, green: 0.29, blue: 0.68))
-                    .cornerRadius(15)
-                    .padding(.top)
-                    .padding(.leading)
-                    .background(
-                        NavigationLink(destination: MapPage().environmentObject(globalData), isActive: $navigate) {
-                            EmptyView()
-                        }
-                            .hidden()
-                    )
+                    self.navigate = true
+                    self.navigates = true
+                    
+                    
+                    
+                }) {
+                    Text("Set Location")
+                        .foregroundColor(.white)
+                        .kerning(0.374)
+                        .font(.system(size: 20).weight(.medium))
+                        .padding(.vertical, 8)
+                        .frame(width: 354, height: 50)
+                        
                 }
+                .background(Color(red: 0, green: 0.29, blue: 0.68))
+                .cornerRadius(15)
+                .padding(.top)
+                .offset(x: 8)
+//                .padding(.leading)
+                .background(
+                    
+                )
+                
+                if !globalData.startNode.isEmpty {
+               // if  globalData.visitedStartingPoint == false {
+                    
+                    
+                    NavigationLink(destination: SummarizePage( searchText:globalData.startNode, searchWord:globalData.endNode).environmentObject(globalData), isActive: $navigate) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    
+                        
+                } else {
+                    NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigates) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    
+                }
+                
+               
+
+//                if (globalData.visitedStartingPoint == false){
+//                    Button(action: {
+//                        self.navigate = true
+//                        globalData.endNode = item!.name
+//                        print("End node: \(globalData.endNode)")
+//                    }) {
+//                        Text("Set Location")
+//                            .foregroundColor(.white)
+//                            .kerning(0.374)
+//                            .font(.system(size: 20).weight(.medium))
+//                            .padding(.vertical, 8)
+//                            .frame(width: 320, height: 50)
+//                    }
+//                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+//                    .cornerRadius(15)
+//                    .padding(.top)
+//                    .padding(.leading)
+//                    .background(
+//                        NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigate) {
+//                            EmptyView()
+//                        }
+//                            .hidden()
+//                    )
+//                }
+//                else{
+//                    Button(action: {
+//                        self.navigate = true
+//                        globalData.startNode = item!.name
+//                        print("Start node: \(globalData.startNode)")
+//                    }) {
+//                        Text("Set Location")
+//                            .foregroundColor(.white)
+//                            .kerning(0.374)
+//                            .font(.system(size: 20).weight(.medium))
+//                            .padding(.vertical, 8)
+//                            .frame(width: 320, height: 50)
+//                    }
+//                    .background(Color(red: 0, green: 0.29, blue: 0.68))
+//                    .cornerRadius(15)
+//                    .padding(.top)
+//                    .padding(.leading)
+//                    .background(
+//                        NavigationLink(destination: MapPage().environmentObject(globalData), isActive: $navigate) {
+//                            EmptyView()
+//                        }
+//                            .hidden()
+//                    )
+//                }
 //                .background(.blue)
             }
 //            .background(.red)

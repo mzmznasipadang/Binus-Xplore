@@ -12,6 +12,7 @@ struct MapNavView: View {
     
     @State private var isSaved = false
     @State private var isRectangleGreen = false
+    @State private var navigate = false
     
     var body: some View {
         VStack (alignment: .leading, spacing: 15){
@@ -55,7 +56,7 @@ struct MapNavView: View {
 
 
  ///
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 MapNavChecked()
 
                 MapNavChecked()
@@ -69,7 +70,7 @@ struct MapNavView: View {
 
 ///
             Button {
-
+                self.navigate = true
             } label: {
                 HStack(alignment: .center, spacing: 10) {
                     Text("Arrived at Destination")
@@ -88,12 +89,13 @@ struct MapNavView: View {
                 .background(Color(red: 0, green: 0.29, blue: 0.68))
                 .cornerRadius(15)
                 .offset(y:-25)
+                NavigationLink(destination: HomeView().environmentObject(GlobalData()), isActive: $navigate) { EmptyView() }
                 
             }
 
-            }
         }
     }
+}
 
 
 struct MapNavView_Previews: PreviewProvider {
