@@ -114,7 +114,7 @@ struct SummarizePage: View {
                                                     Text("Start (\(viewModel.startNode)):")
                                                         .font(.headline)
                                                         .padding()
-                                                        .padding(.horizontal,50)
+                                                        .padding(.horizontal,65)
                                                     Spacer()
                                                 }
                                                 ForEach(viewModel.pathNodes, id: \.self) { node in
@@ -159,7 +159,7 @@ struct SummarizePage: View {
                                                     Text(" \(viewModel.endNode)")
                                                         .font(.headline)
                                                         .padding()
-                                                        .padding(.horizontal,50)
+                                                        .padding(.horizontal,60)
                                                     Spacer()
                                                 }
                                                 

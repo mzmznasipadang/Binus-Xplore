@@ -113,13 +113,13 @@ struct MapNavChecked: View {
                       .foregroundColor(.black)
                       .frame(width: 203, height: 21, alignment: .topLeading)
 
-                    Text("6 Mins")
-                      .font(
-                        Font.custom("SF Pro", size: 12)
-                          .weight(.medium)
-                      )
-                      .foregroundColor(.black)
-                      .frame(width: 203, height: 21, alignment: .topLeading)
+//                    Text("6 Mins")
+//                      .font(
+//                        Font.custom("SF Pro", size: 12)
+//                          .weight(.medium)
+//                      )
+//                      .foregroundColor(.black)
+//                      .frame(width: 203, height: 21, alignment: .topLeading)
 
                 }.offset(x:30,y:-5)
             }

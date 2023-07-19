@@ -50,13 +50,10 @@ struct MapNavView: View {
             .offset(x:26,y:-30)
 ///
             Text("Start here:")
-              .font(
-                Font.custom("SF Pro", size: 20)
-                  .weight(.semibold)
-              )
+                .font(.system(size: 20).weight(.semibold))
               .foregroundColor(.black)
               .frame(width: 131.90323, height: 29, alignment: .topLeading)
-              .offset(y:-30)
+              .offset(y:-40)
 
 
  ///
@@ -69,7 +66,7 @@ struct MapNavView: View {
                     }
             }
             .frame(height:440)
-            .offset(y:-30)
+            .offset(y:-40)
 
 ///
             Button {
@@ -91,7 +88,7 @@ struct MapNavView: View {
                 .frame(width: 354, alignment: .center)
                 .background(Color(red: 0, green: 0.29, blue: 0.68))
                 .cornerRadius(15)
-                .offset(y:-25)
+                .offset(y:-40)
                 NavigationLink(destination: HomeView().environmentObject(globalData), isActive: $navigate) { EmptyView() }
                 
             }
