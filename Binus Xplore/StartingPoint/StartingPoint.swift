@@ -196,7 +196,7 @@ struct StartingPoint: View {
                         .edgesIgnoringSafeArea(.all)
                     
                 }
-                .offset(y:70)
+                .offset(y:65)
                 .padding()
                 //masukkin search bar
                 .background(
@@ -210,6 +210,7 @@ struct StartingPoint: View {
             
             .navigationBarItems(
                 leading: Button(action: {
+                    globalData.visitedStartingPoint = false
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
