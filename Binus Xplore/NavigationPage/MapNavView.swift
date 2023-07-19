@@ -14,6 +14,8 @@ struct MapNavView: View {
     @State private var isRectangleGreen = false
     @State private var navigate = false
     @EnvironmentObject var globalData: GlobalData
+    let viewModel: ContentViewModel
+
 
     
     var body: some View {
@@ -59,13 +61,12 @@ struct MapNavView: View {
 
  ///
             ScrollView(showsIndicators: false){
-                MapNavChecked()
-
-                MapNavChecked()
-
-                MapNavChecked()
-                
-                MapNavChecked()
+                ForEach(viewModel.pathNodes, id: \.self) { node in
+                        if let distance = viewModel.nodeDistances[node] {
+                            let nodeInfo = NodeInfo(name: node, distance: "\(distance) meters walk")
+                            MapNavChecked(node: nodeInfo)
+                        }
+                    }
             }
             .frame(height:440)
             .offset(y:-30)
@@ -102,6 +103,6 @@ struct MapNavView: View {
 
 struct MapNavView_Previews: PreviewProvider {
     static var previews: some View {
-        MapNavView().environmentObject(GlobalData())
+        MapNavView(viewModel: ContentViewModel(endNode: "LKC", startNode: "GOR")).environmentObject(GlobalData())
     }
 }

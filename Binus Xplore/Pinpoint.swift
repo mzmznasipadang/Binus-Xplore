@@ -51,3 +51,10 @@ class SharedDataModel: ObservableObject {
     @Published var nodeName: String = ""
     @Published var nodeDistance: String = ""
 }
+
+struct NodeInfo: Identifiable {
+    let id = UUID()
+    let name: String
+    let distance: String
+}
+

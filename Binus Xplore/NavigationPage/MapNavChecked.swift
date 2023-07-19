@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct MapNavChecked: View {
-    
+    let node: NodeInfo
     @State private var isSaved = false
     @State private var isRectangleGreen = false
     
@@ -31,7 +31,7 @@ struct MapNavChecked: View {
                         HStack {
                             Image(systemName:"figure.roll")
                                 .padding()
-                            Text("Lobby")
+                            Text(node.name)
                                 .offset(x:-8)
                             Button {
                                 
@@ -41,7 +41,7 @@ struct MapNavChecked: View {
                                     .font(Font.custom("SF Pro", size: 7.87998)
                                         .weight(.semibold))
                             }
-
+                            Spacer()
                             Button {
                                 if (isSaved == false){
                                     isSaved = true
@@ -66,10 +66,10 @@ struct MapNavChecked: View {
                             }
                             .multilineTextAlignment(.trailing)
                             .padding()
-                            .offset(x:130)
+//                            .offset(x:130)
 
 
-                            Spacer()
+                            
 
                         })
             }
@@ -105,7 +105,7 @@ struct MapNavChecked: View {
                       .foregroundColor(.black)
                       .frame(width: 203, height: 21, alignment: .topLeading)
 
-                    Text("80 Meters")
+                    Text("\(node.distance)")
                       .font(
                         Font.custom("SF Pro", size: 12)
                           .weight(.medium)
@@ -131,6 +131,7 @@ struct MapNavChecked: View {
 
 struct MapNavChecked_Previews: PreviewProvider{
     static var previews: some View {
-        MapNavChecked()
+        let nodeInfo = NodeInfo(name: "Node", distance: "80 meters")
+        MapNavChecked(node: nodeInfo)
     }
 }
