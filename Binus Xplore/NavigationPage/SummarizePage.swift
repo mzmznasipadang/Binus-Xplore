@@ -256,7 +256,7 @@ struct SummarizePage: View {
             "Drop Off": Node(key: "Drop Off", value: "Drop Off Value", neighbors: ["LKC": 5, "GOR": 6, "Tomoro": 7]),
             "Kantin": Node(key: "Kantin", value: "Kantin Value", neighbors: ["LKC": 12, "Admission": 13, "Tomoro": 1]),
             "Tomoro": Node(key: "Tomoro", value: "Tomoro Value", neighbors: ["LKC": 7, "Drop Off": 7, "Admission": 10, "GOR": 5]),
-            "Admission": Node(key: "Admission", value: "Admission Value", neighbors: ["Kantin": 13, "Tomoro": 10, "GOR": 2, "SSC": 3, "Ultah BINUS 42": 4]),
+            "Admission": Node(key: "Admission", value: "Admission Value", neighbors: ["Kantin": 13, "Tomoro": 10, "GOR": 2, "SSC": 3]),
             "GOR": Node(key: "GOR", value: "GOR Value", neighbors: ["Drop Off": 6, "Tomoro": 5, "Admission": 2, "SSC": 7]),
             "SSC": Node(key: "SSC", value: "SSC Value", neighbors: ["Admission": 3, "GOR": 7]),
         ]
