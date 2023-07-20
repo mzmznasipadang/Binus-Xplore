@@ -27,6 +27,7 @@ struct informationCardView: View{
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 417, height: 364)
                                 .clipped()
+                                .brightness(-0.2)
                         )
                         .overlay(
                             RoundedRectangle(cornerRadius: 30)
@@ -37,6 +38,7 @@ struct informationCardView: View{
                     Text(item!.name)
                         .font(.system(size: 40).weight(.semibold))
                         .foregroundColor(Color(red: 0.97, green: 0.97, blue: 0.97))
+//                        .foregroundColor(Color.black)
                         .frame(width: 346, height: 35, alignment: .topLeading)
                         .offset(y:70)
                     //                back()
