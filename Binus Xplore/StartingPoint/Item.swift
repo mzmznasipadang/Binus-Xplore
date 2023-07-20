@@ -21,18 +21,18 @@ struct History: Identifiable {
 
 
 let items = [
-    Items(imageName: "building", title: "A0701"),
-    Items(imageName: "cup.and.saucer", title: "Tomoro Coffee"),
-    Items(imageName: "cup.and.saucer", title: "Dapur Nieta"),
-    Items(imageName: "cup.and.saucer", title: "Disrupt")
+    Items(imageName: "bookmark", title: "LKC"),
+    Items(imageName: "bookmark", title: "Tomoro Coffee"),
+    Items(imageName: "bookmark", title: "Kantin"),
+    Items(imageName: "bookmark", title: "Admission")
 ]
 
 // I'm so sorry ges idk what im doing
 struct Histories {
     static let historyL = [
-        History(startPoint: "Canteen", destination: "Auditorium"),
-        History(startPoint: "Lobby", destination: "Canteen"),
-        History(startPoint: "Auditorium", destination: "Library")
+        History(startPoint: "Kantin", destination: "GOR"),
+        History(startPoint: "Drop Off", destination: "Kantin"),
+        History(startPoint: "SSC", destination: "LKC")
     ]
 }
 

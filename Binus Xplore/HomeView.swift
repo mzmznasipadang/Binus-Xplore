@@ -44,7 +44,7 @@ struct HomeView: View {
                             Text("Office")
                                 .font(.system(size: 13))
                                 .foregroundStyle(.primary)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Apple"))
                                 .padding(.top, -2)
                         }
                     }
@@ -62,90 +62,106 @@ struct HomeView: View {
                             Text("Class")
                                 .font(.system(size: 13))
                                 .foregroundStyle(.primary)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Apple"))
                                 .padding(.top, -2)
                         }
                     }
                     Spacer()
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon1"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "desktopcomputer")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white).font(.system(size: 30))
+                    NavigationLink(destination: OfficePage(searchText: "Lab").environmentObject(globalData)){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon1"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "desktopcomputer")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white).font(.system(size: 30))
+                            }
+                            Text("Lab")
+                                .font(.system(size: 13))
+                                .padding(.top, -2)
+                                .foregroundColor(Color("Apple"))
                         }
-                        Text("Labs")
-                            .font(.system(size: 13))
-                            .padding(.top, -2)
                     }
                     Spacer()
-                    VStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon1"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "person.2.fill")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white)
-                                .font(.system(size: 30))
-                        }.padding(.bottom, 7)
+                    NavigationLink(destination: OfficePage(searchText: "Public Facility").environmentObject(globalData)){
                         VStack {
-                            Text("Public")
-                                .multilineTextAlignment(.center)
-                                .font(.system(size: 13))
-                                .padding(.top, -2)
-                            Text("Facility")
-                                .multilineTextAlignment(.center)
-                                .font(.system(size: 13))
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon1"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "person.2.fill")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 30))
+                            }.padding(.bottom, 7)
+                            VStack {
+                                Text("Public")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 11))
+                                    .padding(.top, -2)
+                                    .foregroundColor(Color("Apple"))
+                                Text("Facility")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 11))
+                                    .foregroundColor(Color("Apple"))
+                            }
+                            .frame(height: 8)
                         }
-                        .frame(height: 8)
                     }
                     
                 }.padding(.trailing, 53)
                     .padding(.leading, 53)
                     .padding(.top, 8)
                 HStack{ //Icon Stack 2
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon2"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "building.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
+                    NavigationLink(destination: BuildingPage(searchText: "A Tower").environmentObject(globalData)){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon2"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "building.fill").frame(width: 55, height: 55).foregroundColor(.white).font(.system(size: 30))
+                            }
+                            Text("A Tower")
+                                .font(.system(size: 13))
+                                .foregroundStyle(.primary)
+                                .foregroundColor(Color("Apple"))
+                                .padding(.top, -2)
                         }
-                        Text("A Tower")
-                            .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                     Spacer()
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon2"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "building.fill")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white).font(.system(size: 30))
+                    NavigationLink(destination: BuildingPage(searchText: "B Tower").environmentObject(globalData)){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon2"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "building.fill")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white).font(.system(size: 30))
+                            }
+                            Text("B Tower")                   .font(.system(size: 13))
+                                .foregroundStyle(.primary)
+                                .foregroundColor(Color("Apple"))
+                                .padding(.top, -2)
                         }
-                        Text("B Tower")                   .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                     Spacer()
-                    VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("ColorIcon2"))
-                                .frame(width: 58, height: 58)
-                            Image(systemName: "building.fill")
-                                .frame(width: 46.0, height: 46.0)
-                                .foregroundStyle(.white).font(.system(size: 30))
+                    NavigationLink(destination: BuildingPage(searchText: "C Tower").environmentObject(globalData)){
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color("ColorIcon2"))
+                                    .frame(width: 58, height: 58)
+                                Image(systemName: "building.fill")
+                                    .frame(width: 46.0, height: 46.0)
+                                    .foregroundStyle(.white).font(.system(size: 30))
+                            }
+                            Text("C Tower")               .font(.system(size: 13))
+                                .foregroundColor(Color("Apple"))
+                                .foregroundStyle(.primary)
+                                .padding(.top, -2)
                         }
-                        Text("C Tower")               .font(.system(size: 13))
-                            .foregroundStyle(.primary)
-                            .padding(.top, -2)
                     }
                     Spacer()
                     NavigationLink(destination: OfficePage(searchText: "F & B").environmentObject(globalData)){
@@ -161,7 +177,7 @@ struct HomeView: View {
                             Text("F & B")
                                 .font(.system(size: 13))
                                 .foregroundStyle(.primary)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Apple"))
                                 .padding(.top, -2)
                         }
                     }

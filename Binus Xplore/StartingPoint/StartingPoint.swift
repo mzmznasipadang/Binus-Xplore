@@ -184,7 +184,6 @@ struct StartingPoint: View {
                 Button(action: {
                     // Set Starting Point
                     //ke search results
-                    globalData.visitedStartingPoint = true
                     self.navigate = true
                 }) {
                     Text("Set Starting Point")
@@ -200,7 +199,7 @@ struct StartingPoint: View {
                 .padding()
                 //masukkin search bar
                 .background(
-                    NavigationLink(destination: SearchResult(searchText: inputStarting), isActive: $navigate) {
+                    NavigationLink(destination: SearchResult2(searchText: inputStarting), isActive: $navigate) {
                         EmptyView()
                     }
                         .hidden()
@@ -210,7 +209,6 @@ struct StartingPoint: View {
             
             .navigationBarItems(
                 leading: Button(action: {
-                    globalData.visitedStartingPoint = false
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
@@ -254,7 +252,7 @@ struct StartingPoint: View {
             .padding(.horizontal)
             
             NavigationLink(
-                destination: SearchResult(searchText: searchText), isActive: $isSearching
+                destination: SearchResult2(searchText: searchText), isActive: $isSearching
             ){
                 EmptyView()
             }.hidden()

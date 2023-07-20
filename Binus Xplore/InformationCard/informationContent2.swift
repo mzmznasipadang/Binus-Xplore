@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct informationContent: View{
+struct informationContent2: View{
     let item: pinpoint?
     struct Constants {
         static let RedDanger3: Color = Color(red: 1, green: 0.27, blue: 0.27)
@@ -220,7 +220,7 @@ struct informationContent: View{
                 //kalo ya, trip summary
                 //kalo ga, strting point
                 Button(action: {
-                    globalData.endNode = item!.name
+                    globalData.startNode = item!.name
                     self.navigate = true
                 }) {
                     Text("Set Location")
@@ -236,7 +236,8 @@ struct informationContent: View{
                 .padding(.top)
                 .offset(x: 8)
 //                .padding(.leading)
-                NavigationLink(destination: StartingPoint().environmentObject(globalData), isActive: $navigate) {EmptyView()
+                NavigationLink(destination: SummarizePage( searchText:globalData.startNode, searchWord:globalData.endNode).environmentObject(globalData), isActive: $navigate) {
+                    EmptyView()
                 }
                 .hidden()
                 
@@ -342,12 +343,11 @@ struct informationContent: View{
         }
     }
 }
-struct informationContent_Previews: PreviewProvider {
+struct informationContent2_Previews: PreviewProvider {
     static var previews: some View {
         let dummyItem = pinpoint(name: "Dummy", images: ["default_image"], status: false, time: "00:00 - 00:00", description: "Dummy description", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
-        informationContent(item: dummyItem).environmentObject(GlobalData())
+        informationContent2(item: dummyItem).environmentObject(GlobalData())
     }
 }
 //informationContentView
-
 
