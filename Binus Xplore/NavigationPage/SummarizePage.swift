@@ -252,17 +252,13 @@ struct SummarizePage: View {
 //
 //        }
         private var graph: [String: Node] = [
-            "LKC": Node(key: "LKC", value: "LKC Value", neighbors: ["Drop Off": 5, "Kantin": 12, "Tomoro": 7, "iCONATiON": 5, "IO - Webinar": 10]),
-            "Drop Off": Node(key: "Drop Off", value: "Drop Off Value", neighbors: ["LKC": 5, "GOR": 6, "Tomoro": 7, "iCONATiON": 7, "TechFest": 7]),
-            "Kantin": Node(key: "Kantin", value: "Kantin Value", neighbors: ["LKC": 12, "Admission": 13, "Tomoro": 1, "Ultah BINUS 42": 6]),
-            "Tomoro": Node(key: "Tomoro", value: "Tomoro Value", neighbors: ["LKC": 7, "Drop Off": 7, "Admission": 10, "GOR": 5, "iCONATiON": 10, "TechFest": 9]),
-            "Admission": Node(key: "Admission", value: "Admission Value", neighbors: ["Kantin": 13, "Tomoro": 10, "GOR": 2, "SSC": 3, "Ultah BINUS 42": 4, "IO - Webinar": 7, "TechFest": 6]),
+            "LKC": Node(key: "LKC", value: "LKC Value", neighbors: ["Drop Off": 5, "Kantin": 12, "Tomoro": 7]),
+            "Drop Off": Node(key: "Drop Off", value: "Drop Off Value", neighbors: ["LKC": 5, "GOR": 6, "Tomoro": 7]),
+            "Kantin": Node(key: "Kantin", value: "Kantin Value", neighbors: ["LKC": 12, "Admission": 13, "Tomoro": 1]),
+            "Tomoro": Node(key: "Tomoro", value: "Tomoro Value", neighbors: ["LKC": 7, "Drop Off": 7, "Admission": 10, "GOR": 5]),
+            "Admission": Node(key: "Admission", value: "Admission Value", neighbors: ["Kantin": 13, "Tomoro": 10, "GOR": 2, "SSC": 3, "Ultah BINUS 42": 4]),
             "GOR": Node(key: "GOR", value: "GOR Value", neighbors: ["Drop Off": 6, "Tomoro": 5, "Admission": 2, "SSC": 7]),
-            "SSC": Node(key: "SSC", value: "SSC Value", neighbors: ["Admission": 3, "GOR": 7, "Ultah BINUS 42": 3]),
-            "iCONATiON": Node(key: "iCONATiON", value: "iCONATiON Value", neighbors: ["LKC": 5, "Tomoro": 10, "GOR": 5, "Drop Off": 7]),
-            "Ultah BINUS 42": Node(key: "Ultah BINUS 42", value: "Ultah BINUS 42 Value", neighbors: ["SSC": 3, "Admission": 4, "Kantin": 6]),
-            "IO - Webinar": Node(key: "IO - Webinar", value: "IO - Webinar Value", neighbors: ["Kantin": 7, "GOR": 7, "LKC": 10]),
-            "TechFest": Node(key: "TechFest", value: "TechFest Value", neighbors: ["Drop Off": 7, "Tomoro": 9, "Admission": 6]),
+            "SSC": Node(key: "SSC", value: "SSC Value", neighbors: ["Admission": 3, "GOR": 7]),
         ]
         
         
