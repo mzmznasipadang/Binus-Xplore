@@ -29,6 +29,11 @@ struct MapNavView: View {
                         .overlay(
                             Image(systemName:"figure.roll"))
                 }
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width:35,height:34)
+                    .foregroundColor(Color(red: 0.2, green: 0.75, blue: 0.36).opacity(0.76))
+                    .overlay(
+                        Image(systemName:"arrow.right"))
 //                RoundedRectangle(cornerRadius: 10)
 //                    .frame(width:35,height:34)
 //                    .foregroundColor(Color(red: 0.53, green: 0.73, blue: 1))
