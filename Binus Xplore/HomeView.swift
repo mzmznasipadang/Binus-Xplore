@@ -112,7 +112,7 @@ struct HomeView: View {
                     
                 }.padding(.trailing, 53)
                     .padding(.leading, 53)
-                    .padding(.top, 8)
+                    .padding(.top, 20)
                 HStack{ //Icon Stack 2
                     NavigationLink(destination: BuildingPage(searchText: "A Tower").environmentObject(globalData)){
                         VStack{
