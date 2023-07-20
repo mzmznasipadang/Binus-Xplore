@@ -20,6 +20,7 @@ struct informationContent2: View{
     @State private var navigate = false
 
     var body: some View{
+        let (systemName, color) = detailsForCategory(item!.category)
         //------------ info card content
         VStack{
             VStack(alignment: .leading){
@@ -172,13 +173,14 @@ struct informationContent2: View{
                           .overlay(
                             RoundedRectangle(cornerRadius: 15)
                               .inset(by: 0.5)
-                              .stroke(Color(red: 0.02, green: 0.09, blue: 0.42), lineWidth: 1)
+                              .stroke(color)
                               .overlay(
-                                Image(systemName: "briefcase.fill")
+                                Image(systemName: systemName)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40,height:30)
-                                    .foregroundColor(Color(red: 0.02, green: 0.09, blue: 0.42))
+                                    .foregroundColor(color)
+//                                    .foregroundColor(Color(red: 0.02, green: 0.09, blue: 0.42))
                               )
                           )
                         Text(item!.category)
@@ -318,6 +320,26 @@ struct informationContent2: View{
                 //harus pada posisi array yang sesuai
             }
 
+        }
+    }
+    
+    func detailsForCategory(_ category: String) -> (String, Color) {
+        switch category {
+            case "Office":
+                return ("briefcase.fill", Color("ColorIcon1"))
+            case "Class":
+                return ("books.vertical.fill", Color("ColorIcon1"))
+            case "Lab":
+                return ("desktopcomputer", Color("ColorIcon1"))
+            case "Public Facility":
+                return ("person.2.fill", Color("ColorIcon1"))
+            case "F & B":
+                return ("cup.and.saucer.fill", Color("ColorIcon3"))
+            case "Event":
+                return ("party.popper.fill", Color("ColorIcon3"))
+            // Add more cases as needed
+            default:
+                return ("questionmark", Color.gray)
         }
     }
 }
