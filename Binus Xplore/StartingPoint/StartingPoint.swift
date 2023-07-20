@@ -234,7 +234,7 @@ struct StartingPoint: View {
         var body: some View {
             HStack {
                 Image(systemName: "magnifyingglass").foregroundColor(.gray)
-                TextField("Where are you heading to?", text: $searchText, onCommit: {
+                TextField("Where are you heading to?", text: $inputStarting, onCommit: {
                     performSearch()
                 })
                     .font(.system(size: 15))
@@ -258,9 +258,9 @@ struct StartingPoint: View {
             }.hidden()
         }
         private func performSearch(){
-            if !searchText.isEmpty{
+            if !inputStarting.isEmpty{
                 isSearching = true
-                inputStarting = searchText
+                searchText = inputStarting
             }
         }
     }
