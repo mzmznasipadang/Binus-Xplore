@@ -15,11 +15,13 @@ struct Splash: View {
     @State private var isActive = false
     @State private var size = 0.1
     @State private var opacity = 0.5
+    @EnvironmentObject var globalData: GlobalData
+
     
     
     var body: some View{
         if isActive{
-            Onboarding()
+            HomeView().environmentObject(globalData)
         }
         else{
             ZStack{
@@ -53,6 +55,6 @@ struct Splash: View {
 
 struct Splash_Previews: PreviewProvider {
     static var previews: some View{
-        Splash()
+        Splash().environmentObject(GlobalData())
     }
 }
