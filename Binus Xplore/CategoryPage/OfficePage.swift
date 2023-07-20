@@ -28,17 +28,11 @@ struct OfficePage: View {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
                             .foregroundColor(Color.white)
-
                             .padding(.horizontal, 10.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
                             .cornerRadius(12)
                             .offset(x:5)
-                        
-
-
-
-                            
                     }
                     .padding(.leading, 5)
                     Spacer()
@@ -53,7 +47,7 @@ struct OfficePage: View {
                                 self.selectedItem = item
                             }) {
                                 RoundedRectangle(cornerRadius: 16)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("WhiteBGCard"))
                                     .frame(width: 352.0, height: 169.0)
                                     .overlay(
                                         HStack(spacing: 8) {
@@ -61,8 +55,6 @@ struct OfficePage: View {
                                                 .resizable()
                                                 .padding()
                                                 .frame(width: 138.0, height: 138.0)
-//                                                .foregroundColor(.white)
-//                                                .background(Color("MainColor"))
                                                 .cornerRadius(10)
                                                 .offset(x:17)
                                             
@@ -73,8 +65,6 @@ struct OfficePage: View {
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
                                                     
-                                                
-                                                
                                                 HStack{
                                                     Image(systemName: "location")
                                                         .foregroundColor(.black)
@@ -84,8 +74,7 @@ struct OfficePage: View {
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 16))
                                                         .lineLimit(1)
-                                                        
-            
+
                                                 }
                                                 
                                                 HStack{
@@ -120,13 +109,9 @@ struct OfficePage: View {
                     }
                     .padding()
                     .offset(y:-20)
-                    
-                    
-                    
-                    
                 }
             }
-            .background(Color(hue: 0, saturation: 0, brightness: 0.97))
+            .background(Color("WhiteBG"))
             .edgesIgnoringSafeArea(.vertical)
             .navigationBarItems(
                 leading: Button(action: {

@@ -25,7 +25,7 @@ struct Splash: View {
         }
         else{
             ZStack{
-                Color.white
+                Color.whiteBG
                     .ignoresSafeArea()
                 VStack{
                     VStack{

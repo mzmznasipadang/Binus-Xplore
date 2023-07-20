@@ -17,17 +17,9 @@ struct Profile: View{
         NavigationView{
             VStack{
                 Spacer(minLength: 30)
-//                HStack{
-//                    Text("Profile")
-//                        .font(.system(size: 34)
-//                            .weight(.bold))
-//                        .padding(.top, 10)
-//                        .padding(.bottom, -1)
-//                        .padding(.leading, 30)
-//                    Spacer()
-//                }
                 Image("JohnDoe")
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 224, height: 179)
                     .clipShape(Circle())
                 
@@ -60,38 +52,24 @@ struct Profile: View{
                         Image(systemName: "pencil")
                             .foregroundColor(Color.gray)
                     }
-//                    Button(action:{
-//                        updateEntity(name:"John", email:"test@test.com", phoneNumber:"028282828", emergencycontact: "092024902", specialNeeds: true)
-//                    }){
-//                        Image(systemName: "rectangle")
-//                    }
-                    
                 }
                 .offset(y: 20)
                 VStack (spacing:35){
                     VStack(alignment: .leading, spacing:25){
                         Text("Biodata")
-                            .font(
-                                Font.custom("SF Pro", size: 15)
-                                    .weight(.semibold)
-                            )
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
                             .kerning(0.374)
-                            .foregroundColor(Color(red: 0.32, green: 0.31, blue: 0.31))
+                            .foregroundColor(Color("Apple"))
                         
                         HStack{
-                            
                             Image(systemName: "figure.roll")
                             Picker(selection: $selectedOption, label: Text("PICK")) {
                                 ForEach(0..<globalData.special_needs_options.count) { index in
                                     Text(globalData.special_needs_options[index])
-                                        .accentColor(.black)
+                                        .accentColor(.apple)
                                 }
                             }
-                            
-//                            Text("Special Needs")
-//                                .font(Font.custom("SF Pro", size: 14))
-//                                .kerning(0.374)
-//                                .foregroundColor(Color(red: 0.59, green: 0.59, blue: 0.59)).padding(16.5)
                             
                             Spacer()
                             
@@ -163,12 +141,10 @@ struct Profile: View{
                     
                     VStack(alignment: .leading, spacing:25){
                         Text("Emergency Contact")
-                            .font(
-                                Font.custom("SF Pro", size: 15)
-                                    .weight(.semibold)
-                            )
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
                             .kerning(0.374)
-                            .foregroundColor(Color(red: 0.32, green: 0.31, blue: 0.31))
+                            .foregroundColor(Color("Apple"))
                         Button(action:{
                             let alert = UIAlertController(title: "Change Phone Number", message: nil, preferredStyle: .alert)
                             alert.addTextField { textField in

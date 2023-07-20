@@ -112,7 +112,7 @@ struct HomeView: View {
                     
                 }.padding(.trailing, 53)
                     .padding(.leading, 53)
-                    .padding(.top, 8)
+                    .padding(.top, 20)
                 HStack{ //Icon Stack 2
                     NavigationLink(destination: BuildingPage(searchText: "A Tower").environmentObject(globalData)){
                         VStack{
@@ -205,7 +205,7 @@ struct HomeView: View {
                                 }) {
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color("AppleText"))
+                                            .fill(Color("WhiteBGCard"))
                                             .frame(width: 350, height: 150)
                                         HStack(spacing: 30){
                                             Image(item.images.first ?? "default_image")
@@ -224,7 +224,6 @@ struct HomeView: View {
                                                     Text(item.floor + ", " + item.building)
                                                         .font(.system(size: 12))
                                                         .fontWeight(.medium)
-                                                    //Hati Hati Sering Crash
                                                 }
                                                 HStack{
                                                     Image(systemName: "calendar")

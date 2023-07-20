@@ -12,7 +12,7 @@ struct Bookmark: View {
     @State private var navigate = false
     @EnvironmentObject var globalData: GlobalData
     
-//    @ObservedObject var globalData = GlobalData()
+    //    @ObservedObject var globalData = GlobalData()
     var body: some View {
         
         NavigationView{
@@ -42,73 +42,73 @@ struct Bookmark: View {
                             )
                         Text("Any favorite spot in mind?")
                             .font(Font.custom("SF Pro", size: 18))
-                            .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                            .foregroundColor(Color("Apple"))
                     }
                     else{
                         ScrollView {
                             VStack(spacing: 8) {
                                 ForEach(globalData.listOfBookMark) { bookmark in
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .foregroundColor(.white)
-                                            .frame(width: 352.0, height: 169.0)
-                                            .overlay(
-                                                HStack(spacing: 8) {
-                                                    Image(bookmark.images.first!)
-                                                        .resizable()
-                                                        .padding()
-                                                        .frame(width: 138.0, height: 138.0)
-                                                        .foregroundColor(.white)
-                                                        .cornerRadius(8)
-                                                        .offset(x:17)
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .foregroundColor(.white)
+                                        .frame(width: 352.0, height: 169.0)
+                                        .overlay(
+                                            HStack(spacing: 8) {
+                                                Image(bookmark.images.first!)
+                                                    .resizable()
+                                                    .padding()
+                                                    .frame(width: 138.0, height: 138.0)
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(8)
+                                                    .offset(x:17)
+                                                
+                                                VStack(alignment: .leading, spacing: 4) {
+                                                    Text(bookmark.name)
+                                                        .font(.system(size: 24))
+                                                        .fontWeight(.bold)
+                                                        .foregroundColor(.black)
+                                                        .padding(.leading)
                                                     
-                                                    VStack(alignment: .leading, spacing: 4) {
-                                                        Text(bookmark.name)
-                                                            .font(.system(size: 24))
-                                                            .fontWeight(.bold)
+                                                    
+                                                    
+                                                    HStack{
+                                                        Image(systemName: "location")
                                                             .foregroundColor(.black)
                                                             .padding(.leading)
-                                                            
+                                                        
+                                                        Text("\(bookmark.floor), \(bookmark.building)")
+                                                            .foregroundColor(.black)
+                                                            .font(.system(size: 16))
+                                                            .lineLimit(1)
                                                         
                                                         
-                                                        HStack{
-                                                            Image(systemName: "location")
-                                                                .foregroundColor(.black)
-                                                                .padding(.leading)
-                                                            
-                                                            Text("\(bookmark.floor), \(bookmark.building)")
-                                                                .foregroundColor(.black)
-                                                                .font(.system(size: 16))
-                                                                .lineLimit(1)
-                                                                
-                    
-                                                        }
-                                                        
-                                                        HStack{
-                                                            Image(systemName: "clock")
-                                                                .foregroundColor(.black)
-                                                                .padding(.leading)
-                                                            
-                                                            Text("\(bookmark.time)")
-                                                                .foregroundColor(.black)
-                                                                .font(.system(size: 16))
-                                                                .lineLimit(1)
-                                                                .frame(width: 95.0)
-                                                                
-                                                        }.offset(y:5)
-                                                        
-                                                        
-                                                    }.offset(x:7)
-                                                        .frame(width: 165, height: 300, alignment: .leading)
-                                
+                                                    }
                                                     
-                                                    Image(systemName: "chevron.right")
-                                                        .foregroundColor(.black)
-                                                        .padding()
+                                                    HStack{
+                                                        Image(systemName: "clock")
+                                                            .foregroundColor(.black)
+                                                            .padding(.leading)
+                                                        
+                                                        Text("\(bookmark.time)")
+                                                            .foregroundColor(.black)
+                                                            .font(.system(size: 16))
+                                                            .lineLimit(1)
+                                                            .frame(width: 95.0)
+                                                        
+                                                    }.offset(y:5)
                                                     
-                                                }
-                                                    .padding(.horizontal)
+                                                    
+                                                }.offset(x:7)
+                                                    .frame(width: 165, height: 300, alignment: .leading)
                                                 
-                                            )
+                                                
+                                                Image(systemName: "chevron.right")
+                                                    .foregroundColor(.black)
+                                                    .padding()
+                                                
+                                            }
+                                                .padding(.horizontal)
+                                            
+                                        )
                                     
                                 }
                                 

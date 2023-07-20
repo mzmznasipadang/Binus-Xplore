@@ -9,34 +9,32 @@ import Foundation
 import SwiftUI
 
 struct informationContent: View{
-    let item: pinpoint?
-    struct Constants {
-        static let RedDanger3: Color = Color(red: 1, green: 0.27, blue: 0.27)
-        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
-        static let Green: Color = Color(red: 0, green: 1, blue: 0.27)
-    }
-    @EnvironmentObject var globalData: GlobalData
-    var isSaved: Bool {
-        let defaultUUID = UUID()
-        return globalData.savedPinpoints[item?.id ?? defaultUUID] ?? false
-    }
-   
+    let item: pinpoint?
+    struct Constants {
+        static let RedDanger3: Color = Color(red: 1, green: 0.27, blue: 0.27)
+        static let Primary: Color = Color(red: 0, green: 0.29, blue: 0.68)
+        static let Green: Color = Color(red: 0, green: 1, blue: 0.27)
+    }
+    @EnvironmentObject var globalData: GlobalData
+    var isSaved: Bool {
+        let defaultUUID = UUID()
+        return globalData.savedPinpoints[item?.id ?? defaultUUID] ?? false
+    }
 //    @State private var isSaved = false //nanti hrus diganti biar pass value nya supaya bs integrate coredata
-    @State private var navigate = false
+    @State private var navigate = false
 
-    var body: some View{
-        let (systemName, color) = detailsForCategory(item!.category)
-        //------------ info card content
-        VStack{
-            VStack(alignment: .leading){
-                HStack{
-                    if (item!.status == false){
-                        HStack{
-                            Text("Close")
-                                .font(
-                                    Font.custom("SF Pro Display", size: 20)
-                                        .weight(.medium)
-                                )
+    var body: some View{
+        let (systemName, color) = detailsForCategory(item!.category)
+        //------------ info card content
+        VStack{
+            VStack(alignment: .leading){
+                HStack{
+                    if (item!.status == false){
+                        HStack{
+                            Text("Close")
+                                .font(
+                                    Font.custom("SF Pro Display", size: 20)
+                                        .weight(.medium))
                                 .kerning(0.374)
                                 .foregroundColor(Color(red: 1, green: 0.27, blue: 0.27))
                         }
@@ -288,10 +286,10 @@ struct informationContent: View{
     }
 }
 struct informationContent_Previews: PreviewProvider {
-    static var previews: some View {
-        let dummyItem = pinpoint(name: "Dummy", images: ["default_image"], status: false, time: "00:00 - 00:00", description: "Dummy description", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
-        informationContent(item: dummyItem).environmentObject(GlobalData())
-    }
+        static var previews: some View {
+                let dummyItem = pinpoint(name: "Dummy", images: ["default_image"], status: false, time: "00:00 - 00:00", description: "Dummy description", isSaved: false, floor: "Dummy floor", building: "Dummy tower", category: "Office")
+                informationContent(item: dummyItem).environmentObject(GlobalData())
+    }
 }
 //informationContentView
 

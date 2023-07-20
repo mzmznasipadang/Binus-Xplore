@@ -12,7 +12,7 @@ import SwiftUI
 struct SearchResult2: View {
     let searchText: String
     @State private var selectedItem: pinpoint?
-
+    
     @EnvironmentObject var globalData: GlobalData
     @Environment(\.presentationMode) var presentationMode
     
@@ -28,17 +28,17 @@ struct SearchResult2: View {
                         Label("Filter By", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .font(.body)
                             .foregroundColor(Color.white)
-
+                        
                             .padding(.horizontal, 10.0)
                             .padding(.vertical, 8)
                             .background(Color("MainColor"))
                             .cornerRadius(12)
                             .offset(x:5)
                         
-
-
-
-                            
+                        
+                        
+                        
+                        
                     }
                     .padding(.leading, 5)
                     Spacer()
@@ -53,7 +53,7 @@ struct SearchResult2: View {
                                 self.selectedItem = item
                             }) {
                                 RoundedRectangle(cornerRadius: 16)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("MainBGCard"))
                                     .frame(width: 352.0, height: 169.0)
                                     .overlay(
                                         HStack(spacing: 8) {
@@ -61,8 +61,6 @@ struct SearchResult2: View {
                                                 .resizable()
                                                 .padding()
                                                 .frame(width: 138.0, height: 138.0)
-//                                                .foregroundColor(.white)
-//                                                .background(Color("MainColor"))
                                                 .cornerRadius(10)
                                                 .offset(x:17)
                                             
@@ -72,9 +70,6 @@ struct SearchResult2: View {
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.black)
                                                     .padding(.leading)
-                                                    
-                                                
-                                                
                                                 HStack{
                                                     Image(systemName: "location")
                                                         .foregroundColor(.black)
@@ -84,8 +79,8 @@ struct SearchResult2: View {
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 16))
                                                         .lineLimit(1)
-                                                        
-            
+                                                    
+                                                    
                                                 }
                                                 
                                                 HStack{
@@ -98,13 +93,13 @@ struct SearchResult2: View {
                                                         .font(.system(size: 16))
                                                         .lineLimit(1)
                                                         .frame(width: 95.0)
-                                                        
+                                                    
                                                 }.offset(y:5)
                                                 
                                                 
                                             }.offset(x:7)
                                                 .frame(width: 165, height: 300, alignment: .leading)
-                        
+                                            
                                             
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(.black)
@@ -120,13 +115,9 @@ struct SearchResult2: View {
                     }
                     .padding()
                     .offset(y:-20)
-                    
-                    
-                    
-                    
                 }
             }
-            .background(Color(hue: 0, saturation: 0, brightness: 0.97))
+            .background(Color("WhiteBG"))
             .edgesIgnoringSafeArea(.vertical)
             .navigationBarItems(
                 leading: Button(action: {
