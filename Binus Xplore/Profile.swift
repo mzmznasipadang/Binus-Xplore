@@ -25,7 +25,7 @@ struct Profile: View{
                 
                 HStack {
                     if(globalData.name == ""){
-                        Text("John Doe")
+                        Text("Jane Doe")
                             .font(.title)
                             .fontWeight(.semibold)
                             .font(.system(size: 30))
